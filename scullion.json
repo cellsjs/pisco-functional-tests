@@ -1,0 +1,2218 @@
+{
+  "recipes": {
+    "userConfig": {
+      "name": "pisco-user",
+      "description": "User Piscosour Recipe",
+      "version": "-",
+      "dir": "/home/albertoeyo/.piscosour",
+      "config": {
+        "analytics": {
+          "userok": {
+            "cells-cli": true,
+            "piscosour": true
+          },
+          "uuid": "546860be-ed1c-4446-8714-4ef0dfbe5b51"
+        },
+        "params": {
+          "globaldevtools.bbva.com": {
+            "email": "alberto.eyo.contractor",
+            "apikey": "AKCp2WWYmVRTiiqqFhJPUXNnLGNk57P9WVBjh43JeoAXpcjqbu9i9Aq5R85r7Pf3v4MbKfkVQ"
+          }
+        }
+      },
+      "plugins": {},
+      "steps": {},
+      "flows": {},
+      "contexts": {}
+    },
+    "module": {
+      "name": "pisco-sample",
+      "version": "0.1.0",
+      "description": "My first recipe",
+      "dir": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample",
+      "config": {
+        "cmd": "recipe-sample",
+        "defaultContext": ""
+      },
+      "plugins": {},
+      "steps": {
+        "sayHello": {
+          "world": {
+            "name": "sayHello",
+            "description": "Say Hello World",
+            "contexts": [
+              "world"
+            ],
+            "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/steps/sayHello"
+          }
+        }
+      },
+      "flows": {
+        "hello": {
+          "name": "hello",
+          "description": "Hello World sample flow",
+          "steps": {
+            "sayHello": {}
+          },
+          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/flows/hello",
+          "type": "normal"
+        }
+      },
+      "contexts": {
+        "world": {
+          "name": "world",
+          "description": "Check if current directory is world",
+          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/contexts/world"
+        }
+      }
+    },
+    "piscosour": {
+      "name": "piscosour",
+      "version": "1.0.10",
+      "description": "The adhesive orchestrator",
+      "dir": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/piscosour",
+      "config": {
+        "cmd": "pisco",
+        "analytics": {
+          "id": "UA-23096868-2",
+          "ask": true
+        },
+        "params": {
+          "workingDir": "",
+          "plugins": [
+            "os",
+            "context",
+            "launcher",
+            "inquirer",
+            "fsutils",
+            "piscosour",
+            "installer",
+            "skipper",
+            "system-checker",
+            "system-saver"
+          ]
+        },
+        "junitDir": "test-reports",
+        "junitPiscoFile": "pisco-junit.xml",
+        "stages": [
+          "core-install",
+          "core-check",
+          "check",
+          "config",
+          "run",
+          "prove",
+          "notify",
+          "emit"
+        ],
+        "flowTypes": [
+          "normal",
+          "utils",
+          "internal"
+        ]
+      },
+      "plugins": {
+        "context": {
+          "name": "context",
+          "description": "Get automatic context of execution",
+          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/piscosour/plugins/context"
+        },
+        "fsutils": {
+          "name": "fsutils",
+          "description": "fs utils",
+          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/piscosour/plugins/fsutils"
+        },
+        "inquirer": {
+          "name": "inquirer",
+          "description": "Plugin inquirer",
+          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/piscosour/plugins/inquirer"
+        },
+        "installer": {
+          "name": "installer",
+          "description": "Lazy install plugin",
+          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/piscosour/plugins/installer"
+        },
+        "launcher": {
+          "name": "launcher",
+          "description": "Plugin launcher",
+          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/piscosour/plugins/launcher"
+        },
+        "os": {
+          "name": "os",
+          "description": "OS plugin",
+          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/piscosour/plugins/os"
+        },
+        "piscosour": {
+          "name": "piscosour",
+          "description": "Piscosour config plugin",
+          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/piscosour/plugins/piscosour"
+        },
+        "skipper": {
+          "name": "skipper",
+          "description": "Plugin skipper",
+          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/piscosour/plugins/skipper"
+        },
+        "stream-write-hook": {
+          "name": "stream-write-hook",
+          "description": "Stream hook plugin",
+          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/piscosour/plugins/stream-write-hook"
+        },
+        "system-checker": {
+          "name": "system-checker",
+          "description": "System requirements checker",
+          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/piscosour/plugins/system-checker"
+        },
+        "system-saver": {
+          "name": "system-saver",
+          "description": "System requirements saver",
+          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/piscosour/plugins/system-saver"
+        },
+        "test": {
+          "name": "test",
+          "description": "Test plugin",
+          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/piscosour/plugins/test"
+        },
+        "userConfig": {
+          "name": "userConfig",
+          "description": "Operations on user configuration file ($HOME/.piscosour/piscosour.json)",
+          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/piscosour/plugins/userConfig"
+        }
+      },
+      "steps": {
+        "add-flows": {
+          "recipe": {
+            "name": "add-flows",
+            "description": "Adding step to a flow",
+            "contexts": [
+              "recipe"
+            ],
+            "prompts": [
+              {
+                "type": "input",
+                "name": "flowKey",
+                "required": true,
+                "message": "Write the name of the flow"
+              },
+              {
+                "type": "input",
+                "name": "flowDescription",
+                "required": true,
+                "message": "Write a description for the of the flow"
+              }
+            ],
+            "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/piscosour/steps/add-flows"
+          }
+        },
+        "add-steps": {
+          "recipe": {
+            "name": "add-steps",
+            "description": "Create new pisco step inside this module",
+            "contexts": [
+              "recipe"
+            ],
+            "prompts": [
+              {
+                "type": "input",
+                "name": "stepName",
+                "required": true,
+                "message": "Write a name for your pisco step"
+              },
+              {
+                "type": "list",
+                "name": "context",
+                "required": true,
+                "message": "Choose context for the new step",
+                "choices": "#showContexts"
+              }
+            ],
+            "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/piscosour/steps/add-steps"
+          }
+        },
+        "test": {
+          "default": {
+            "name": "test",
+            "description": "TEST Brief description of step",
+            "contexts": "*",
+            "isTest": true,
+            "requirements_": {
+              "java": {
+                "version": "^1.8.0"
+              },
+              "bower-art-resolver": {
+                "version": "^2.0.0",
+                "installer": "npm",
+                "listedIn": "npm",
+                "uri": "bower-art-resolver"
+              },
+              "android": {
+                "uncheckable": true
+              },
+              "xcode-select": {
+                "uncheckable": true
+              },
+              "security": {
+                "uncheckable": true
+              },
+              "iconset-generator": {
+                "version": "^1.0.2",
+                "installer": "npm",
+                "listedIn": "npm"
+              },
+              "generator-component-cells": {
+                "version": "^3.0.0",
+                "installer": "npm",
+                "listedIn": "npm"
+              },
+              "smoke-testing-requirements": {
+                "version": "^0.1.0",
+                "uncheckable": true
+              },
+              "chrome": {},
+              "docker": {},
+              "cordova": {},
+              "yo": {},
+              "bower": {}
+            },
+            "plugins": [
+              "test"
+            ],
+            "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/piscosour/steps/test"
+          }
+        },
+        "test2": {
+          "default": {
+            "name": "test2",
+            "description": "TEST 2 Brief description of step",
+            "contexts": "*",
+            "isGenerator": true,
+            "isTest": true,
+            "requirements_": {
+              "pisco": {
+                "installer": "npm",
+                "pkg": "piscosour"
+              },
+              "cordova": {},
+              "yo": {},
+              "bower": {}
+            },
+            "workingDir": "nohay",
+            "flying": "ohyeah!!",
+            "other": "good!!",
+            "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/piscosour/steps/test2"
+          }
+        },
+        "weather": {
+          "default": {
+            "name": "weather",
+            "description": "See your city weather",
+            "contexts": "*",
+            "city": "madrid",
+            "isTest": true,
+            "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/piscosour/steps/weather"
+          }
+        }
+      },
+      "flows": {},
+      "contexts": {}
+    },
+    "pisco-contexts": {
+      "name": "pisco-contexts",
+      "version": "1.1.0",
+      "description": "Contexts of piscosour",
+      "dir": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/pisco-contexts",
+      "config": {
+        "cmd": "pisco-contexts",
+        "defaultContext": ""
+      },
+      "plugins": {},
+      "steps": {},
+      "flows": {
+        "add-context": {
+          "name": "add-context",
+          "description": "Add a context to a piscosour recipe",
+          "steps": {
+            "add-context": {
+              "recipe": {
+                "requires": {
+                  "pisco-recipe-generator": "^1.0.0"
+                },
+                "installed": true
+              }
+            }
+          },
+          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/pisco-contexts/flows/add-context",
+          "type": "normal"
+        },
+        "add-flow": {
+          "name": "add-flow",
+          "description": "Add a flow to a piscosour recipe",
+          "steps": {
+            "add-flow": {
+              "recipe": {
+                "requires": {
+                  "pisco-recipe-generator": "^1.0.0"
+                },
+                "installed": true
+              }
+            }
+          },
+          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/pisco-contexts/flows/add-flow",
+          "type": "normal"
+        },
+        "add-step": {
+          "name": "add-step",
+          "description": "Add a step to a piscosour recipe",
+          "steps": {
+            "add-step": {
+              "recipe": {
+                "requires": {
+                  "pisco-recipe-generator": "^1.0.0"
+                },
+                "installed": true
+              }
+            }
+          },
+          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/pisco-contexts/flows/add-step",
+          "type": "normal"
+        },
+        "create": {
+          "name": "create",
+          "description": "Create new recipe from scratch",
+          "isGenerator": true,
+          "steps": {
+            "recipe-create": {
+              "recipe": {
+                "requires": {
+                  "pisco-recipe-generator": "^1.0.0"
+                },
+                "installed": true
+              }
+            }
+          },
+          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/pisco-contexts/flows/create",
+          "type": "normal"
+        },
+        "test": {
+          "type": "util",
+          "name": "test",
+          "description": "Testing for piscosour",
+          "params": {
+            "plugins": [
+              "test"
+            ],
+            "saludo": "holaflow"
+          },
+          "steps": {
+            "test2": {},
+            "test:1": {
+              "inputs": {
+                "inflying": {
+                  "test2": "flying"
+                }
+              },
+              "params": {
+                "execution": "PRIMERA"
+              }
+            },
+            "test:2": {
+              "inputs": {
+                "inflying": {
+                  "test2": "flying"
+                },
+                "otracosa": {
+                  "test:1": "localmovida"
+                }
+              },
+              "params": {
+                "execution": "SEGUNDA"
+              }
+            },
+            "weather": {}
+          },
+          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/pisco-contexts/flows/test"
+        },
+        "testint": {
+          "type": "util",
+          "name": "testint",
+          "description": "test",
+          "params": {},
+          "steps": {
+            "test2": {
+              "params": {
+                "saludo": "holadefault"
+              },
+              "recipe": {
+                "params": {
+                  "saludo": "holarecipe"
+                }
+              }
+            }
+          },
+          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/pisco-contexts/flows/testint"
+        }
+      },
+      "contexts": {
+        "documentation": {
+          "name": "documentation",
+          "description": "Piscosour documentation context",
+          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/pisco-contexts/contexts/documentation"
+        },
+        "recipe": {
+          "name": "recipe",
+          "description": "Piscosour recipe context",
+          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/pisco-contexts/contexts/recipe"
+        }
+      }
+    },
+    "pisco-requirements": {
+      "name": "pisco-requirements",
+      "version": "0.1.3",
+      "description": "Piscosour base requirements configuration",
+      "dir": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/pisco-requirements",
+      "config": {
+        "params": {
+          "versions": {
+            "cordova": {
+              "installer": "npm"
+            },
+            "bower": {
+              "installer": "npm",
+              "list": "bower cache list",
+              "cmdInstaller": "bower install"
+            },
+            "npm": {
+              "list": "npm list -g --depth 0",
+              "regexp": "\\@(.*?)\\s",
+              "cmdInstaller": "npm install -g"
+            },
+            "yo": {
+              "installer": "npm",
+              "option": "--version"
+            },
+            "java": {
+              "option": "-version",
+              "regexp": "\"(.*?)_"
+            },
+            "sass": {
+              "regexp": "s (.*?) "
+            },
+            "git": {
+              "option": "--version",
+              "regexp": "n (.*?)\\n"
+            },
+            "curl": {
+              "option": "--version",
+              "regexp": "curl (.*?) "
+            },
+            "docker": {
+              "regexp": "n (.*?),"
+            },
+            "chrome": {
+              "uncheckable": true
+            }
+          }
+        }
+      },
+      "plugins": {},
+      "steps": {},
+      "flows": {},
+      "contexts": {}
+    },
+    "cells-cli": {
+      "name": "cells-cli",
+      "version": "0.7.5",
+      "description": "cli tools for cells project",
+      "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli",
+      "config": {
+        "cmd": "cells",
+        "analytics": {
+          "id": "UA-69454462-7"
+        },
+        "commands": [
+          "environment:setup",
+          "app:create",
+          "app:clean",
+          "app:publish",
+          "app:build",
+          "app:serve-app",
+          "app:check-mocks",
+          "app:cordova-build",
+          "component:create",
+          "component:serve",
+          "component:validate",
+          "component::lint",
+          "component::unit-testing",
+          "component::demo-tests",
+          "component::check-theme",
+          "component::check-version",
+          "component:version",
+          "cordova-app:restore",
+          "cordova-app:package",
+          "cordova-app:save",
+          "cordova-plugin:create",
+          "iconset:build",
+          "workspace:create",
+          "workspace:kpis"
+        ],
+        "defaultContext": "component",
+        "params": {
+          "yourdomain": "bbva.com",
+          "bitBucketUrl": "https://globaldevtools.bbva.com/bitbucket/projects",
+          "testRepo": "ssh://git@globaldevtools.bbva.com:7999/ctool/cells-eslintrc.git",
+          "fromRepo": "globaldevtools.bbva.com:7999",
+          "toRepo": "globaldevtools.bbva.com:7999"
+        },
+        "steps": {
+          "publishAll": {
+            "params": {
+              "registryDomain": "dev.globaldevtools.bbva.com"
+            }
+          }
+        }
+      },
+      "plugins": {},
+      "steps": {
+        "cellsDomain": {
+          "environment": {
+            "name": "cellsDomain",
+            "contexts": [
+              "environment"
+            ],
+            "isGenerator": true,
+            "description": "Install cells domain dependency",
+            "includes": [
+              "cells",
+              "pisco"
+            ],
+            "excludes": [
+              "pisco-cells-contexts",
+              "cells-cli",
+              "cells-migration-tool",
+              "generator"
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/steps/cellsDomain"
+          }
+        }
+      },
+      "flows": {
+        "setup": {
+          "name": "setup",
+          "description": "Configure and checks all environment requirements for Cells-cli",
+          "params": {},
+          "isGenerator": true,
+          "steps": {
+            "checkSSH": {
+              "environment": {
+                "requires": {
+                  "cells-migration-tool": "^0.1.3"
+                },
+                "installed": true
+              }
+            },
+            "checkRegistry": {
+              "environment": {
+                "requires": {
+                  "cells-migration-tool": "^0.1.3"
+                },
+                "params": {
+                  "registryDomain": "globaldevtools.bbva.com"
+                },
+                "installed": true
+              }
+            },
+            "cellsDomain": {}
+          },
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/flows/setup",
+          "type": "normal"
+        }
+      },
+      "contexts": {
+        "environment": {
+          "name": "environment",
+          "description": "Host environment context",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/contexts/environment"
+        }
+      }
+    },
+    "pisco-cells-contexts": {
+      "name": "pisco-cells-contexts",
+      "version": "1.4.32",
+      "description": "Pisco context definitions for Cells project",
+      "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts",
+      "config": {
+        "params": {
+          "versions": {
+            "chrome": {
+              "uncheckable": true
+            }
+          }
+        }
+      },
+      "plugins": {},
+      "steps": {},
+      "flows": {
+        "build": {
+          "name": "build",
+          "description": "Build the distribution of a Cells application",
+          "steps": {
+            "build": {
+              "app": {
+                "requires": {
+                  "cells-app": "^0.7.0"
+                }
+              },
+              "iconset": {
+                "requires": {
+                  "pisco-cells-iconset-create": "^0.1.2"
+                }
+              },
+              "catalog": {
+                "requires": {
+                  "pisco-cells-catalog-build": "^0.1.0"
+                }
+              }
+            }
+          },
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/build",
+          "type": "normal"
+        },
+        "changeDeps": {
+          "name": "changeDeps",
+          "description": "Change dependencies of all repos",
+          "isGenerator": true,
+          "params": {
+            "neverAskMove": true
+          },
+          "steps": {
+            "checkSSH": {
+              "environment": {
+                "requires": {
+                  "cells-migration-tool": "^0.1.2"
+                },
+                "installed": true
+              }
+            },
+            "d2rAll": {
+              "environment": {
+                "requires": {
+                  "cells-migration-tool": "^0.1.2"
+                },
+                "installed": true
+              }
+            }
+          },
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/changeDeps",
+          "type": "normal"
+        },
+        "changeOrigin": {
+          "name": "changeOrigin",
+          "description": "Change origin recursively",
+          "isGenerator": true,
+          "params": {
+            "neverAskMove": true
+          },
+          "steps": {
+            "checkSSH": {
+              "environment": {
+                "requires": {
+                  "cells-migration-tool": "^0.1.3"
+                },
+                "installed": true
+              }
+            },
+            "migrate": {
+              "environment": {
+                "requires": {
+                  "cells-migration-tool": "^0.1.3"
+                },
+                "installed": true
+              }
+            }
+          },
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/changeOrigin",
+          "type": "normal"
+        },
+        "check-mocks": {
+          "name": "check-mocks",
+          "description": "Check composer mocks",
+          "steps": {
+            "check-mocks": {
+              "app": {
+                "requires": {
+                  "pisco-cells-app-check-composer-mocks": "^0.3.0"
+                }
+              }
+            }
+          },
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/check-mocks",
+          "type": "normal"
+        },
+        "check-theme": {
+          "steps": {
+            "check-theme": {
+              "component": {
+                "requires": {
+                  "pisco-cells-component-theme": "^0.3.0"
+                },
+                "installed": true
+              }
+            }
+          },
+          "name": "check-theme",
+          "description": "Check if a component is using a theme",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/check-theme",
+          "type": "normal"
+        },
+        "clean": {
+          "name": "clean",
+          "description": "Clean the distribution of a Cells application",
+          "steps": {
+            "clean": {
+              "app": {
+                "requires": {
+                  "cells-app": "^0.7.0"
+                }
+              }
+            }
+          },
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/clean",
+          "type": "normal"
+        },
+        "cordova-build": {
+          "name": "cordova-build",
+          "description": "Build the distribution in the folder ./www of a Cordova App",
+          "steps": {
+            "cordova-build": {
+              "app": {
+                "requires": {
+                  "cells-app": "^0.7.0"
+                }
+              }
+            }
+          },
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/cordova-build",
+          "type": "normal"
+        },
+        "create": {
+          "name": "create",
+          "description": "Context creation flow",
+          "isGenerator": true,
+          "steps": {
+            "create": {
+              "cordova-plugin": {
+                "requires": {
+                  "pisco-cells-cordova-plugin": "^0.2.0"
+                }
+              },
+              "app": {
+                "requires": {
+                  "pisco-cells-app-create": "^0.6.0"
+                }
+              },
+              "component": {
+                "requires": {
+                  "pisco-cells-component-create": "^0.4.0"
+                }
+              },
+              "workspace": {
+                "requires": {
+                  "pisco-cells-workspace-create": "^0.7.0"
+                },
+                "installed": true
+              }
+            }
+          },
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/create",
+          "type": "normal"
+        },
+        "kpis": {
+          "name": "kpis",
+          "description": "Show workspace kpis",
+          "steps": {
+            "show-kpis": {
+              "workspace": {
+                "requires": {
+                  "cells-stats": "^0.5.0"
+                }
+              }
+            }
+          },
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/kpis",
+          "type": "normal"
+        },
+        "migrate": {
+          "name": "migrate",
+          "description": "Move repositories recursively",
+          "isGenerator": true,
+          "params": {},
+          "steps": {
+            "checkSSH": {
+              "environment": {
+                "requires": {
+                  "cells-migration-tool": "^0.1.3"
+                },
+                "installed": true
+              }
+            },
+            "migrate": {
+              "environment": {
+                "requires": {
+                  "cells-migration-tool": "^0.1.3"
+                },
+                "installed": true
+              }
+            }
+          },
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/migrate",
+          "type": "normal"
+        },
+        "publish": {
+          "name": "publish",
+          "description": "Publish on every context",
+          "steps": {
+            "build_": {
+              "implementation-check": false,
+              "app": {
+                "requires": {
+                  "pisco-cells-cordova-app-publish": "^0.3.0",
+                  "cells-app": "^0.7.0"
+                }
+              },
+              "cordova-app": {
+                "requires": {
+                  "pisco-cells-cordova-app-publish": "^0.3.0",
+                  "cells-app": "^0.7.0"
+                }
+              },
+              "catalog": {
+                "requires": {
+                  "pisco-cells-catalog-build": "^0.1.0"
+                }
+              }
+            },
+            "package": {
+              "implementation-check": false,
+              "app": {
+                "requires": {
+                  "pisco-cells-cordova-app-publish": "^0.3.0"
+                },
+                "params": {
+                  "disableContextCheck": true
+                }
+              },
+              "cordova-app": {
+                "requires": {
+                  "pisco-cells-cordova-app-publish": "^0.3.0"
+                }
+              },
+              "inputs": {
+                "workingDir": {
+                  "build_": "workingDir"
+                }
+              }
+            },
+            "smoke-testing": {
+              "type": "flow",
+              "implementation-check": false,
+              "inputs": {
+                "workingDir": {
+                  "build_": "workingDir"
+                },
+                "appName": {
+                  "build_": "appName"
+                }
+              }
+            },
+            "publish": {
+              "master": {
+                "requires": {
+                  "pisco-gitflow-publish": "^0.1.0"
+                }
+              },
+              "recipe": {
+                "requires": {
+                  "pisco-recipe-publish": "^0.1.0"
+                }
+              },
+              "component": {
+                "requires": {
+                  "pisco-cells-component-publish": "^0.1.0"
+                }
+              },
+              "app": {
+                "requires": {
+                  "pisco-cells-cordova-app-publish": "^0.3.0"
+                },
+                "params": {
+                  "disableContextCheck": true
+                }
+              },
+              "cordova-app": {
+                "requires": {
+                  "pisco-cells-cordova-app-publish": "^0.3.0"
+                }
+              },
+              "catalog": {
+                "requires": {
+                  "pisco-cells-cordova-app-publish": "^0.3.0"
+                }
+              },
+              "inputs": {
+                "workingDir": {
+                  "build_": "workingDir"
+                },
+                "appName": {
+                  "build_": "appName"
+                }
+              }
+            }
+          },
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/publish",
+          "type": "normal"
+        },
+        "publishAll": {
+          "name": "publishAll",
+          "description": "Publish recursively all repos",
+          "isGenerator": true,
+          "params": {
+            "neverAskMove": true,
+            "toVersions": true
+          },
+          "steps": {
+            "checkSSH": {
+              "environment": {
+                "requires": {
+                  "cells-migration-tool": "^0.1.3"
+                },
+                "installed": true
+              }
+            },
+            "migrate": {
+              "environment": {
+                "requires": {
+                  "cells-migration-tool": "^0.1.3"
+                },
+                "installed": true
+              }
+            },
+            "d2rAll": {
+              "environment": {
+                "requires": {
+                  "cells-migration-tool": "^0.1.3"
+                },
+                "installed": true
+              }
+            },
+            "publishAll": {
+              "environment": {
+                "requires": {
+                  "cells-migration-tool": "^0.1.3"
+                },
+                "installed": true
+              },
+              "params": {
+                "registryDomain": "dev.globaldevtools.bbva.com",
+                "registryDomainTarget": "globaldevtools.bbva.com",
+                "registryCa": "-----BEGIN CERTIFICATE-----\nMIIGSTCCBDGgAwIBAgIBADANBgkqhkiG9w0BAQsFADCBvjELMAkGA1UEBhMCRVMx\nDzANBgNVBAgMBk1hZHJpZDEPMA0GA1UEBwwGTWFkcmlkMRQwEgYDVQQKDAtCQlZB\nIC0gVEVTVDElMCMGA1UECwwcR2xvYmFsIFNvbHV0aW9ucyBFbmdpbmVlcmluZzEj\nMCEGA1UEAwwaQkJWQSAtIFRFU1QgLSBETyBOT1QgVFJVU1QxKzApBgkqhkiG9w0B\nCQEWHGRldm9wcy1nbG9iYWwuZ3JvdXBAYmJ2YS5jb20wHhcNMTUxMDIwMDYxNjEw\nWhcNMjUxMDE3MDYxNjEwWjCBvjELMAkGA1UEBhMCRVMxDzANBgNVBAgMBk1hZHJp\nZDEPMA0GA1UEBwwGTWFkcmlkMRQwEgYDVQQKDAtCQlZBIC0gVEVTVDElMCMGA1UE\nCwwcR2xvYmFsIFNvbHV0aW9ucyBFbmdpbmVlcmluZzEjMCEGA1UEAwwaQkJWQSAt\nIFRFU1QgLSBETyBOT1QgVFJVU1QxKzApBgkqhkiG9w0BCQEWHGRldm9wcy1nbG9i\nYWwuZ3JvdXBAYmJ2YS5jb20wggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoIC\nAQDAfDG0HCcnv22oLXof4zJFbX83KuR0nV3vCsJj4yeW/iPDzwZoeX5WEM9cVbhg\nh7F+BREic9R/Gpf4kZP6+esCtLUO37ww2znFc0iCSEcSQ+chSEfPD/i4xqVY/Uca\nhBiXW16qu/0Wb156ObRGI8zqq6o9NvEioNeMpzJnJP9Gkq1HDkGem1CfY5CyAWvX\nQTR0B6k3zNrtCi7DuQJ5NTaBPf8azokiHYI0AmQraErsX8jmG7uACSnk3YP5Nw0a\ndxwsaDxZcKUlL+/sPDZCbPLwwZG+fmY/DapURkMPpyCQrw25AlGHMeUQYyCX3QGg\nN7jH2fOWNoIEhE/kM17Von7xo5OHTg6ANP8pzso+20jd16iV4EY/cqGVuSHGA7yW\nDV/elAICPlrmOtdvK9m+QD7bF0GxVDbqCTZ41PFGsD0S1m1yLwWe9ps/0bHaEClc\n+aRtCZ3TzqwEY8/ltKQ9vQ0ZwBepErowC3UgHtiJF8k3IvyRYNB3kjH70i8exXkT\ncJUCm4/pmtlVXwq9D+TZiInL1O463njbhM2p27nY6o31PukBbfHZZEfZwHD1zMEF\nK+SzSNTSR7vZU0Zjk9E/76XEpZJZF7/SdLuqy/MPvuoLJe49acCiP7eZ3GFmGC7y\nI3c7ymbKbDhyyc+R/9vl132Z1iOLFXUUMcSyCVBtPBWTZQIDAQABo1AwTjAdBgNV\nHQ4EFgQUE0PeZ7lotVcCP8iEPFYLp+OR8L8wHwYDVR0jBBgwFoAUE0PeZ7lotVcC\nP8iEPFYLp+OR8L8wDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAgEAimwK\n8qHrKJlqOOs5pYT9HyUnhJpCVkmkBqg0In7NqhX4qj0mdDHij3dgLTy5XKzQYf5x\np2ZIJ805gilIRtPZ0u3gA3ieoM4UaIakHwLl1xBBTWIlNA9vfuYcPFjAl8Fxecz6\nSHvxLJxbiKI8xbf2PvbzaIJkkKuaEOjgn1RLqYPyXmvb9moHzV6h5Ud4SJ9wBNRI\nkTxiG8MMWjSQdnaHVpdISJQVieS1O2PY8vVNZ0dDTsNU4ybcxRfoF0kn0OPdrDuQ\npuJPyoUvLLjxycWw/WqdxNSRq0UdDFYnNZmVzLBJLW58S54tnpv1MIA3vp7G21aw\n1z45DMI9wSU43PS3cVKRW/DLrsvt6MP+cI6dXU9rn0b/o85R052JiPA+hSS9aiCT\nQrsJzstXz45s7y43M5O6iCT3U75WC753UCmjx5q+NiOwysNR4BcjUVdC4xWDejlY\n8OwcHu4ZTkhZ0W4lSDuFRyAN3O2R5/iIJib1N4VfpY/Rf5kLrUCwEgTkLz7eJQsa\nty2REql85UO3JRjHwKvcEHuC/q7mV0r73YZ2bZovktdL+fxoDM/RsjYO0surOze2\nQLa/ALU9o8e4XlSyWIRlX6XTV9iV373v+XzVSYcKbgYFrLLLJHrE2hxqiKN9Edvc\nkNjyPAU3oQXLy/gRGFi0Zw9ukpcmKy14Dojjqks=\n-----END CERTIFICATE-----\n"
+              },
+              "inputs": {
+                "repos": {
+                  "d2rAll": "repos"
+                }
+              }
+            }
+          },
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/publishAll",
+          "type": "normal"
+        },
+        "pushFileAll": {
+          "name": "pushFileAll",
+          "description": "Add one file to all repos",
+          "isGenerator": true,
+          "steps": {
+            "pushAll": {
+              "environment": {
+                "requires": {
+                  "cells-migration-tool": "^0.1.3"
+                },
+                "installed": true
+              }
+            }
+          },
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/pushFileAll",
+          "type": "normal"
+        },
+        "restore": {
+          "steps": {
+            "build_": {
+              "app": {
+                "requires": {
+                  "pisco-cells-cordova-app-publish": "^0.3.0",
+                  "cells-app": "^0.7.0"
+                }
+              },
+              "cordova-app": {
+                "requires": {
+                  "pisco-cells-cordova-app-publish": "^0.3.0",
+                  "cells-app": "^0.7.0"
+                }
+              }
+            }
+          },
+          "name": "restore",
+          "description": "Restore your application from package.json configuration",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/restore",
+          "type": "normal"
+        },
+        "save": {
+          "steps": {
+            "save": {
+              "cordova-app": {
+                "requires": {
+                  "pisco-cells-cordova-app-publish": "^0.2.6"
+                }
+              }
+            }
+          },
+          "name": "save",
+          "description": "Save the current state of cordova application in package.json",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/save",
+          "type": "normal"
+        },
+        "serve-app": {
+          "name": "serve-app",
+          "description": "Serve the distribution of a Cells application",
+          "steps": {
+            "serve": {
+              "app": {
+                "requires": {
+                  "cells-app": "^0.7.0"
+                }
+              }
+            }
+          },
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/serve",
+          "type": "normal"
+        },
+        "serve": {
+          "name": "serve",
+          "description": "Serve your components",
+          "steps": {
+            "polyserve": {
+              "component": {
+                "requires": {
+                  "pisco-cells-serve": "^0.4.0"
+                }
+              }
+            },
+            "browser-sync": {
+              "component": {
+                "requires": {
+                  "pisco-cells-serve": "^0.4.0"
+                }
+              },
+              "inputs": {
+                "proxyPort": {
+                  "polyserve": "port"
+                }
+              }
+            }
+          },
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/serve-component",
+          "type": "normal"
+        },
+        "smoke-testing": {
+          "name": "smoke-testing",
+          "description": "Build Verification Testing",
+          "steps": {
+            "deploy": {
+              "catalog": {
+                "requires": {
+                  "pisco-cells-cordova-app-publish": "^0.3.4"
+                }
+              }
+            },
+            "smoke-testing": {
+              "catalog": {
+                "requires": {
+                  "pisco-cells-catalog-smoke-testing": "^0.1.0"
+                }
+              },
+              "inputs": {
+                "smokeTestsBaseUrl": {
+                  "deploy": "baseUrl"
+                }
+              }
+            }
+          },
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/smoke-testing",
+          "type": "normal"
+        },
+        "static-analysis": {
+          "name": "static-analysis",
+          "description": "Static analysis flow for Cells elements",
+          "steps": {
+            "lint": {
+              "component": {},
+              "app": {},
+              "recipe": {}
+            }
+          },
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/static-analysis",
+          "type": "normal"
+        },
+        "theme": {
+          "steps": {
+            "theme": {
+              "component": {
+                "requires": {
+                  "pisco-cells-component-theme": "^0.3.0"
+                },
+                "installed": true
+              }
+            }
+          },
+          "name": "theme",
+          "description": "Check if a component is using a theme",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/theme",
+          "type": "normal"
+        },
+        "upload": {
+          "name": "upload",
+          "description": "Upload bundle",
+          "steps": {
+            "upload": {
+              "bundle": {
+                "requires": {
+                  "pisco-cells-bundle-upload": "^0.0.2"
+                }
+              }
+            }
+          },
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/upload",
+          "type": "normal"
+        },
+        "validate": {
+          "name": "validate",
+          "description": "Cells components validation flow",
+          "params": {},
+          "steps": {
+            "lint": {
+              "implementation-check": false,
+              "component": {
+                "requires": {
+                  "pisco-cells-component-lint": "^0.6.0"
+                },
+                "installed": true
+              }
+            },
+            "unit-testing": {
+              "implementation-check": false,
+              "component": {
+                "requires": {
+                  "pisco-cells-component-unit-testing": "^0.1.0"
+                },
+                "installed": true
+              }
+            },
+            "demo-tests": {
+              "implementation-check": false,
+              "component": {
+                "requires": {
+                  "pisco-cells-component-demo-tests": "^0.5.0"
+                },
+                "installed": true
+              }
+            },
+            "check-theme": {
+              "implementation-check": false,
+              "component": {
+                "requires": {
+                  "pisco-cells-component-theme": "^0.3.0"
+                },
+                "installed": true
+              }
+            }
+          },
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/validate",
+          "type": "normal"
+        },
+        "validate-platform": {
+          "name": "validate-platform",
+          "description": "Cells platform validation flow",
+          "params": {},
+          "steps": {
+            "integration-testing": {
+              "cells-platform": {
+                "requires": {
+                  "pisco-cells-platform-validate": "^0.1.0"
+                }
+              }
+            }
+          },
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/validate-platform",
+          "type": "normal"
+        },
+        "version": {
+          "name": "version",
+          "description": "Versioning process for components",
+          "steps": {
+            "version": {
+              "component": {
+                "requires": {
+                  "pisco-cells-component-version": "^0.3.0"
+                }
+              }
+            }
+          },
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/version",
+          "type": "normal"
+        }
+      },
+      "contexts": {
+        "app": {
+          "name": "app",
+          "description": "Cells app context",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/contexts/app"
+        },
+        "bundle": {
+          "name": "bundle",
+          "description": "Content bundle",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/contexts/bundle"
+        },
+        "catalog": {
+          "name": "catalog",
+          "description": "Components catalog",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/contexts/catalog"
+        },
+        "catalog-generator": {
+          "name": "catalog-generator",
+          "description": "Catalog Generator Context",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/contexts/catalog-generator"
+        },
+        "cells-platform": {
+          "name": "cells-platform",
+          "description": "Cells Platform context",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/contexts/cells-platform"
+        },
+        "component": {
+          "name": "component",
+          "description": "Cells component context",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/contexts/component"
+        },
+        "cordova-app": {
+          "name": "cordova-app",
+          "description": "Cells cordova app context",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/contexts/cordova-app"
+        },
+        "cordova-plugin": {
+          "name": "cordova-plugin",
+          "description": "Cordova plugin",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/contexts/cordova-plugin"
+        },
+        "iconset": {
+          "name": "iconset",
+          "description": "Cells iconset context",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/contexts/iconset"
+        },
+        "workspace": {
+          "name": "workspace",
+          "description": "Cells workspace context",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/contexts/workspace"
+        }
+      }
+    },
+    "cells-migration-tool": {
+      "name": "cells-migration-tool",
+      "version": "0.1.14",
+      "description": "migration asistant tool",
+      "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-migration-tool",
+      "config": {
+        "cmd": "migra-tool"
+      },
+      "plugins": {
+        "configWriter": {
+          "name": "configWriter",
+          "description": "plain text config writer",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-migration-tool/plugins/configWriter"
+        },
+        "dependencies": {
+          "name": "dependencies",
+          "description": "Generic dependencies json writer",
+          "plugins": [
+            "gitRepos"
+          ],
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-migration-tool/plugins/dependencies"
+        },
+        "gitRepos": {
+          "name": "gitRepos",
+          "description": "Common git repository commands",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-migration-tool/plugins/gitRepos"
+        },
+        "keyCache": {
+          "name": "keyCache",
+          "description": "Cache for prompts params",
+          "plugins": [
+            "fsutils"
+          ],
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-migration-tool/plugins/keyCache"
+        }
+      },
+      "steps": {
+        "checkRegistry": {
+          "environment": {
+            "name": "checkRegistry",
+            "contexts": [
+              "environment"
+            ],
+            "isGenerator": true,
+            "description": "Check if registry configuration is correct",
+            "plugins": [
+              "keyCache",
+              "bowerRegistry",
+              "npmRegistry",
+              "configWriter"
+            ],
+            "commitMessage": "(automatic) change dependencies to registry mode",
+            "registryProtocol": "https",
+            "registryDomain": "devtools.yourcompany.com",
+            "registryBase": "artifactory/api",
+            "resolver": "bower-art-resolver",
+            "stages": [
+              "check"
+            ],
+            "registries": {
+              "bower": {
+                "registry": "bower/bower-repo"
+              },
+              "npm": {
+                "registry": "npm/npm-repo",
+                "auth": "npm/auth"
+              }
+            },
+            "configFiles": {
+              ".gradle/gradle.properties": "artifactory_user=${this.params.email}\nartifactory_password=${this.params.apikey}\n#${this.params.registryDomain}",
+              ".netrc": "machine ${this.params.registryDomain}\nlogin ${this.params.email}\npassword ${this.params.apikey}"
+            },
+            "requirements": {
+              "bower-art-resolver": {
+                "installer": "npm",
+                "listedIn": "npm"
+              },
+              "curl": {},
+              "git": {},
+              "bower": {}
+            },
+            "promptsKey": [
+              {
+                "type": "input",
+                "name": "apikey",
+                "required": true,
+                "message": "Introduce your artifactory API KEY"
+              },
+              {
+                "type": "input",
+                "name": "email",
+                "required": true,
+                "message": "Introduce your email (without @yourcompany.com)",
+                "filter": "#checkEmail"
+              },
+              {
+                "type": "input",
+                "name": "yourdomain",
+                "required": true,
+                "message": "Introduce your domain '@yourcompany.com'"
+              }
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-migration-tool/steps/checkRegistry"
+          }
+        },
+        "checkSSH": {
+          "environment": {
+            "name": "checkSSH",
+            "contexts": [
+              "environment"
+            ],
+            "isGenerator": true,
+            "description": "Check if SSH is configurated correctly",
+            "generateSSHdocUrl": "https://confluence.atlassian.com/bitbucketserver046/using-bitbucket-server/controlling-access-to-code/using-ssh-keys-to-secure-git-operations/creating-ssh-keys?utm_campaign=in-app-help&utm_medium=in-app-help&utm_source=stash#CreatingSSHkeys-CreatinganSSHkeyonLinux&MacOSX",
+            "bitBucketUrl": "https://devtools.yourcompany.com/bitbucket/projects",
+            "testRepo": "ssh://git@devtools.yourcompany.com:7999/ctool/cells-eslintrc.git",
+            "requirements": {
+              "git": {}
+            },
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-migration-tool/steps/checkSSH"
+          }
+        },
+        "d2rAll": {
+          "environment": {
+            "name": "d2rAll",
+            "contexts": [
+              "environment"
+            ],
+            "isGenerator": true,
+            "description": "Change recursively dependencies to registry mode",
+            "dependencyFiles": [
+              "bower.json",
+              "package.json"
+            ],
+            "fromRepo": "descinet.yourcompany.es/stash/scm",
+            "toRepo": "devtools.yourcompany.com:7999",
+            "sshInit": "ssh://git@",
+            "repoDomain": "descinet.yourcompany.es",
+            "plugins": [
+              "gitRepos",
+              "dependencies"
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-migration-tool/steps/d2rAll"
+          }
+        },
+        "migrate": {
+          "environment": {
+            "name": "migrate",
+            "contexts": [
+              "environment"
+            ],
+            "isGenerator": true,
+            "description": "Change git origin to all projects recursively",
+            "fromRepo": "descinet.yourcompany.es/stash/scm",
+            "toRepo": "devtools.yourcompany.com:7999",
+            "sshInit": "ssh://git@",
+            "plugins": [
+              "gitRepos"
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-migration-tool/steps/migrate"
+          }
+        },
+        "publishAll": {
+          "environment": {
+            "name": "publishAll",
+            "contexts": [
+              "environment"
+            ],
+            "isGenerator": true,
+            "description": "Check, publish and push all repositories",
+            "plugins": [
+              "keyCache",
+              "bowerRegistry",
+              "npmRegistry"
+            ],
+            "commitMessage": "(automatic) change dependencies to registry mode",
+            "registryProtocol": "https",
+            "registryDomain": "dev.devtools.yourcompany.com",
+            "registryDomainTarget": "devtools.yourcompany.com",
+            "registryBase": "artifactory/api",
+            "resolver": "bower-art-resolver",
+            "stages": [
+              "check",
+              "run"
+            ],
+            "registries": {
+              "bower": {
+                "registry": "bower/bower-repo"
+              },
+              "npm": {
+                "registry": "npm/npm-repo",
+                "auth": "npm/auth"
+              }
+            },
+            "requirements": {
+              "bower-art-resolver": {
+                "installer": "npm",
+                "listedIn": "npm"
+              },
+              "curl": {},
+              "git": {},
+              "bower": {}
+            },
+            "promptsKey": [
+              {
+                "type": "input",
+                "name": "email",
+                "required": true,
+                "message": "Introduce your email without '@yourcompany.com'"
+              },
+              {
+                "type": "input",
+                "name": "apikey",
+                "required": true,
+                "message": "Introduce your artifactory API KEY"
+              }
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-migration-tool/steps/publishAll"
+          }
+        },
+        "pushAll": {
+          "environment": {
+            "name": "pushAll",
+            "contexts": [
+              "environment"
+            ],
+            "isGenerator": true,
+            "description": "Distribute one file to all repos",
+            "plugins": [
+              "gitRepos"
+            ],
+            "branches": [
+              "master",
+              "develop"
+            ],
+            "comment": "chore(): Add file to repository",
+            "pushFile": "",
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-migration-tool/steps/pushAll"
+          }
+        }
+      },
+      "flows": {},
+      "contexts": {}
+    },
+    "pisco-plugin-bower": {
+      "name": "pisco-plugin-bower",
+      "version": "0.3.10",
+      "description": "Pisco plugin for bower",
+      "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-migration-tool/node_modules/pisco-plugin-bower",
+      "config": {},
+      "plugins": {
+        "bower": {
+          "name": "bower",
+          "description": "Execute a bower install",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-migration-tool/node_modules/pisco-plugin-bower/plugins/bower"
+        },
+        "bowerRegistry": {
+          "name": "bowerRegistry",
+          "description": "Check bower registry configuration",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-migration-tool/node_modules/pisco-plugin-bower/plugins/bowerRegistry"
+        }
+      },
+      "steps": {},
+      "flows": {},
+      "contexts": {}
+    },
+    "pisco-plugin-npm": {
+      "name": "pisco-plugin-npm",
+      "version": "0.3.3",
+      "description": "Pisco plugin for npm",
+      "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-migration-tool/node_modules/pisco-plugin-npm",
+      "config": {},
+      "plugins": {
+        "npm": {
+          "name": "npm",
+          "description": "Manage npm in steps",
+          "shrinkwrapFile": "npm-shrinkwrap.json",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-migration-tool/node_modules/pisco-plugin-npm/plugins/npm"
+        },
+        "npmRegistry": {
+          "name": "npmRegistry",
+          "description": "Check npm registry configuration",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-migration-tool/node_modules/pisco-plugin-npm/plugins/npmRegistry"
+        }
+      },
+      "steps": {},
+      "flows": {},
+      "contexts": {}
+    },
+    "pisco-cells-component-demo-tests": {
+      "name": "pisco-cells-component-demo-tests",
+      "version": "0.5.4",
+      "description": "Cells components demo validation",
+      "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-component-demo-tests",
+      "config": {
+        "cmd": "cells-component-demo-tests",
+        "defaultContext": "component"
+      },
+      "plugins": {},
+      "steps": {
+        "demo-tests": {
+          "component": {
+            "name": "demo-tests",
+            "description": "Cells component demo testing",
+            "contexts": [
+              "component"
+            ],
+            "plugins": [
+              "selenium",
+              "polyserve",
+              "stream-write-hook",
+              "bower"
+            ],
+            "bower": {
+              "installed": "true"
+            },
+            "requirements": {
+              "bower": {},
+              "java": {
+                "version": "^1.8.0"
+              },
+              "chrome": {}
+            },
+            "browser": "chrome",
+            "asyncTimeout": 3000,
+            "suiteTimeout": 10000,
+            "waitforTimeout": 3000,
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-component-demo-tests/steps/demo-tests"
+          }
+        }
+      },
+      "flows": {},
+      "contexts": {}
+    },
+    "pisco-polyserve": {
+      "name": "pisco-polyserve",
+      "version": "0.3.0",
+      "description": "polyserve plugin for pisco",
+      "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-component-demo-tests/node_modules/pisco-polyserve",
+      "config": {
+        "cmd": "pisco-polyserve"
+      },
+      "plugins": {
+        "polyserve": {
+          "name": "polyserve",
+          "description": "Polyserve plugin",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-component-demo-tests/node_modules/pisco-polyserve/plugins/polyserve"
+        }
+      },
+      "steps": {},
+      "flows": {},
+      "contexts": {}
+    },
+    "pisco-selenium": {
+      "name": "pisco-selenium",
+      "version": "0.3.0",
+      "description": "selenium plugin for pisco recipes",
+      "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-component-demo-tests/node_modules/pisco-selenium",
+      "config": {
+        "cmd": "pisco-selenium"
+      },
+      "plugins": {
+        "selenium": {
+          "name": "selenium",
+          "description": "Selenium server plugin",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-component-demo-tests/node_modules/pisco-selenium/plugins/selenium"
+        }
+      },
+      "steps": {},
+      "flows": {},
+      "contexts": {}
+    },
+    "pisco-cells-component-lint": {
+      "name": "pisco-cells-component-lint",
+      "version": "0.6.0",
+      "description": "lint validation for cells components",
+      "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-component-lint",
+      "config": {},
+      "plugins": {},
+      "steps": {
+        "lint": {
+          "component": {
+            "name": "lint",
+            "description": "Source code linting for Cells elements",
+            "plugins": [
+              "linter"
+            ],
+            "contexts": [
+              "component"
+            ],
+            "linter": {
+              "ignoreErrors": true,
+              "config": {
+                "plugins": [
+                  "html"
+                ],
+                "ignorePattern": [
+                  "test/**",
+                  "tasks/**",
+                  "coverage-reports/**",
+                  "bower_components/**",
+                  "node_modules/**",
+                  "coverage_reports/**"
+                ],
+                "ignorePath": ".gitignore",
+                "extensions": [
+                  ".js",
+                  ".html"
+                ]
+              }
+            },
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-component-lint/steps/lint"
+          }
+        }
+      },
+      "flows": {},
+      "contexts": {}
+    },
+    "pisco-plugin-linter-eslint": {
+      "name": "pisco-plugin-linter-eslint",
+      "version": "0.1.1",
+      "description": "Linter plugin for piscosour (ESLint implementation)",
+      "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-component-lint/node_modules/pisco-plugin-linter-eslint",
+      "config": {},
+      "plugins": {
+        "linter": {
+          "name": "linter",
+          "description": "Linter plugin for piscosour (ESLint implementation)",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-component-lint/node_modules/pisco-plugin-linter-eslint/plugins/linter"
+        }
+      },
+      "steps": {},
+      "flows": {},
+      "contexts": {}
+    },
+    "pisco-cells-component-theme": {
+      "name": "pisco-cells-component-theme",
+      "version": "0.3.3",
+      "description": "Create a piscosour recipe from a scaffold template",
+      "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-component-theme",
+      "config": {
+        "cmd": "cells-component-theme",
+        "repoTypes": [
+          "component"
+        ]
+      },
+      "plugins": {},
+      "steps": {
+        "check-theme": {
+          "component": {
+            "name": "check-theme",
+            "description": "Check if your component is using a theme",
+            "contexts": [
+              "component"
+            ],
+            "plugins": [
+              "bower"
+            ],
+            "dependenciesInstalled": true,
+            "requirements": {
+              "bower": {}
+            },
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-component-theme/steps/check-theme"
+          }
+        }
+      },
+      "flows": {},
+      "contexts": {}
+    },
+    "pisco-cells-component-unit-testing": {
+      "name": "pisco-cells-component-unit-testing",
+      "version": "0.1.6",
+      "description": "Unit testing for Cells components",
+      "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-component-unit-testing",
+      "config": {},
+      "plugins": {},
+      "steps": {
+        "unit-testing": {
+          "component": {
+            "name": "unit-testing",
+            "description": "Unit tests execution",
+            "contexts": [
+              "component"
+            ],
+            "plugins": [
+              "stream-write-hook",
+              "bower",
+              "test-runner"
+            ],
+            "requirements": {
+              "bower-art-resolver": {
+                "installer": "npm",
+                "listedIn": "npm"
+              }
+            },
+            "bower": {
+              "installed": true
+            },
+            "test-runner": {
+              "ignoreErrors": true,
+              "config": {
+                "enforceJsonConf": true,
+                "suites": [
+                  "test"
+                ],
+                "expanded": true,
+                "testTimeout": 300000,
+                "plugins": {
+                  "local": {
+                    "disabled": false,
+                    "browsers": [
+                      "chrome"
+                    ]
+                  },
+                  "istanbul": {
+                    "dir": "./coverage-reports",
+                    "reporters": [
+                      "text",
+                      "text-summary",
+                      "lcov",
+                      "json"
+                    ],
+                    "include": [
+                      "/*.js",
+                      "/*.html"
+                    ],
+                    "exclude": [],
+                    "thresholds": {
+                      "global": {
+                        "statements": 70,
+                        "branches": 70,
+                        "functions": 70,
+                        "lines": 70
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-component-unit-testing/steps/unit-testing"
+          }
+        }
+      },
+      "flows": {},
+      "contexts": {}
+    },
+    "pisco-plugin-test-runner-wct": {
+      "name": "pisco-plugin-test-runner-wct",
+      "version": "0.2.8",
+      "description": "Test runner plugin for pisco (web component tester implementation)",
+      "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-component-unit-testing/node_modules/pisco-plugin-test-runner-wct",
+      "config": {},
+      "plugins": {
+        "test-runner": {
+          "name": "test-runner",
+          "description": "Test runner plugin for pisco (web component tester implementation)",
+          "plugins": [
+            "stream-write-hook"
+          ],
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-component-unit-testing/node_modules/pisco-plugin-test-runner-wct/plugins/test-runner"
+        }
+      },
+      "steps": {},
+      "flows": {},
+      "contexts": {}
+    },
+    "pisco-cells-workspace-create": {
+      "name": "pisco-cells-workspace-create",
+      "version": "0.7.3",
+      "description": "Workspace creation for cells project",
+      "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-workspace-create",
+      "config": {
+        "cmd": "cells-workspace-create",
+        "defaultContext": "workspace"
+      },
+      "plugins": {},
+      "steps": {
+        "create": {
+          "workspace": {
+            "name": "create",
+            "description": "Workspace creation for Cells projects",
+            "contexts": [
+              "workspace"
+            ],
+            "plugins": [
+              "cells-workspace",
+              "bower",
+              "scm"
+            ],
+            "isGenerator": true,
+            "requirements": {
+              "bower": {},
+              "git": {}
+            },
+            "prompts": [
+              {
+                "type": "confirm",
+                "name": "warning",
+                "required": true,
+                "default": true,
+                "message": "WARNING: This process will pull all the repos from the Cells projects in the selected folder\n  removing any uncommitted code if there is any local repository in that folder. Do you want to continue?"
+              },
+              {
+                "when": "#_checkWarning",
+                "type": "input",
+                "name": "workspaceRoot",
+                "required": "true",
+                "default": "./cells-workspace",
+                "message": "Set the base folder in which to download the repos:"
+              }
+            ],
+            "workspaceFamiliesPrompt": [
+              {
+                "type": "checkbox",
+                "name": "workspaceFamiliesFilter",
+                "required": true,
+                "message": "Select the families to download in your workspace",
+                "choices": "#_workspaceFamiliesChoicesList",
+                "validate": "#_workspaceFamiliesChoicesValidate"
+              }
+            ],
+            "workspaceFamiliesGet": [
+              "https://bbva-files.s3.amazonaws.com/cells/workspace-index/cells-families.json"
+            ],
+            "workspaceBaseElements": [
+              {
+                "source": "bower_components",
+                "destination": "components",
+                "preference": "source"
+              }
+            ],
+            "scm": {
+              "operation": "checkout",
+              "ignoreErrors": true,
+              "jobs": 10
+            },
+            "bower": {
+              "installed": true,
+              "forceLatest": true
+            },
+            "stages": [
+              "config"
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-workspace-create/steps/create"
+          }
+        }
+      },
+      "flows": {},
+      "contexts": {}
+    },
+    "pisco-plugin-cells-workspace": {
+      "name": "pisco-plugin-cells-workspace",
+      "version": "0.1.4",
+      "description": "Pisco plugin for Cells workspace operations",
+      "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-workspace-create/node_modules/pisco-plugin-cells-workspace",
+      "config": {},
+      "plugins": {
+        "cells-workspace": {
+          "name": "cells-workspace",
+          "description": "Plugin to perform workspace creation and update operations",
+          "plugins": [
+            "scm"
+          ],
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-workspace-create/node_modules/pisco-plugin-cells-workspace/plugins/cells-workspace"
+        }
+      },
+      "steps": {},
+      "flows": {},
+      "contexts": {}
+    },
+    "pisco-plugin-scm-git": {
+      "name": "pisco-plugin-scm-git",
+      "version": "0.1.10",
+      "description": "Pisco plugin for SCM operations (Git implementation)",
+      "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-workspace-create/node_modules/pisco-plugin-scm-git",
+      "config": {},
+      "plugins": {
+        "scm": {
+          "name": "scm",
+          "description": "Pisco plugin for SCM operations (Git implementation)",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-workspace-create/node_modules/pisco-plugin-scm-git/plugins/scm"
+        }
+      },
+      "steps": {},
+      "flows": {},
+      "contexts": {}
+    },
+    "pisco-recipe-generator": {
+      "name": "pisco-recipe-generator",
+      "version": "1.0.0",
+      "description": "It is a scaffold to help developers to create a new recipe in Pisocosour",
+      "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-recipe-generator",
+      "config": {
+        "cmd": "recipe-generator",
+        "defaultContext": "recipe",
+        "plugins": [
+          "fs"
+        ]
+      },
+      "plugins": {
+        "logPiscoImage": {
+          "name": "logPiscoImage",
+          "description": "It shows the pisco image in the console log",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-recipe-generator/plugins/logPiscoImage"
+        }
+      },
+      "steps": {
+        "add-context": {
+          "recipe": {
+            "name": "add-context",
+            "description": "Generator to add a new context",
+            "isGenerator": true,
+            "contexts": [
+              "recipe"
+            ],
+            "plugins": [
+              "nunjucks"
+            ],
+            "prompts": [
+              {
+                "type": "input",
+                "name": "contextName",
+                "required": true,
+                "message": "Name of the context"
+              },
+              {
+                "type": "input",
+                "name": "contextDescription",
+                "required": true,
+                "message": "Description for the context"
+              }
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-recipe-generator/steps/add-context"
+          }
+        },
+        "add-flow": {
+          "recipe": {
+            "name": "add-flow",
+            "description": "Generator to add a new flow",
+            "contexts": [
+              "recipe"
+            ],
+            "plugins": [
+              "nunjucks"
+            ],
+            "prompts": [
+              {
+                "type": "input",
+                "name": "flowName",
+                "required": true,
+                "message": "Name of the flow"
+              },
+              {
+                "type": "input",
+                "name": "flowDescription",
+                "required": true,
+                "message": "Description for the flow"
+              },
+              {
+                "type": "confirm",
+                "name": "flowIsGenerator",
+                "required": true,
+                "message": "Is a generator? (if the flow creates the context)"
+              },
+              {
+                "type": "input",
+                "name": "flowSteps",
+                "required": true,
+                "message": "List of steps separated by commas",
+                "default": "step1, step2, step3"
+              }
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-recipe-generator/steps/add-flow"
+          }
+        },
+        "add-step": {
+          "recipe": {
+            "name": "add-step",
+            "description": "Generator to add a new step",
+            "contexts": [
+              "recipe"
+            ],
+            "plugins": [
+              "nunjucks"
+            ],
+            "prompts": [
+              {
+                "type": "input",
+                "name": "stepName",
+                "required": true,
+                "message": "Name of the step"
+              },
+              {
+                "type": "input",
+                "name": "stepDescription",
+                "required": true,
+                "message": "Description for the step"
+              },
+              {
+                "type": "confirm",
+                "name": "stepIsGenerator",
+                "required": true,
+                "message": "Is a generator? (if the step creates the context)"
+              },
+              {
+                "type": "input",
+                "name": "stepContexts",
+                "required": true,
+                "message": "List of contexts separated by commas (recipe, app, component, ...)",
+                "default": "recipe"
+              },
+              {
+                "type": "input",
+                "name": "stepPlugins",
+                "required": false,
+                "message": "List of plugins separated by commas (plugin1, plugin2)"
+              }
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-recipe-generator/steps/add-step"
+          }
+        },
+        "recipe-create": {
+          "recipe": {
+            "name": "recipe-create",
+            "contexts": [
+              "recipe"
+            ],
+            "isGenerator": true,
+            "plugins": [
+              "nunjucks",
+              "logPiscoImage"
+            ],
+            "description": "Create a recipe scaffold",
+            "prompts": [
+              {
+                "type": "input",
+                "name": "recipeName",
+                "required": true,
+                "message": "Recipe name",
+                "default": "your-recipe-name"
+              },
+              {
+                "type": "input",
+                "name": "recipeDescription",
+                "required": true,
+                "message": "Recipe description",
+                "default": ""
+              },
+              {
+                "type": "input",
+                "name": "recipeCmdName",
+                "required": true,
+                "message": "Recipe command line name"
+              },
+              {
+                "type": "list",
+                "name": "recipeCIFile",
+                "required": "true",
+                "message": "Recipe Continuous Integration File",
+                "choices": [
+                  "none",
+                  "Jenkinsfile",
+                  ".travis.yml"
+                ],
+                "default": ".travis.yml"
+              }
+            ],
+            "recipeVersion": "0.1.0",
+            "recipeDefaultContext": "",
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-recipe-generator/steps/recipe-create"
+          }
+        }
+      },
+      "flows": {},
+      "contexts": {}
+    },
+    "pisco-plugin-nunjucks": {
+      "name": "pisco-plugin-nunjucks",
+      "version": "0.2.1",
+      "description": "Pisco plugin for templating with metalsmith and nunjucks",
+      "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-recipe-generator/node_modules/pisco-plugin-nunjucks",
+      "config": {},
+      "plugins": {
+        "nunjucks": {
+          "name": "nunjucks",
+          "description": "Exec a template render with metalsmith and nunjucks",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-recipe-generator/node_modules/pisco-plugin-nunjucks/plugins/nunjucks"
+        }
+      },
+      "steps": {},
+      "flows": {},
+      "contexts": {}
+    }
+  }
+}

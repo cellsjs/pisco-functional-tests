@@ -15,5 +15,8 @@
     "pisco"
   ],
   "author": "Alberto Eyo",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^3.2.0"
+  }
 }
