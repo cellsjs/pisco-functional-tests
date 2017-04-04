@@ -1,0 +1,19 @@
+{
+  "name": "pisco-functional-tests",
+  "version": "1.0.0",
+  "description": "Functional tests for pisco",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -u tdd"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@globaldevtools.bbva.com:7999/ctool/pisco-functional-tests.git"
+  },
+  "keywords": [
+    "functional-tests",
+    "pisco"
+  ],
+  "author": "Alberto Eyo",
+  "license": "ISC"
+}
