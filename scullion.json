@@ -26,10 +26,10 @@
       "contexts": {}
     },
     "module": {
-      "name": "pisco-sample",
-      "version": "0.1.0",
-      "description": "My first recipe",
-      "dir": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample",
+      "name": "pisco-functional-tests",
+      "version": "1.0.1-beta.0",
+      "description": "Functional tests for pisco",
+      "dir": "/home/albertoeyo/git/pisco-functional-tests",
       "config": {
         "cmd": "recipe-sample",
         "defaultContext": ""
@@ -43,7 +43,7 @@
             "contexts": [
               "world"
             ],
-            "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/steps/sayHello"
+            "_module": "/home/albertoeyo/git/pisco-functional-tests/steps/sayHello"
           }
         }
       },
@@ -54,7 +54,7 @@
           "steps": {
             "sayHello": {}
           },
-          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/flows/hello",
+          "_module": "/home/albertoeyo/git/pisco-functional-tests/flows/hello",
           "type": "normal"
         }
       },
@@ -62,15 +62,15 @@
         "world": {
           "name": "world",
           "description": "Check if current directory is world",
-          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/contexts/world"
+          "_module": "/home/albertoeyo/git/pisco-functional-tests/contexts/world"
         }
       }
     },
     "piscosour": {
       "name": "piscosour",
-      "version": "1.0.10",
+      "version": "1.0.15",
       "description": "The adhesive orchestrator",
-      "dir": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/piscosour",
+      "dir": "/home/albertoeyo/git/pisco-functional-tests/node_modules/piscosour",
       "config": {
         "cmd": "pisco",
         "analytics": {
@@ -114,67 +114,67 @@
         "context": {
           "name": "context",
           "description": "Get automatic context of execution",
-          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/piscosour/plugins/context"
+          "_module": "/home/albertoeyo/git/pisco-functional-tests/node_modules/piscosour/plugins/context"
         },
         "fsutils": {
           "name": "fsutils",
           "description": "fs utils",
-          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/piscosour/plugins/fsutils"
+          "_module": "/home/albertoeyo/git/pisco-functional-tests/node_modules/piscosour/plugins/fsutils"
         },
         "inquirer": {
           "name": "inquirer",
           "description": "Plugin inquirer",
-          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/piscosour/plugins/inquirer"
+          "_module": "/home/albertoeyo/git/pisco-functional-tests/node_modules/piscosour/plugins/inquirer"
         },
         "installer": {
           "name": "installer",
           "description": "Lazy install plugin",
-          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/piscosour/plugins/installer"
+          "_module": "/home/albertoeyo/git/pisco-functional-tests/node_modules/piscosour/plugins/installer"
         },
         "launcher": {
           "name": "launcher",
           "description": "Plugin launcher",
-          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/piscosour/plugins/launcher"
+          "_module": "/home/albertoeyo/git/pisco-functional-tests/node_modules/piscosour/plugins/launcher"
         },
         "os": {
           "name": "os",
           "description": "OS plugin",
-          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/piscosour/plugins/os"
+          "_module": "/home/albertoeyo/git/pisco-functional-tests/node_modules/piscosour/plugins/os"
         },
         "piscosour": {
           "name": "piscosour",
           "description": "Piscosour config plugin",
-          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/piscosour/plugins/piscosour"
+          "_module": "/home/albertoeyo/git/pisco-functional-tests/node_modules/piscosour/plugins/piscosour"
         },
         "skipper": {
           "name": "skipper",
           "description": "Plugin skipper",
-          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/piscosour/plugins/skipper"
+          "_module": "/home/albertoeyo/git/pisco-functional-tests/node_modules/piscosour/plugins/skipper"
         },
         "stream-write-hook": {
           "name": "stream-write-hook",
           "description": "Stream hook plugin",
-          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/piscosour/plugins/stream-write-hook"
+          "_module": "/home/albertoeyo/git/pisco-functional-tests/node_modules/piscosour/plugins/stream-write-hook"
         },
         "system-checker": {
           "name": "system-checker",
           "description": "System requirements checker",
-          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/piscosour/plugins/system-checker"
+          "_module": "/home/albertoeyo/git/pisco-functional-tests/node_modules/piscosour/plugins/system-checker"
         },
         "system-saver": {
           "name": "system-saver",
           "description": "System requirements saver",
-          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/piscosour/plugins/system-saver"
+          "_module": "/home/albertoeyo/git/pisco-functional-tests/node_modules/piscosour/plugins/system-saver"
         },
         "test": {
           "name": "test",
           "description": "Test plugin",
-          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/piscosour/plugins/test"
+          "_module": "/home/albertoeyo/git/pisco-functional-tests/node_modules/piscosour/plugins/test"
         },
         "userConfig": {
           "name": "userConfig",
           "description": "Operations on user configuration file ($HOME/.piscosour/piscosour.json)",
-          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/piscosour/plugins/userConfig"
+          "_module": "/home/albertoeyo/git/pisco-functional-tests/node_modules/piscosour/plugins/userConfig"
         }
       },
       "steps": {
@@ -199,7 +199,7 @@
                 "message": "Write a description for the of the flow"
               }
             ],
-            "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/piscosour/steps/add-flows"
+            "_module": "/home/albertoeyo/git/pisco-functional-tests/node_modules/piscosour/steps/add-flows"
           }
         },
         "add-steps": {
@@ -224,7 +224,7 @@
                 "choices": "#showContexts"
               }
             ],
-            "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/piscosour/steps/add-steps"
+            "_module": "/home/albertoeyo/git/pisco-functional-tests/node_modules/piscosour/steps/add-steps"
           }
         },
         "test": {
@@ -275,7 +275,7 @@
             "plugins": [
               "test"
             ],
-            "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/piscosour/steps/test"
+            "_module": "/home/albertoeyo/git/pisco-functional-tests/node_modules/piscosour/steps/test"
           }
         },
         "test2": {
@@ -297,7 +297,7 @@
             "workingDir": "nohay",
             "flying": "ohyeah!!",
             "other": "good!!",
-            "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/piscosour/steps/test2"
+            "_module": "/home/albertoeyo/git/pisco-functional-tests/node_modules/piscosour/steps/test2"
           }
         },
         "weather": {
@@ -307,7 +307,7 @@
             "contexts": "*",
             "city": "madrid",
             "isTest": true,
-            "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/piscosour/steps/weather"
+            "_module": "/home/albertoeyo/git/pisco-functional-tests/node_modules/piscosour/steps/weather"
           }
         }
       },
@@ -316,9 +316,9 @@
     },
     "pisco-contexts": {
       "name": "pisco-contexts",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "description": "Contexts of piscosour",
-      "dir": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/pisco-contexts",
+      "dir": "/home/albertoeyo/git/pisco-functional-tests/node_modules/pisco-contexts",
       "config": {
         "cmd": "pisco-contexts",
         "defaultContext": ""
@@ -333,13 +333,13 @@
             "add-context": {
               "recipe": {
                 "requires": {
-                  "pisco-recipe-generator": "^1.0.0"
+                  "pisco-recipe-generator": "^1.1.0"
                 },
                 "installed": true
               }
             }
           },
-          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/pisco-contexts/flows/add-context",
+          "_module": "/home/albertoeyo/git/pisco-functional-tests/node_modules/pisco-contexts/flows/add-context",
           "type": "normal"
         },
         "add-flow": {
@@ -349,13 +349,29 @@
             "add-flow": {
               "recipe": {
                 "requires": {
-                  "pisco-recipe-generator": "^1.0.0"
+                  "pisco-recipe-generator": "^1.1.0"
                 },
                 "installed": true
               }
             }
           },
-          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/pisco-contexts/flows/add-flow",
+          "_module": "/home/albertoeyo/git/pisco-functional-tests/node_modules/pisco-contexts/flows/add-flow",
+          "type": "normal"
+        },
+        "add-plugin": {
+          "name": "add-plugin",
+          "description": "Add a plugin to a piscosour recipe",
+          "steps": {
+            "add-plugin": {
+              "recipe": {
+                "requires": {
+                  "pisco-recipe-generator": "^1.1.0"
+                },
+                "installed": true
+              }
+            }
+          },
+          "_module": "/home/albertoeyo/git/pisco-functional-tests/node_modules/pisco-contexts/flows/add-plugin",
           "type": "normal"
         },
         "add-step": {
@@ -365,13 +381,13 @@
             "add-step": {
               "recipe": {
                 "requires": {
-                  "pisco-recipe-generator": "^1.0.0"
+                  "pisco-recipe-generator": "^1.1.0"
                 },
                 "installed": true
               }
             }
           },
-          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/pisco-contexts/flows/add-step",
+          "_module": "/home/albertoeyo/git/pisco-functional-tests/node_modules/pisco-contexts/flows/add-step",
           "type": "normal"
         },
         "create": {
@@ -382,13 +398,13 @@
             "recipe-create": {
               "recipe": {
                 "requires": {
-                  "pisco-recipe-generator": "^1.0.0"
+                  "pisco-recipe-generator": "^1.1.0"
                 },
                 "installed": true
               }
             }
           },
-          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/pisco-contexts/flows/create",
+          "_module": "/home/albertoeyo/git/pisco-functional-tests/node_modules/pisco-contexts/flows/create",
           "type": "normal"
         },
         "test": {
@@ -428,7 +444,7 @@
             },
             "weather": {}
           },
-          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/pisco-contexts/flows/test"
+          "_module": "/home/albertoeyo/git/pisco-functional-tests/node_modules/pisco-contexts/flows/test"
         },
         "testint": {
           "type": "util",
@@ -447,19 +463,19 @@
               }
             }
           },
-          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/pisco-contexts/flows/testint"
+          "_module": "/home/albertoeyo/git/pisco-functional-tests/node_modules/pisco-contexts/flows/testint"
         }
       },
       "contexts": {
         "documentation": {
           "name": "documentation",
           "description": "Piscosour documentation context",
-          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/pisco-contexts/contexts/documentation"
+          "_module": "/home/albertoeyo/git/pisco-functional-tests/node_modules/pisco-contexts/contexts/documentation"
         },
         "recipe": {
           "name": "recipe",
           "description": "Piscosour recipe context",
-          "_module": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/pisco-contexts/contexts/recipe"
+          "_module": "/home/albertoeyo/git/pisco-functional-tests/node_modules/pisco-contexts/contexts/recipe"
         }
       }
     },
@@ -467,7 +483,7 @@
       "name": "pisco-requirements",
       "version": "0.1.3",
       "description": "Piscosour base requirements configuration",
-      "dir": "/home/albertoeyo/sngular/wk-cells/cells-workspace/pisco-sample/node_modules/pisco-requirements",
+      "dir": "/home/albertoeyo/git/pisco-functional-tests/node_modules/pisco-requirements",
       "config": {
         "params": {
           "versions": {
@@ -635,9 +651,9 @@
     },
     "pisco-cells-contexts": {
       "name": "pisco-cells-contexts",
-      "version": "1.4.32",
+      "version": "1.4.34",
       "description": "Pisco context definitions for Cells project",
-      "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts",
+      "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-contexts",
       "config": {
         "params": {
           "versions": {
@@ -657,7 +673,7 @@
             "build": {
               "app": {
                 "requires": {
-                  "cells-app": "^0.7.0"
+                  "cells-app": "^0.8.0"
                 }
               },
               "iconset": {
@@ -672,7 +688,7 @@
               }
             }
           },
-          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/build",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-contexts/flows/build",
           "type": "normal"
         },
         "changeDeps": {
@@ -700,7 +716,7 @@
               }
             }
           },
-          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/changeDeps",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-contexts/flows/changeDeps",
           "type": "normal"
         },
         "changeOrigin": {
@@ -728,7 +744,7 @@
               }
             }
           },
-          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/changeOrigin",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-contexts/flows/changeOrigin",
           "type": "normal"
         },
         "check-mocks": {
@@ -743,7 +759,7 @@
               }
             }
           },
-          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/check-mocks",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-contexts/flows/check-mocks",
           "type": "normal"
         },
         "check-theme": {
@@ -759,7 +775,7 @@
           },
           "name": "check-theme",
           "description": "Check if a component is using a theme",
-          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/check-theme",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-contexts/flows/check-theme",
           "type": "normal"
         },
         "clean": {
@@ -769,12 +785,12 @@
             "clean": {
               "app": {
                 "requires": {
-                  "cells-app": "^0.7.0"
+                  "cells-app": "^0.8.0"
                 }
               }
             }
           },
-          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/clean",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-contexts/flows/clean",
           "type": "normal"
         },
         "cordova-build": {
@@ -784,12 +800,12 @@
             "cordova-build": {
               "app": {
                 "requires": {
-                  "cells-app": "^0.7.0"
+                  "cells-app": "^0.8.0"
                 }
               }
             }
           },
-          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/cordova-build",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-contexts/flows/cordova-build",
           "type": "normal"
         },
         "create": {
@@ -821,7 +837,7 @@
               }
             }
           },
-          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/create",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-contexts/flows/create",
           "type": "normal"
         },
         "kpis": {
@@ -836,7 +852,7 @@
               }
             }
           },
-          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/kpis",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-contexts/flows/kpis",
           "type": "normal"
         },
         "migrate": {
@@ -862,7 +878,7 @@
               }
             }
           },
-          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/migrate",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-contexts/flows/migrate",
           "type": "normal"
         },
         "publish": {
@@ -874,13 +890,13 @@
               "app": {
                 "requires": {
                   "pisco-cells-cordova-app-publish": "^0.3.0",
-                  "cells-app": "^0.7.0"
+                  "cells-app": "^0.8.0"
                 }
               },
               "cordova-app": {
                 "requires": {
                   "pisco-cells-cordova-app-publish": "^0.3.0",
-                  "cells-app": "^0.7.0"
+                  "cells-app": "^0.8.0"
                 }
               },
               "catalog": {
@@ -910,28 +926,18 @@
                 }
               }
             },
-            "smoke-testing": {
-              "type": "flow",
-              "implementation-check": false,
-              "inputs": {
-                "workingDir": {
-                  "build_": "workingDir"
-                },
-                "appName": {
-                  "build_": "appName"
-                }
-              }
-            },
             "publish": {
               "master": {
                 "requires": {
                   "pisco-gitflow-publish": "^0.1.0"
-                }
+                },
+                "installed": true
               },
               "recipe": {
                 "requires": {
                   "pisco-recipe-publish": "^0.1.0"
-                }
+                },
+                "installed": true
               },
               "component": {
                 "requires": {
@@ -966,7 +972,7 @@
               }
             }
           },
-          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/publish",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-contexts/flows/publish",
           "type": "normal"
         },
         "publishAll": {
@@ -1021,7 +1027,7 @@
               }
             }
           },
-          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/publishAll",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-contexts/flows/publishAll",
           "type": "normal"
         },
         "pushFileAll": {
@@ -1038,7 +1044,7 @@
               }
             }
           },
-          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/pushFileAll",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-contexts/flows/pushFileAll",
           "type": "normal"
         },
         "restore": {
@@ -1047,20 +1053,20 @@
               "app": {
                 "requires": {
                   "pisco-cells-cordova-app-publish": "^0.3.0",
-                  "cells-app": "^0.7.0"
+                  "cells-app": "^0.8.0"
                 }
               },
               "cordova-app": {
                 "requires": {
                   "pisco-cells-cordova-app-publish": "^0.3.0",
-                  "cells-app": "^0.7.0"
+                  "cells-app": "^0.8.0"
                 }
               }
             }
           },
           "name": "restore",
           "description": "Restore your application from package.json configuration",
-          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/restore",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-contexts/flows/restore",
           "type": "normal"
         },
         "save": {
@@ -1075,7 +1081,7 @@
           },
           "name": "save",
           "description": "Save the current state of cordova application in package.json",
-          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/save",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-contexts/flows/save",
           "type": "normal"
         },
         "serve-app": {
@@ -1085,12 +1091,12 @@
             "serve": {
               "app": {
                 "requires": {
-                  "cells-app": "^0.7.0"
+                  "cells-app": "^0.8.0"
                 }
               }
             }
           },
-          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/serve",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-contexts/flows/serve",
           "type": "normal"
         },
         "serve": {
@@ -1117,34 +1123,7 @@
               }
             }
           },
-          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/serve-component",
-          "type": "normal"
-        },
-        "smoke-testing": {
-          "name": "smoke-testing",
-          "description": "Build Verification Testing",
-          "steps": {
-            "deploy": {
-              "catalog": {
-                "requires": {
-                  "pisco-cells-cordova-app-publish": "^0.3.4"
-                }
-              }
-            },
-            "smoke-testing": {
-              "catalog": {
-                "requires": {
-                  "pisco-cells-catalog-smoke-testing": "^0.1.0"
-                }
-              },
-              "inputs": {
-                "smokeTestsBaseUrl": {
-                  "deploy": "baseUrl"
-                }
-              }
-            }
-          },
-          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/smoke-testing",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-contexts/flows/serve-component",
           "type": "normal"
         },
         "static-analysis": {
@@ -1157,7 +1136,7 @@
               "recipe": {}
             }
           },
-          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/static-analysis",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-contexts/flows/static-analysis",
           "type": "normal"
         },
         "theme": {
@@ -1173,7 +1152,7 @@
           },
           "name": "theme",
           "description": "Check if a component is using a theme",
-          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/theme",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-contexts/flows/theme",
           "type": "normal"
         },
         "upload": {
@@ -1188,7 +1167,7 @@
               }
             }
           },
-          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/upload",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-contexts/flows/upload",
           "type": "normal"
         },
         "validate": {
@@ -1233,7 +1212,7 @@
               }
             }
           },
-          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/validate",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-contexts/flows/validate",
           "type": "normal"
         },
         "validate-platform": {
@@ -1249,7 +1228,7 @@
               }
             }
           },
-          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/validate-platform",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-contexts/flows/validate-platform",
           "type": "normal"
         },
         "version": {
@@ -1264,7 +1243,7 @@
               }
             }
           },
-          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/flows/version",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-contexts/flows/version",
           "type": "normal"
         }
       },
@@ -1272,52 +1251,52 @@
         "app": {
           "name": "app",
           "description": "Cells app context",
-          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/contexts/app"
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-contexts/contexts/app"
         },
         "bundle": {
           "name": "bundle",
           "description": "Content bundle",
-          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/contexts/bundle"
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-contexts/contexts/bundle"
         },
         "catalog": {
           "name": "catalog",
           "description": "Components catalog",
-          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/contexts/catalog"
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-contexts/contexts/catalog"
         },
         "catalog-generator": {
           "name": "catalog-generator",
           "description": "Catalog Generator Context",
-          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/contexts/catalog-generator"
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-contexts/contexts/catalog-generator"
         },
         "cells-platform": {
           "name": "cells-platform",
           "description": "Cells Platform context",
-          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/contexts/cells-platform"
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-contexts/contexts/cells-platform"
         },
         "component": {
           "name": "component",
           "description": "Cells component context",
-          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/contexts/component"
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-contexts/contexts/component"
         },
         "cordova-app": {
           "name": "cordova-app",
           "description": "Cells cordova app context",
-          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/contexts/cordova-app"
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-contexts/contexts/cordova-app"
         },
         "cordova-plugin": {
           "name": "cordova-plugin",
           "description": "Cordova plugin",
-          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/contexts/cordova-plugin"
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-contexts/contexts/cordova-plugin"
         },
         "iconset": {
           "name": "iconset",
           "description": "Cells iconset context",
-          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/contexts/iconset"
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-contexts/contexts/iconset"
         },
         "workspace": {
           "name": "workspace",
           "description": "Cells workspace context",
-          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/node_modules/pisco-cells-contexts/contexts/workspace"
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-contexts/contexts/workspace"
         }
       }
     },
@@ -2008,9 +1987,2064 @@
       "flows": {},
       "contexts": {}
     },
+    "pisco-gitflow-contexts": {
+      "name": "pisco-gitflow-contexts",
+      "version": "0.1.9",
+      "description": "Pisco context definitions for Git Flow",
+      "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts",
+      "config": {},
+      "plugins": {},
+      "steps": {},
+      "flows": {
+        "consolidate": {
+          "name": "consolidate",
+          "description": "[Git flow]: Check for semver relate updates",
+          "steps": {
+            "start": {
+              "type": "flow",
+              "params": {
+                "action": "start",
+                "targetBranch": "consolidation",
+                "branchName": "auto_consolidate"
+              }
+            },
+            "finish": {
+              "watchContext": true,
+              "type": "flow",
+              "params": {
+                "action": "finish"
+              }
+            }
+          },
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/flows/consolidate",
+          "type": "normal"
+        },
+        "finish": {
+          "name": "finish",
+          "description": "[Git flow]: Finish and merge branch",
+          "steps": {
+            "merge": {
+              "implementation-check": false
+            },
+            "setVersion": {
+              "excludes": [
+                "feature",
+                "hotfix",
+                "release",
+                "merger",
+                "consolidation"
+              ]
+            },
+            "finish": {
+              "implementation-check": false
+            },
+            "validate": {
+              "excludes": [
+                "feature",
+                "hotfix",
+                "release",
+                "merger",
+                "consolidation"
+              ],
+              "type": "flow"
+            },
+            "publish": {
+              "type": "flow",
+              "params": {
+                "tag": true
+              },
+              "inputs": {
+                "deletedBranch": {
+                  "finish": "deletedBranch"
+                }
+              }
+            }
+          },
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/flows/finish",
+          "type": "normal"
+        },
+        "init": {
+          "name": "init",
+          "description": "[Git flow]: Initialize set of branches",
+          "steps": {
+            "init": {
+              "implementation-check": false
+            }
+          },
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/flows/init",
+          "type": "normal"
+        },
+        "merge": {
+          "name": "merge",
+          "description": "[Git flow]: Merge branch",
+          "steps": {
+            "merge": {
+              "implementation-check": false
+            },
+            "validate": {
+              "excludes": [
+                "feature",
+                "hotfix",
+                "release"
+              ],
+              "type": "flow"
+            }
+          },
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/flows/merge",
+          "type": "normal"
+        },
+        "start": {
+          "name": "start",
+          "description": "[Git flow]: Start new branch",
+          "steps": {
+            "start": {
+              "implementation-check": false
+            },
+            "setVersion": {
+              "excludes": [
+                "develop",
+                "master"
+              ],
+              "params": {
+                "pretag": "true"
+              }
+            },
+            "push": {
+              "implementation-check": false,
+              "inputs": {
+                "branchName": {
+                  "start": "branchName"
+                }
+              }
+            }
+          },
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/flows/start",
+          "type": "normal"
+        }
+      },
+      "contexts": {
+        "consolidation": {
+          "name": "consolidation",
+          "description": "semver consolidation branch",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/contexts/consolidation"
+        },
+        "develop": {
+          "name": "develop",
+          "description": "Develop branch",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/contexts/develop"
+        },
+        "feature": {
+          "name": "feature",
+          "description": "Any feature branch",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/contexts/feature"
+        },
+        "hotfix": {
+          "name": "hotfix",
+          "description": "hotfix branch",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/contexts/hotfix"
+        },
+        "master": {
+          "name": "master",
+          "description": "Master branch",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/contexts/master"
+        },
+        "merger": {
+          "name": "merger",
+          "description": "Merger to master branch",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/contexts/merger"
+        },
+        "release": {
+          "name": "release",
+          "description": "Release branch",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/contexts/release"
+        }
+      }
+    },
+    "pisco-cells-json-setVersion": {
+      "name": "pisco-cells-json-setVersion",
+      "version": "0.1.9",
+      "description": "Steps for version treatment",
+      "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-cells-json-setVersion",
+      "config": {},
+      "plugins": {},
+      "steps": {
+        "setVersion": {
+          "node-module": {
+            "name": "setVersion",
+            "description": "Write version on project json file",
+            "plugins": [
+              "npm",
+              "bower",
+              "scm",
+              "semver"
+            ],
+            "bower": {
+              "installed": true,
+              "forceLatest": true,
+              "production": true
+            },
+            "npmDependencies": {
+              "updated": true
+            },
+            "stages": [
+              "never"
+            ],
+            "contexts": [
+              "node-module",
+              "component",
+              "app",
+              "recipe",
+              "cordova-app",
+              "cordova-plugin"
+            ],
+            "jsonFiles": [
+              "bower.json",
+              "package.json"
+            ],
+            "versionStrategies": {
+              "start": {
+                "feature": [
+                  "prerelease",
+                  "alpha"
+                ],
+                "merger": [
+                  "prerelease",
+                  "aam"
+                ],
+                "release": [
+                  "prerelease",
+                  "rc"
+                ],
+                "hotfix": [
+                  "prerelease",
+                  "hotfix"
+                ],
+                "consolidation": [
+                  "#preconsolidate",
+                  "consolidate"
+                ]
+              },
+              "finish": {
+                "feature": [
+                  "prerelease",
+                  "beta"
+                ],
+                "merger": [
+                  "prerelease",
+                  "beta"
+                ],
+                "release": [
+                  "auto",
+                  ""
+                ],
+                "consolidation": [
+                  "auto",
+                  ""
+                ],
+                "hotfix": [
+                  "auto",
+                  ""
+                ]
+              }
+            },
+            "versionDescription": "chore(): change version file:",
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-cells-json-setVersion/steps/setVersion"
+          },
+          "component": {
+            "name": "setVersion",
+            "description": "Write version on project json file",
+            "plugins": [
+              "npm",
+              "bower",
+              "scm",
+              "semver"
+            ],
+            "bower": {
+              "installed": true,
+              "forceLatest": true,
+              "production": true
+            },
+            "npmDependencies": {
+              "updated": true
+            },
+            "stages": [
+              "never"
+            ],
+            "contexts": [
+              "node-module",
+              "component",
+              "app",
+              "recipe",
+              "cordova-app",
+              "cordova-plugin"
+            ],
+            "jsonFiles": [
+              "bower.json",
+              "package.json"
+            ],
+            "versionStrategies": {
+              "start": {
+                "feature": [
+                  "prerelease",
+                  "alpha"
+                ],
+                "merger": [
+                  "prerelease",
+                  "aam"
+                ],
+                "release": [
+                  "prerelease",
+                  "rc"
+                ],
+                "hotfix": [
+                  "prerelease",
+                  "hotfix"
+                ],
+                "consolidation": [
+                  "#preconsolidate",
+                  "consolidate"
+                ]
+              },
+              "finish": {
+                "feature": [
+                  "prerelease",
+                  "beta"
+                ],
+                "merger": [
+                  "prerelease",
+                  "beta"
+                ],
+                "release": [
+                  "auto",
+                  ""
+                ],
+                "consolidation": [
+                  "auto",
+                  ""
+                ],
+                "hotfix": [
+                  "auto",
+                  ""
+                ]
+              }
+            },
+            "versionDescription": "chore(): change version file:",
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-cells-json-setVersion/steps/setVersion"
+          },
+          "app": {
+            "name": "setVersion",
+            "description": "Write version on project json file",
+            "plugins": [
+              "npm",
+              "bower",
+              "scm",
+              "semver"
+            ],
+            "bower": {
+              "installed": true,
+              "forceLatest": true,
+              "production": true
+            },
+            "npmDependencies": {
+              "updated": true
+            },
+            "stages": [
+              "never"
+            ],
+            "contexts": [
+              "node-module",
+              "component",
+              "app",
+              "recipe",
+              "cordova-app",
+              "cordova-plugin"
+            ],
+            "jsonFiles": [
+              "bower.json",
+              "package.json"
+            ],
+            "versionStrategies": {
+              "start": {
+                "feature": [
+                  "prerelease",
+                  "alpha"
+                ],
+                "merger": [
+                  "prerelease",
+                  "aam"
+                ],
+                "release": [
+                  "prerelease",
+                  "rc"
+                ],
+                "hotfix": [
+                  "prerelease",
+                  "hotfix"
+                ],
+                "consolidation": [
+                  "#preconsolidate",
+                  "consolidate"
+                ]
+              },
+              "finish": {
+                "feature": [
+                  "prerelease",
+                  "beta"
+                ],
+                "merger": [
+                  "prerelease",
+                  "beta"
+                ],
+                "release": [
+                  "auto",
+                  ""
+                ],
+                "consolidation": [
+                  "auto",
+                  ""
+                ],
+                "hotfix": [
+                  "auto",
+                  ""
+                ]
+              }
+            },
+            "versionDescription": "chore(): change version file:",
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-cells-json-setVersion/steps/setVersion"
+          },
+          "recipe": {
+            "name": "setVersion",
+            "description": "Write version on project json file",
+            "plugins": [
+              "npm",
+              "bower",
+              "scm",
+              "semver"
+            ],
+            "bower": {
+              "installed": true,
+              "forceLatest": true,
+              "production": true
+            },
+            "npmDependencies": {
+              "updated": true
+            },
+            "stages": [
+              "never"
+            ],
+            "contexts": [
+              "node-module",
+              "component",
+              "app",
+              "recipe",
+              "cordova-app",
+              "cordova-plugin"
+            ],
+            "jsonFiles": [
+              "bower.json",
+              "package.json"
+            ],
+            "versionStrategies": {
+              "start": {
+                "feature": [
+                  "prerelease",
+                  "alpha"
+                ],
+                "merger": [
+                  "prerelease",
+                  "aam"
+                ],
+                "release": [
+                  "prerelease",
+                  "rc"
+                ],
+                "hotfix": [
+                  "prerelease",
+                  "hotfix"
+                ],
+                "consolidation": [
+                  "#preconsolidate",
+                  "consolidate"
+                ]
+              },
+              "finish": {
+                "feature": [
+                  "prerelease",
+                  "beta"
+                ],
+                "merger": [
+                  "prerelease",
+                  "beta"
+                ],
+                "release": [
+                  "auto",
+                  ""
+                ],
+                "consolidation": [
+                  "auto",
+                  ""
+                ],
+                "hotfix": [
+                  "auto",
+                  ""
+                ]
+              }
+            },
+            "versionDescription": "chore(): change version file:",
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-cells-json-setVersion/steps/setVersion"
+          },
+          "cordova-app": {
+            "name": "setVersion",
+            "description": "Write version on project json file",
+            "plugins": [
+              "npm",
+              "bower",
+              "scm",
+              "semver"
+            ],
+            "bower": {
+              "installed": true,
+              "forceLatest": true,
+              "production": true
+            },
+            "npmDependencies": {
+              "updated": true
+            },
+            "stages": [
+              "never"
+            ],
+            "contexts": [
+              "node-module",
+              "component",
+              "app",
+              "recipe",
+              "cordova-app",
+              "cordova-plugin"
+            ],
+            "jsonFiles": [
+              "bower.json",
+              "package.json"
+            ],
+            "versionStrategies": {
+              "start": {
+                "feature": [
+                  "prerelease",
+                  "alpha"
+                ],
+                "merger": [
+                  "prerelease",
+                  "aam"
+                ],
+                "release": [
+                  "prerelease",
+                  "rc"
+                ],
+                "hotfix": [
+                  "prerelease",
+                  "hotfix"
+                ],
+                "consolidation": [
+                  "#preconsolidate",
+                  "consolidate"
+                ]
+              },
+              "finish": {
+                "feature": [
+                  "prerelease",
+                  "beta"
+                ],
+                "merger": [
+                  "prerelease",
+                  "beta"
+                ],
+                "release": [
+                  "auto",
+                  ""
+                ],
+                "consolidation": [
+                  "auto",
+                  ""
+                ],
+                "hotfix": [
+                  "auto",
+                  ""
+                ]
+              }
+            },
+            "versionDescription": "chore(): change version file:",
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-cells-json-setVersion/steps/setVersion"
+          },
+          "cordova-plugin": {
+            "name": "setVersion",
+            "description": "Write version on project json file",
+            "plugins": [
+              "npm",
+              "bower",
+              "scm",
+              "semver"
+            ],
+            "bower": {
+              "installed": true,
+              "forceLatest": true,
+              "production": true
+            },
+            "npmDependencies": {
+              "updated": true
+            },
+            "stages": [
+              "never"
+            ],
+            "contexts": [
+              "node-module",
+              "component",
+              "app",
+              "recipe",
+              "cordova-app",
+              "cordova-plugin"
+            ],
+            "jsonFiles": [
+              "bower.json",
+              "package.json"
+            ],
+            "versionStrategies": {
+              "start": {
+                "feature": [
+                  "prerelease",
+                  "alpha"
+                ],
+                "merger": [
+                  "prerelease",
+                  "aam"
+                ],
+                "release": [
+                  "prerelease",
+                  "rc"
+                ],
+                "hotfix": [
+                  "prerelease",
+                  "hotfix"
+                ],
+                "consolidation": [
+                  "#preconsolidate",
+                  "consolidate"
+                ]
+              },
+              "finish": {
+                "feature": [
+                  "prerelease",
+                  "beta"
+                ],
+                "merger": [
+                  "prerelease",
+                  "beta"
+                ],
+                "release": [
+                  "auto",
+                  ""
+                ],
+                "consolidation": [
+                  "auto",
+                  ""
+                ],
+                "hotfix": [
+                  "auto",
+                  ""
+                ]
+              }
+            },
+            "versionDescription": "chore(): change version file:",
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-cells-json-setVersion/steps/setVersion"
+          }
+        }
+      },
+      "flows": {},
+      "contexts": {}
+    },
+    "pisco-plugin-semver": {
+      "name": "pisco-plugin-semver",
+      "version": "0.1.9",
+      "description": "Plugin semver",
+      "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-plugin-semver",
+      "config": {},
+      "plugins": {
+        "semver": {
+          "name": "semver",
+          "description": "Version dealing with semver",
+          "plugins": [
+            "npm",
+            "bower",
+            "scm"
+          ],
+          "jsonFiles": [
+            "bower.json",
+            "package.json"
+          ],
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-plugin-semver/plugins/semver"
+        }
+      },
+      "steps": {},
+      "flows": {},
+      "contexts": {}
+    },
+    "pisco-gitflow-finish": {
+      "name": "pisco-gitflow-finish",
+      "version": "0.1.4",
+      "description": "Finish step for gitflow structure",
+      "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-gitflow-finish",
+      "config": {},
+      "plugins": {},
+      "steps": {
+        "finish": {
+          "develop": {
+            "name": "finish",
+            "description": "Git Flow Finish",
+            "plugins": [
+              "scm"
+            ],
+            "contexts": [
+              "develop",
+              "master",
+              "consolidation",
+              "merger",
+              "feature",
+              "release",
+              "hotfix"
+            ],
+            "finishTargets": {
+              "merger": [
+                "develop"
+              ],
+              "feature": [
+                "develop"
+              ],
+              "release": [
+                "master"
+              ],
+              "hotfix": [
+                "master"
+              ],
+              "consolidation": [
+                "master"
+              ]
+            },
+            "strategy": [
+              "merge"
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-gitflow-finish/steps/finish"
+          },
+          "master": {
+            "name": "finish",
+            "description": "Git Flow Finish",
+            "plugins": [
+              "scm"
+            ],
+            "contexts": [
+              "develop",
+              "master",
+              "consolidation",
+              "merger",
+              "feature",
+              "release",
+              "hotfix"
+            ],
+            "finishTargets": {
+              "merger": [
+                "develop"
+              ],
+              "feature": [
+                "develop"
+              ],
+              "release": [
+                "master"
+              ],
+              "hotfix": [
+                "master"
+              ],
+              "consolidation": [
+                "master"
+              ]
+            },
+            "strategy": [
+              "merge"
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-gitflow-finish/steps/finish"
+          },
+          "consolidation": {
+            "name": "finish",
+            "description": "Git Flow Finish",
+            "plugins": [
+              "scm"
+            ],
+            "contexts": [
+              "develop",
+              "master",
+              "consolidation",
+              "merger",
+              "feature",
+              "release",
+              "hotfix"
+            ],
+            "finishTargets": {
+              "merger": [
+                "develop"
+              ],
+              "feature": [
+                "develop"
+              ],
+              "release": [
+                "master"
+              ],
+              "hotfix": [
+                "master"
+              ],
+              "consolidation": [
+                "master"
+              ]
+            },
+            "strategy": [
+              "merge"
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-gitflow-finish/steps/finish"
+          },
+          "merger": {
+            "name": "finish",
+            "description": "Git Flow Finish",
+            "plugins": [
+              "scm"
+            ],
+            "contexts": [
+              "develop",
+              "master",
+              "consolidation",
+              "merger",
+              "feature",
+              "release",
+              "hotfix"
+            ],
+            "finishTargets": {
+              "merger": [
+                "develop"
+              ],
+              "feature": [
+                "develop"
+              ],
+              "release": [
+                "master"
+              ],
+              "hotfix": [
+                "master"
+              ],
+              "consolidation": [
+                "master"
+              ]
+            },
+            "strategy": [
+              "merge"
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-gitflow-finish/steps/finish"
+          },
+          "feature": {
+            "name": "finish",
+            "description": "Git Flow Finish",
+            "plugins": [
+              "scm"
+            ],
+            "contexts": [
+              "develop",
+              "master",
+              "consolidation",
+              "merger",
+              "feature",
+              "release",
+              "hotfix"
+            ],
+            "finishTargets": {
+              "merger": [
+                "develop"
+              ],
+              "feature": [
+                "develop"
+              ],
+              "release": [
+                "master"
+              ],
+              "hotfix": [
+                "master"
+              ],
+              "consolidation": [
+                "master"
+              ]
+            },
+            "strategy": [
+              "merge"
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-gitflow-finish/steps/finish"
+          },
+          "release": {
+            "name": "finish",
+            "description": "Git Flow Finish",
+            "plugins": [
+              "scm"
+            ],
+            "contexts": [
+              "develop",
+              "master",
+              "consolidation",
+              "merger",
+              "feature",
+              "release",
+              "hotfix"
+            ],
+            "finishTargets": {
+              "merger": [
+                "develop"
+              ],
+              "feature": [
+                "develop"
+              ],
+              "release": [
+                "master"
+              ],
+              "hotfix": [
+                "master"
+              ],
+              "consolidation": [
+                "master"
+              ]
+            },
+            "strategy": [
+              "merge"
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-gitflow-finish/steps/finish"
+          },
+          "hotfix": {
+            "name": "finish",
+            "description": "Git Flow Finish",
+            "plugins": [
+              "scm"
+            ],
+            "contexts": [
+              "develop",
+              "master",
+              "consolidation",
+              "merger",
+              "feature",
+              "release",
+              "hotfix"
+            ],
+            "finishTargets": {
+              "merger": [
+                "develop"
+              ],
+              "feature": [
+                "develop"
+              ],
+              "release": [
+                "master"
+              ],
+              "hotfix": [
+                "master"
+              ],
+              "consolidation": [
+                "master"
+              ]
+            },
+            "strategy": [
+              "merge"
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-gitflow-finish/steps/finish"
+          }
+        }
+      },
+      "flows": {},
+      "contexts": {}
+    },
+    "pisco-gitflow-init": {
+      "name": "pisco-gitflow-init",
+      "version": "0.1.5",
+      "description": "Init gitflow structure",
+      "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-gitflow-init",
+      "config": {},
+      "plugins": {},
+      "steps": {
+        "init": {
+          "master": {
+            "name": "init",
+            "description": "Git Flow creation",
+            "plugins": [
+              "scm",
+              "semver"
+            ],
+            "contexts": [
+              "master"
+            ],
+            "gitflowBase": {
+              "develop": {
+                "patch": [
+                  "prepatch",
+                  "beta"
+                ],
+                "minor": [
+                  "preminor",
+                  "beta"
+                ],
+                "major": [
+                  "premajor",
+                  "beta"
+                ]
+              }
+            },
+            "versionDescription": "chore(): change version file:",
+            "jsonFiles": [
+              "bower.json",
+              "package.json"
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-gitflow-init/steps/init"
+          }
+        }
+      },
+      "flows": {},
+      "contexts": {}
+    },
+    "pisco-gitflow-merge": {
+      "name": "pisco-gitflow-merge",
+      "version": "0.1.4",
+      "description": "gitflow merge step",
+      "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-gitflow-merge",
+      "config": {},
+      "plugins": {},
+      "steps": {
+        "merge": {
+          "master": {
+            "name": "merge",
+            "description": "git flow merge",
+            "plugins": [
+              "scm"
+            ],
+            "contexts": [
+              "master",
+              "develop",
+              "consolidation",
+              "feature",
+              "release",
+              "hotfix",
+              "merger"
+            ],
+            "finishTargets": {
+              "merger": [
+                "develop"
+              ],
+              "feature": [
+                "develop"
+              ],
+              "release": [
+                "master",
+                "force"
+              ],
+              "hotfix": [
+                "master"
+              ],
+              "consolidation": [
+                "master"
+              ]
+            },
+            "mergeTargets": {
+              "merger": [
+                "master"
+              ]
+            },
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-gitflow-merge/steps/merge"
+          },
+          "develop": {
+            "name": "merge",
+            "description": "git flow merge",
+            "plugins": [
+              "scm"
+            ],
+            "contexts": [
+              "master",
+              "develop",
+              "consolidation",
+              "feature",
+              "release",
+              "hotfix",
+              "merger"
+            ],
+            "finishTargets": {
+              "merger": [
+                "develop"
+              ],
+              "feature": [
+                "develop"
+              ],
+              "release": [
+                "master",
+                "force"
+              ],
+              "hotfix": [
+                "master"
+              ],
+              "consolidation": [
+                "master"
+              ]
+            },
+            "mergeTargets": {
+              "merger": [
+                "master"
+              ]
+            },
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-gitflow-merge/steps/merge"
+          },
+          "consolidation": {
+            "name": "merge",
+            "description": "git flow merge",
+            "plugins": [
+              "scm"
+            ],
+            "contexts": [
+              "master",
+              "develop",
+              "consolidation",
+              "feature",
+              "release",
+              "hotfix",
+              "merger"
+            ],
+            "finishTargets": {
+              "merger": [
+                "develop"
+              ],
+              "feature": [
+                "develop"
+              ],
+              "release": [
+                "master",
+                "force"
+              ],
+              "hotfix": [
+                "master"
+              ],
+              "consolidation": [
+                "master"
+              ]
+            },
+            "mergeTargets": {
+              "merger": [
+                "master"
+              ]
+            },
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-gitflow-merge/steps/merge"
+          },
+          "feature": {
+            "name": "merge",
+            "description": "git flow merge",
+            "plugins": [
+              "scm"
+            ],
+            "contexts": [
+              "master",
+              "develop",
+              "consolidation",
+              "feature",
+              "release",
+              "hotfix",
+              "merger"
+            ],
+            "finishTargets": {
+              "merger": [
+                "develop"
+              ],
+              "feature": [
+                "develop"
+              ],
+              "release": [
+                "master",
+                "force"
+              ],
+              "hotfix": [
+                "master"
+              ],
+              "consolidation": [
+                "master"
+              ]
+            },
+            "mergeTargets": {
+              "merger": [
+                "master"
+              ]
+            },
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-gitflow-merge/steps/merge"
+          },
+          "release": {
+            "name": "merge",
+            "description": "git flow merge",
+            "plugins": [
+              "scm"
+            ],
+            "contexts": [
+              "master",
+              "develop",
+              "consolidation",
+              "feature",
+              "release",
+              "hotfix",
+              "merger"
+            ],
+            "finishTargets": {
+              "merger": [
+                "develop"
+              ],
+              "feature": [
+                "develop"
+              ],
+              "release": [
+                "master",
+                "force"
+              ],
+              "hotfix": [
+                "master"
+              ],
+              "consolidation": [
+                "master"
+              ]
+            },
+            "mergeTargets": {
+              "merger": [
+                "master"
+              ]
+            },
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-gitflow-merge/steps/merge"
+          },
+          "hotfix": {
+            "name": "merge",
+            "description": "git flow merge",
+            "plugins": [
+              "scm"
+            ],
+            "contexts": [
+              "master",
+              "develop",
+              "consolidation",
+              "feature",
+              "release",
+              "hotfix",
+              "merger"
+            ],
+            "finishTargets": {
+              "merger": [
+                "develop"
+              ],
+              "feature": [
+                "develop"
+              ],
+              "release": [
+                "master",
+                "force"
+              ],
+              "hotfix": [
+                "master"
+              ],
+              "consolidation": [
+                "master"
+              ]
+            },
+            "mergeTargets": {
+              "merger": [
+                "master"
+              ]
+            },
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-gitflow-merge/steps/merge"
+          },
+          "merger": {
+            "name": "merge",
+            "description": "git flow merge",
+            "plugins": [
+              "scm"
+            ],
+            "contexts": [
+              "master",
+              "develop",
+              "consolidation",
+              "feature",
+              "release",
+              "hotfix",
+              "merger"
+            ],
+            "finishTargets": {
+              "merger": [
+                "develop"
+              ],
+              "feature": [
+                "develop"
+              ],
+              "release": [
+                "master",
+                "force"
+              ],
+              "hotfix": [
+                "master"
+              ],
+              "consolidation": [
+                "master"
+              ]
+            },
+            "mergeTargets": {
+              "merger": [
+                "master"
+              ]
+            },
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-gitflow-merge/steps/merge"
+          }
+        }
+      },
+      "flows": {},
+      "contexts": {}
+    },
+    "pisco-gitflow-publish": {
+      "name": "pisco-gitflow-publish",
+      "version": "0.1.1",
+      "description": "gitflow publish step",
+      "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-gitflow-publish",
+      "config": {},
+      "plugins": {},
+      "steps": {
+        "publish": {
+          "master": {
+            "name": "publish",
+            "description": "git flow publish",
+            "plugins": [
+              "scm"
+            ],
+            "contexts": [
+              "master",
+              "consolidation",
+              "merger",
+              "develop",
+              "hotfix",
+              "feature",
+              "release"
+            ],
+            "jsonFiles": [
+              "bower.json",
+              "package.json"
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-gitflow-publish/steps/publish"
+          },
+          "consolidation": {
+            "name": "publish",
+            "description": "git flow publish",
+            "plugins": [
+              "scm"
+            ],
+            "contexts": [
+              "master",
+              "consolidation",
+              "merger",
+              "develop",
+              "hotfix",
+              "feature",
+              "release"
+            ],
+            "jsonFiles": [
+              "bower.json",
+              "package.json"
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-gitflow-publish/steps/publish"
+          },
+          "merger": {
+            "name": "publish",
+            "description": "git flow publish",
+            "plugins": [
+              "scm"
+            ],
+            "contexts": [
+              "master",
+              "consolidation",
+              "merger",
+              "develop",
+              "hotfix",
+              "feature",
+              "release"
+            ],
+            "jsonFiles": [
+              "bower.json",
+              "package.json"
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-gitflow-publish/steps/publish"
+          },
+          "develop": {
+            "name": "publish",
+            "description": "git flow publish",
+            "plugins": [
+              "scm"
+            ],
+            "contexts": [
+              "master",
+              "consolidation",
+              "merger",
+              "develop",
+              "hotfix",
+              "feature",
+              "release"
+            ],
+            "jsonFiles": [
+              "bower.json",
+              "package.json"
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-gitflow-publish/steps/publish"
+          },
+          "hotfix": {
+            "name": "publish",
+            "description": "git flow publish",
+            "plugins": [
+              "scm"
+            ],
+            "contexts": [
+              "master",
+              "consolidation",
+              "merger",
+              "develop",
+              "hotfix",
+              "feature",
+              "release"
+            ],
+            "jsonFiles": [
+              "bower.json",
+              "package.json"
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-gitflow-publish/steps/publish"
+          },
+          "feature": {
+            "name": "publish",
+            "description": "git flow publish",
+            "plugins": [
+              "scm"
+            ],
+            "contexts": [
+              "master",
+              "consolidation",
+              "merger",
+              "develop",
+              "hotfix",
+              "feature",
+              "release"
+            ],
+            "jsonFiles": [
+              "bower.json",
+              "package.json"
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-gitflow-publish/steps/publish"
+          },
+          "release": {
+            "name": "publish",
+            "description": "git flow publish",
+            "plugins": [
+              "scm"
+            ],
+            "contexts": [
+              "master",
+              "consolidation",
+              "merger",
+              "develop",
+              "hotfix",
+              "feature",
+              "release"
+            ],
+            "jsonFiles": [
+              "bower.json",
+              "package.json"
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-gitflow-publish/steps/publish"
+          }
+        },
+        "push": {
+          "master": {
+            "name": "push",
+            "description": "git flow push",
+            "plugins": [
+              "scm"
+            ],
+            "contexts": [
+              "master",
+              "merger",
+              "develop",
+              "hotfix",
+              "feature",
+              "release"
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-gitflow-publish/steps/push"
+          },
+          "merger": {
+            "name": "push",
+            "description": "git flow push",
+            "plugins": [
+              "scm"
+            ],
+            "contexts": [
+              "master",
+              "merger",
+              "develop",
+              "hotfix",
+              "feature",
+              "release"
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-gitflow-publish/steps/push"
+          },
+          "develop": {
+            "name": "push",
+            "description": "git flow push",
+            "plugins": [
+              "scm"
+            ],
+            "contexts": [
+              "master",
+              "merger",
+              "develop",
+              "hotfix",
+              "feature",
+              "release"
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-gitflow-publish/steps/push"
+          },
+          "hotfix": {
+            "name": "push",
+            "description": "git flow push",
+            "plugins": [
+              "scm"
+            ],
+            "contexts": [
+              "master",
+              "merger",
+              "develop",
+              "hotfix",
+              "feature",
+              "release"
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-gitflow-publish/steps/push"
+          },
+          "feature": {
+            "name": "push",
+            "description": "git flow push",
+            "plugins": [
+              "scm"
+            ],
+            "contexts": [
+              "master",
+              "merger",
+              "develop",
+              "hotfix",
+              "feature",
+              "release"
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-gitflow-publish/steps/push"
+          },
+          "release": {
+            "name": "push",
+            "description": "git flow push",
+            "plugins": [
+              "scm"
+            ],
+            "contexts": [
+              "master",
+              "merger",
+              "develop",
+              "hotfix",
+              "feature",
+              "release"
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-gitflow-publish/steps/push"
+          }
+        }
+      },
+      "flows": {},
+      "contexts": {}
+    },
+    "pisco-gitflow-start": {
+      "name": "pisco-gitflow-start",
+      "version": "0.1.7",
+      "description": "Start step for gitflow",
+      "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-gitflow-start",
+      "config": {},
+      "plugins": {},
+      "steps": {
+        "start": {
+          "master": {
+            "name": "start",
+            "description": "start one gitFlow branch ",
+            "contexts": [
+              "master",
+              "develop",
+              "feature",
+              "hotfix",
+              "merger",
+              "release"
+            ],
+            "plugins": [
+              "scm",
+              "semver"
+            ],
+            "requirements": {
+              "git": {}
+            },
+            "startBranches": {
+              "develop": {
+                "feature": {
+                  "title": "new feature"
+                },
+                "release": {
+                  "title": "new release",
+                  "originVersionChange": {
+                    "patch": [
+                      "prepatch",
+                      "beta"
+                    ],
+                    "minor": [
+                      "preminor",
+                      "beta"
+                    ],
+                    "major": [
+                      "premajor",
+                      "beta"
+                    ]
+                  },
+                  "checkOthers": [
+                    "feature",
+                    "release"
+                  ]
+                },
+                "merger": {
+                  "title": "new master merger"
+                }
+              },
+              "master": {
+                "hotfix": {
+                  "title": "new hotfix"
+                },
+                "consolidation": {
+                  "title": "new consolidation"
+                }
+              }
+            },
+            "prompts": [
+              {
+                "type": "list",
+                "name": "targetBranch",
+                "required": true,
+                "message": "What do you want to start?",
+                "choices": "#getChoices",
+                "when": "#areChoices",
+                "validate": "#validateBranch"
+              }
+            ],
+            "jsonFiles": [
+              "bower.json",
+              "package.json"
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-gitflow-start/steps/start"
+          },
+          "develop": {
+            "name": "start",
+            "description": "start one gitFlow branch ",
+            "contexts": [
+              "master",
+              "develop",
+              "feature",
+              "hotfix",
+              "merger",
+              "release"
+            ],
+            "plugins": [
+              "scm",
+              "semver"
+            ],
+            "requirements": {
+              "git": {}
+            },
+            "startBranches": {
+              "develop": {
+                "feature": {
+                  "title": "new feature"
+                },
+                "release": {
+                  "title": "new release",
+                  "originVersionChange": {
+                    "patch": [
+                      "prepatch",
+                      "beta"
+                    ],
+                    "minor": [
+                      "preminor",
+                      "beta"
+                    ],
+                    "major": [
+                      "premajor",
+                      "beta"
+                    ]
+                  },
+                  "checkOthers": [
+                    "feature",
+                    "release"
+                  ]
+                },
+                "merger": {
+                  "title": "new master merger"
+                }
+              },
+              "master": {
+                "hotfix": {
+                  "title": "new hotfix"
+                },
+                "consolidation": {
+                  "title": "new consolidation"
+                }
+              }
+            },
+            "prompts": [
+              {
+                "type": "list",
+                "name": "targetBranch",
+                "required": true,
+                "message": "What do you want to start?",
+                "choices": "#getChoices",
+                "when": "#areChoices",
+                "validate": "#validateBranch"
+              }
+            ],
+            "jsonFiles": [
+              "bower.json",
+              "package.json"
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-gitflow-start/steps/start"
+          },
+          "feature": {
+            "name": "start",
+            "description": "start one gitFlow branch ",
+            "contexts": [
+              "master",
+              "develop",
+              "feature",
+              "hotfix",
+              "merger",
+              "release"
+            ],
+            "plugins": [
+              "scm",
+              "semver"
+            ],
+            "requirements": {
+              "git": {}
+            },
+            "startBranches": {
+              "develop": {
+                "feature": {
+                  "title": "new feature"
+                },
+                "release": {
+                  "title": "new release",
+                  "originVersionChange": {
+                    "patch": [
+                      "prepatch",
+                      "beta"
+                    ],
+                    "minor": [
+                      "preminor",
+                      "beta"
+                    ],
+                    "major": [
+                      "premajor",
+                      "beta"
+                    ]
+                  },
+                  "checkOthers": [
+                    "feature",
+                    "release"
+                  ]
+                },
+                "merger": {
+                  "title": "new master merger"
+                }
+              },
+              "master": {
+                "hotfix": {
+                  "title": "new hotfix"
+                },
+                "consolidation": {
+                  "title": "new consolidation"
+                }
+              }
+            },
+            "prompts": [
+              {
+                "type": "list",
+                "name": "targetBranch",
+                "required": true,
+                "message": "What do you want to start?",
+                "choices": "#getChoices",
+                "when": "#areChoices",
+                "validate": "#validateBranch"
+              }
+            ],
+            "jsonFiles": [
+              "bower.json",
+              "package.json"
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-gitflow-start/steps/start"
+          },
+          "hotfix": {
+            "name": "start",
+            "description": "start one gitFlow branch ",
+            "contexts": [
+              "master",
+              "develop",
+              "feature",
+              "hotfix",
+              "merger",
+              "release"
+            ],
+            "plugins": [
+              "scm",
+              "semver"
+            ],
+            "requirements": {
+              "git": {}
+            },
+            "startBranches": {
+              "develop": {
+                "feature": {
+                  "title": "new feature"
+                },
+                "release": {
+                  "title": "new release",
+                  "originVersionChange": {
+                    "patch": [
+                      "prepatch",
+                      "beta"
+                    ],
+                    "minor": [
+                      "preminor",
+                      "beta"
+                    ],
+                    "major": [
+                      "premajor",
+                      "beta"
+                    ]
+                  },
+                  "checkOthers": [
+                    "feature",
+                    "release"
+                  ]
+                },
+                "merger": {
+                  "title": "new master merger"
+                }
+              },
+              "master": {
+                "hotfix": {
+                  "title": "new hotfix"
+                },
+                "consolidation": {
+                  "title": "new consolidation"
+                }
+              }
+            },
+            "prompts": [
+              {
+                "type": "list",
+                "name": "targetBranch",
+                "required": true,
+                "message": "What do you want to start?",
+                "choices": "#getChoices",
+                "when": "#areChoices",
+                "validate": "#validateBranch"
+              }
+            ],
+            "jsonFiles": [
+              "bower.json",
+              "package.json"
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-gitflow-start/steps/start"
+          },
+          "merger": {
+            "name": "start",
+            "description": "start one gitFlow branch ",
+            "contexts": [
+              "master",
+              "develop",
+              "feature",
+              "hotfix",
+              "merger",
+              "release"
+            ],
+            "plugins": [
+              "scm",
+              "semver"
+            ],
+            "requirements": {
+              "git": {}
+            },
+            "startBranches": {
+              "develop": {
+                "feature": {
+                  "title": "new feature"
+                },
+                "release": {
+                  "title": "new release",
+                  "originVersionChange": {
+                    "patch": [
+                      "prepatch",
+                      "beta"
+                    ],
+                    "minor": [
+                      "preminor",
+                      "beta"
+                    ],
+                    "major": [
+                      "premajor",
+                      "beta"
+                    ]
+                  },
+                  "checkOthers": [
+                    "feature",
+                    "release"
+                  ]
+                },
+                "merger": {
+                  "title": "new master merger"
+                }
+              },
+              "master": {
+                "hotfix": {
+                  "title": "new hotfix"
+                },
+                "consolidation": {
+                  "title": "new consolidation"
+                }
+              }
+            },
+            "prompts": [
+              {
+                "type": "list",
+                "name": "targetBranch",
+                "required": true,
+                "message": "What do you want to start?",
+                "choices": "#getChoices",
+                "when": "#areChoices",
+                "validate": "#validateBranch"
+              }
+            ],
+            "jsonFiles": [
+              "bower.json",
+              "package.json"
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-gitflow-start/steps/start"
+          },
+          "release": {
+            "name": "start",
+            "description": "start one gitFlow branch ",
+            "contexts": [
+              "master",
+              "develop",
+              "feature",
+              "hotfix",
+              "merger",
+              "release"
+            ],
+            "plugins": [
+              "scm",
+              "semver"
+            ],
+            "requirements": {
+              "git": {}
+            },
+            "startBranches": {
+              "develop": {
+                "feature": {
+                  "title": "new feature"
+                },
+                "release": {
+                  "title": "new release",
+                  "originVersionChange": {
+                    "patch": [
+                      "prepatch",
+                      "beta"
+                    ],
+                    "minor": [
+                      "preminor",
+                      "beta"
+                    ],
+                    "major": [
+                      "premajor",
+                      "beta"
+                    ]
+                  },
+                  "checkOthers": [
+                    "feature",
+                    "release"
+                  ]
+                },
+                "merger": {
+                  "title": "new master merger"
+                }
+              },
+              "master": {
+                "hotfix": {
+                  "title": "new hotfix"
+                },
+                "consolidation": {
+                  "title": "new consolidation"
+                }
+              }
+            },
+            "prompts": [
+              {
+                "type": "list",
+                "name": "targetBranch",
+                "required": true,
+                "message": "What do you want to start?",
+                "choices": "#getChoices",
+                "when": "#areChoices",
+                "validate": "#validateBranch"
+              }
+            ],
+            "jsonFiles": [
+              "bower.json",
+              "package.json"
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-gitflow-start/steps/start"
+          }
+        }
+      },
+      "flows": {},
+      "contexts": {}
+    },
+    "pisco-recipe-publish": {
+      "name": "pisco-recipe-publish",
+      "version": "0.1.2",
+      "description": "Recipe publish step",
+      "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-recipe-publish",
+      "config": {},
+      "plugins": {},
+      "steps": {
+        "publish": {
+          "recipe": {
+            "name": "publish",
+            "description": "recipe publish",
+            "plugins": [
+              "npmRegistry"
+            ],
+            "contexts": [
+              "recipe"
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-gitflow-contexts/node_modules/pisco-recipe-publish/steps/publish"
+          }
+        }
+      },
+      "flows": {},
+      "contexts": {}
+    },
     "pisco-recipe-generator": {
       "name": "pisco-recipe-generator",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "description": "It is a scaffold to help developers to create a new recipe in Pisocosour",
       "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-recipe-generator",
       "config": {
@@ -2094,6 +4128,34 @@
               }
             ],
             "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-recipe-generator/steps/add-flow"
+          }
+        },
+        "add-plugin": {
+          "recipe": {
+            "name": "add-plugin",
+            "description": "Generator to add a new plugin",
+            "isGenerator": true,
+            "contexts": [
+              "recipe"
+            ],
+            "plugins": [
+              "nunjucks"
+            ],
+            "prompts": [
+              {
+                "type": "input",
+                "name": "pluginName",
+                "required": true,
+                "message": "Name of the plugin"
+              },
+              {
+                "type": "input",
+                "name": "pluginDescription",
+                "required": true,
+                "message": "Description for the plugin"
+              }
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-recipe-generator/steps/add-plugin"
           }
         },
         "add-step": {
@@ -2213,6 +4275,47 @@
       "steps": {},
       "flows": {},
       "contexts": {}
+    },
+    "pisco-sample": {
+      "name": "pisco-sample",
+      "version": "0.1.1-beta.0",
+      "description": "My first recipe",
+      "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-sample",
+      "config": {
+        "cmd": "recipe-sample",
+        "defaultContext": ""
+      },
+      "plugins": {},
+      "steps": {
+        "sayHello": {
+          "world": {
+            "name": "sayHello",
+            "description": "Say Hello World",
+            "contexts": [
+              "world"
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-sample/steps/sayHello"
+          }
+        }
+      },
+      "flows": {
+        "hello": {
+          "name": "hello",
+          "description": "Hello World sample flow",
+          "steps": {
+            "sayHello": {}
+          },
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-sample/flows/hello",
+          "type": "normal"
+        }
+      },
+      "contexts": {
+        "world": {
+          "name": "world",
+          "description": "Check if current directory is world",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-sample/contexts/world"
+        }
+      }
     }
   }
 }
