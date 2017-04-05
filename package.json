@@ -2,7 +2,10 @@
   "name": "pisco-functional-tests",
   "version": "1.0.1-beta.0",
   "description": "Functional tests for pisco",
-  "main": "index.js",
+  "main": "bin/pisco.js",
+  "bin": {
+    "recipe-sample": "bin/pisco.js"
+  },
   "scripts": {
     "test": "mocha -u tdd"
   },
@@ -15,8 +18,17 @@
     "pisco"
   ],
   "author": "Alberto Eyo",
-  "license": "ISC",
+  "license": "Apache Licence",
+  "preferGlobal": true,
+  "dependencies": {
+    "piscosour": "^1.0.0"
+  },
   "devDependencies": {
-    "mocha": "^3.2.0"
+    "chai": "*",
+    "mocha": "^3.2.0",
+    "xunit-file": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=4.0.0"
   }
 }

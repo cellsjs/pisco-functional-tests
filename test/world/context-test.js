@@ -1,7 +1,6 @@
 "use strict";
 
-const describe = require("mocha").describe;
-const it = require("mocha").it;
+/* global define, it, describe, before */
 const assert = require('assert');
 const sayHello = require("../../contexts/world/index.js");
 
@@ -14,4 +13,4 @@ describe("Verify the current folder", () => {
         //Assert
         assert.ok("Folder is called world", isWorld);
     });
-})
+});

@@ -2,7 +2,6 @@
 
 /* global define, it, describe, before */
 const assert = require('chai').assert;
-const expect = require('chai').expect;
 const exec = require('child_process').exec;
 
 describe('recipe pisco-sample validation', function() {
