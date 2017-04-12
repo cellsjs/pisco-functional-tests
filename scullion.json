@@ -533,121 +533,258 @@
       "flows": {},
       "contexts": {}
     },
-    "cells-cli": {
-      "name": "cells-cli",
-      "version": "0.7.5",
-      "description": "cli tools for cells project",
-      "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli",
+    "cells-app": {
+      "name": "cells-app",
+      "version": "0.8.1",
+      "description": "Within a specific app, it helps with common tasks for cells applications.",
+      "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-app",
       "config": {
-        "cmd": "cells",
-        "analytics": {
-          "id": "UA-69454462-7"
-        },
-        "commands": [
-          "environment:setup",
-          "app:create",
-          "app:clean",
-          "app:publish",
-          "app:build",
-          "app:serve-app",
-          "app:check-mocks",
-          "app:cordova-build",
-          "component:create",
-          "component:serve",
-          "component:validate",
-          "component::lint",
-          "component::unit-testing",
-          "component::demo-tests",
-          "component::check-theme",
-          "component::check-version",
-          "component:version",
-          "cordova-app:restore",
-          "cordova-app:package",
-          "cordova-app:save",
-          "cordova-plugin:create",
-          "iconset:build",
-          "workspace:create",
-          "workspace:kpis"
-        ],
-        "defaultContext": "component",
         "params": {
-          "yourdomain": "bbva.com",
-          "bitBucketUrl": "https://globaldevtools.bbva.com/bitbucket/projects",
-          "testRepo": "ssh://git@globaldevtools.bbva.com:7999/ctool/cells-eslintrc.git",
-          "fromRepo": "globaldevtools.bbva.com:7999",
-          "toRepo": "globaldevtools.bbva.com:7999"
+          "workingDir": ""
         },
-        "steps": {
-          "publishAll": {
-            "params": {
-              "registryDomain": "dev.globaldevtools.bbva.com"
-            }
-          }
+        "cmd": "cells-app",
+        "repoContext": [
+          "app"
+        ],
+        "commands": [
+          "app:clean",
+          "app:build",
+          "app:serve",
+          "app:cordova-build"
+        ]
+      },
+      "plugins": {
+        "buildApp": {
+          "name": "buildApp",
+          "description": "Plugin for build app purpose",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-app/plugins/buildApp"
+        },
+        "cleanApp": {
+          "name": "cleanApp",
+          "description": "Plugin for clean app",
+          "files2clean": [
+            "build",
+            ".tmp",
+            "dist",
+            "app/locales",
+            "app/composerMocks",
+            "app/index.html",
+            "components/components.html",
+            "app/styles/main.css",
+            "app/scripts/app-config.js",
+            "app/scripts/app-dist.js"
+          ],
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-app/plugins/cleanApp"
+        },
+        "inquireHelpers": {
+          "name": "inquireHelpers",
+          "description": "Helpers to works with inquire",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-app/plugins/inquireHelpers"
+        },
+        "multiApp": {
+          "name": "multiApp",
+          "description": "Plugin for multiApp purpose",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-app/plugins/multiApp"
+        },
+        "serveApp": {
+          "name": "serveApp",
+          "description": "Plugin with helper functions to help serving an app",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-app/plugins/serveApp"
         }
       },
-      "plugins": {},
       "steps": {
-        "cellsDomain": {
-          "environment": {
-            "name": "cellsDomain",
+        "build": {
+          "app": {
+            "name": "build",
+            "description": "multi config build shot",
             "contexts": [
-              "environment"
+              "app"
             ],
-            "isGenerator": true,
-            "description": "Install cells domain dependency",
-            "includes": [
-              "cells",
-              "pisco"
+            "plugins": [
+              "inquireHelpers",
+              "multiApp",
+              "buildApp",
+              "gulpexec"
             ],
-            "excludes": [
-              "pisco-cells-contexts",
-              "cells-cli",
-              "cells-migration-tool",
-              "generator"
+            "prompts": [
+              {
+                "type": "checkbox",
+                "name": "type",
+                "required": true,
+                "message": "Choose the type(s) for the distribution",
+                "choices": [
+                  {
+                    "value": "novulcanize",
+                    "name": "no vulcanize",
+                    "checked": false
+                  },
+                  {
+                    "value": "vulcanize",
+                    "name": "vulcanize",
+                    "checked": true
+                  }
+                ]
+              },
+              {
+                "type": "checkbox",
+                "name": "config",
+                "required": true,
+                "message": "Choose the configuration(s) for the distribution",
+                "choices": "#choiceConfigParams",
+                "validate": "#checkIfSelected"
+              }
             ],
-            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/steps/cellsDomain"
+            "originBuildFolder": "dist",
+            "buildFolder": "build",
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-app/steps/build"
+          }
+        },
+        "clean": {
+          "app": {
+            "name": "clean",
+            "description": "clean shot",
+            "contexts": [
+              "app"
+            ],
+            "plugins": [
+              "cleanApp",
+              "gulpexec"
+            ],
+            "files2clean": [
+              ".tmp",
+              "build",
+              "dist",
+              "app/locales",
+              "app/composerMocks",
+              "app/index.html",
+              "components/components.html",
+              "app/styles/main.css",
+              "app/scripts/app-config.js",
+              "app/scripts/app-dist.js"
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-app/steps/clean"
+          }
+        },
+        "cordova-build": {
+          "app": {
+            "name": "cordova-build",
+            "description": "cordova-build shot",
+            "contexts": [
+              "app"
+            ],
+            "plugins": [
+              "inquireHelpers",
+              "multiApp",
+              "buildApp",
+              "gulpexec"
+            ],
+            "prompts": [
+              {
+                "type": "list",
+                "name": "type",
+                "required": true,
+                "message": "Choose the type for the distribution",
+                "choices": [
+                  {
+                    "value": "novulcanize",
+                    "name": "no vulcanize",
+                    "checked": false
+                  },
+                  {
+                    "value": "vulcanize",
+                    "name": "vulcanize",
+                    "checked": true
+                  }
+                ]
+              },
+              {
+                "type": "#configListType()",
+                "name": "config",
+                "required": true,
+                "message": "Choose the configuration for the distribution",
+                "choices": "#choiceConfigParams",
+                "validate": "#checkIfSelected"
+              },
+              {
+                "type": "list",
+                "name": "startPoint",
+                "required": true,
+                "message": "Choose the start point where the app will be initialized",
+                "choices": "#startPointChoices",
+                "when": "#whenStartPoint"
+              },
+              {
+                "type": "#configListCordovaApp()",
+                "name": "cordovaApp",
+                "required": true,
+                "message": "Choose the Cordova app to deploy dist",
+                "choices": "#choiceCordovaApp"
+              }
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-app/steps/cordova-build"
+          }
+        },
+        "serve": {
+          "app": {
+            "name": "serve",
+            "description": "serve shot",
+            "contexts": [
+              "app"
+            ],
+            "plugins": [
+              "inquireHelpers",
+              "multiApp",
+              "buildApp",
+              "serveApp",
+              "gulpexec"
+            ],
+            "prompts": [
+              {
+                "type": "list",
+                "name": "type",
+                "required": true,
+                "message": "Choose the distribution type",
+                "choices": [
+                  {
+                    "value": "default",
+                    "name": "serve no dist",
+                    "checked": true
+                  },
+                  {
+                    "value": "novulcanize",
+                    "name": "serve dist no vulcanize",
+                    "checked": false
+                  },
+                  {
+                    "value": "vulcanize",
+                    "name": "serve dist vulcanize",
+                    "checked": false
+                  }
+                ]
+              },
+              {
+                "type": "#configListType()",
+                "name": "config",
+                "required": true,
+                "message": "Choose the configuration for the distribution",
+                "choices": "#choiceConfigParams",
+                "validate": "#checkIfSelected"
+              },
+              {
+                "type": "list",
+                "name": "startPoint",
+                "required": true,
+                "message": "Choose the start point where the app will be initialized",
+                "choices": "#startPointChoices",
+                "when": "#whenStartPoint"
+              }
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-app/steps/serve"
           }
         }
       },
-      "flows": {
-        "setup": {
-          "name": "setup",
-          "description": "Configure and checks all environment requirements for Cells-cli",
-          "params": {},
-          "isGenerator": true,
-          "steps": {
-            "checkSSH": {
-              "environment": {
-                "requires": {
-                  "cells-migration-tool": "^0.1.3"
-                },
-                "installed": true
-              }
-            },
-            "checkRegistry": {
-              "environment": {
-                "requires": {
-                  "cells-migration-tool": "^0.1.3"
-                },
-                "params": {
-                  "registryDomain": "globaldevtools.bbva.com"
-                },
-                "installed": true
-              }
-            },
-            "cellsDomain": {}
-          },
-          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/flows/setup",
-          "type": "normal"
-        }
-      },
-      "contexts": {
-        "environment": {
-          "name": "environment",
-          "description": "Host environment context",
-          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/contexts/environment"
-        }
-      }
+      "flows": {},
+      "contexts": {}
     },
     "pisco-cells-contexts": {
       "name": "pisco-cells-contexts",
@@ -674,7 +811,8 @@
               "app": {
                 "requires": {
                   "cells-app": "^0.8.0"
-                }
+                },
+                "installed": true
               },
               "iconset": {
                 "requires": {
@@ -786,7 +924,8 @@
               "app": {
                 "requires": {
                   "cells-app": "^0.8.0"
-                }
+                },
+                "installed": true
               }
             }
           },
@@ -801,7 +940,8 @@
               "app": {
                 "requires": {
                   "cells-app": "^0.8.0"
-                }
+                },
+                "installed": true
               }
             }
           },
@@ -891,13 +1031,15 @@
                 "requires": {
                   "pisco-cells-cordova-app-publish": "^0.3.0",
                   "cells-app": "^0.8.0"
-                }
+                },
+                "installed": true
               },
               "cordova-app": {
                 "requires": {
                   "pisco-cells-cordova-app-publish": "^0.3.0",
                   "cells-app": "^0.8.0"
-                }
+                },
+                "installed": true
               },
               "catalog": {
                 "requires": {
@@ -913,12 +1055,14 @@
                 },
                 "params": {
                   "disableContextCheck": true
-                }
+                },
+                "installed": true
               },
               "cordova-app": {
                 "requires": {
                   "pisco-cells-cordova-app-publish": "^0.3.0"
-                }
+                },
+                "installed": true
               },
               "inputs": {
                 "workingDir": {
@@ -950,17 +1094,20 @@
                 },
                 "params": {
                   "disableContextCheck": true
-                }
+                },
+                "installed": true
               },
               "cordova-app": {
                 "requires": {
                   "pisco-cells-cordova-app-publish": "^0.3.0"
-                }
+                },
+                "installed": true
               },
               "catalog": {
                 "requires": {
                   "pisco-cells-cordova-app-publish": "^0.3.0"
-                }
+                },
+                "installed": true
               },
               "inputs": {
                 "workingDir": {
@@ -1054,13 +1201,15 @@
                 "requires": {
                   "pisco-cells-cordova-app-publish": "^0.3.0",
                   "cells-app": "^0.8.0"
-                }
+                },
+                "installed": true
               },
               "cordova-app": {
                 "requires": {
                   "pisco-cells-cordova-app-publish": "^0.3.0",
                   "cells-app": "^0.8.0"
-                }
+                },
+                "installed": true
               }
             }
           },
@@ -1075,7 +1224,8 @@
               "cordova-app": {
                 "requires": {
                   "pisco-cells-cordova-app-publish": "^0.2.6"
-                }
+                },
+                "installed": true
               }
             }
           },
@@ -1092,7 +1242,8 @@
               "app": {
                 "requires": {
                   "cells-app": "^0.8.0"
-                }
+                },
+                "installed": true
               }
             }
           },
@@ -1297,6 +1448,139 @@
           "name": "workspace",
           "description": "Cells workspace context",
           "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-contexts/contexts/workspace"
+        }
+      }
+    },
+    "pisco-plugin-gulp": {
+      "name": "pisco-plugin-gulp",
+      "version": "0.2.0",
+      "description": "Gulp plugin for piscosour",
+      "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-app/node_modules/pisco-plugin-gulp",
+      "config": {},
+      "plugins": {
+        "gulpexec": {
+          "name": "gulpexec",
+          "description": "Gulp plugin",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-app/node_modules/pisco-plugin-gulp/plugins/gulpexec"
+        }
+      },
+      "steps": {},
+      "flows": {},
+      "contexts": {}
+    },
+    "cells-cli": {
+      "name": "cells-cli",
+      "version": "0.7.5",
+      "description": "cli tools for cells project",
+      "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli",
+      "config": {
+        "cmd": "cells",
+        "analytics": {
+          "id": "UA-69454462-7"
+        },
+        "commands": [
+          "environment:setup",
+          "app:create",
+          "app:clean",
+          "app:publish",
+          "app:build",
+          "app:serve-app",
+          "app:check-mocks",
+          "app:cordova-build",
+          "component:create",
+          "component:serve",
+          "component:validate",
+          "component::lint",
+          "component::unit-testing",
+          "component::demo-tests",
+          "component::check-theme",
+          "component::check-version",
+          "component:version",
+          "cordova-app:restore",
+          "cordova-app:package",
+          "cordova-app:save",
+          "cordova-plugin:create",
+          "iconset:build",
+          "workspace:create",
+          "workspace:kpis"
+        ],
+        "defaultContext": "component",
+        "params": {
+          "yourdomain": "bbva.com",
+          "bitBucketUrl": "https://globaldevtools.bbva.com/bitbucket/projects",
+          "testRepo": "ssh://git@globaldevtools.bbva.com:7999/ctool/cells-eslintrc.git",
+          "fromRepo": "globaldevtools.bbva.com:7999",
+          "toRepo": "globaldevtools.bbva.com:7999"
+        },
+        "steps": {
+          "publishAll": {
+            "params": {
+              "registryDomain": "dev.globaldevtools.bbva.com"
+            }
+          }
+        }
+      },
+      "plugins": {},
+      "steps": {
+        "cellsDomain": {
+          "environment": {
+            "name": "cellsDomain",
+            "contexts": [
+              "environment"
+            ],
+            "isGenerator": true,
+            "description": "Install cells domain dependency",
+            "includes": [
+              "cells",
+              "pisco"
+            ],
+            "excludes": [
+              "pisco-cells-contexts",
+              "cells-cli",
+              "cells-migration-tool",
+              "generator"
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/steps/cellsDomain"
+          }
+        }
+      },
+      "flows": {
+        "setup": {
+          "name": "setup",
+          "description": "Configure and checks all environment requirements for Cells-cli",
+          "params": {},
+          "isGenerator": true,
+          "steps": {
+            "checkSSH": {
+              "environment": {
+                "requires": {
+                  "cells-migration-tool": "^0.1.3"
+                },
+                "installed": true
+              }
+            },
+            "checkRegistry": {
+              "environment": {
+                "requires": {
+                  "cells-migration-tool": "^0.1.3"
+                },
+                "params": {
+                  "registryDomain": "globaldevtools.bbva.com"
+                },
+                "installed": true
+              }
+            },
+            "cellsDomain": {}
+          },
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/flows/setup",
+          "type": "normal"
+        }
+      },
+      "contexts": {
+        "environment": {
+          "name": "environment",
+          "description": "Host environment context",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/cells-cli/contexts/environment"
         }
       }
     },
@@ -1860,6 +2144,670 @@
             "stream-write-hook"
           ],
           "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-component-unit-testing/node_modules/pisco-plugin-test-runner-wct/plugins/test-runner"
+        }
+      },
+      "steps": {},
+      "flows": {},
+      "contexts": {}
+    },
+    "pisco-cells-cordova-app-publish": {
+      "name": "pisco-cells-cordova-app-publish",
+      "version": "0.3.9",
+      "description": "Cordova publish flow",
+      "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-cordova-app-publish",
+      "config": {
+        "cmd": "cordova-cells",
+        "repoTypes": []
+      },
+      "plugins": {},
+      "steps": {
+        "build_": {
+          "cordova-app": {
+            "name": "build_",
+            "contexts": [
+              "cordova-app"
+            ],
+            "description": "Build cordova-app",
+            "plugins": [
+              "npm",
+              "cordova"
+            ],
+            "npmDependencies": {
+              "installed": true
+            },
+            "requirements": {
+              "bower": {},
+              "cells-app": {
+                "listedIn": "npm",
+                "installer": "npm",
+                "version": "^0.8.0"
+              },
+              "cordova": {
+                "installer": "npm",
+                "version": "^6.0.0"
+              },
+              "android": {
+                "uncheckable": true
+              },
+              "xcode-select": {
+                "uncheckable": true
+              }
+            },
+            "promptsCordova": [
+              {
+                "type": "confirm",
+                "name": "doRestore",
+                "default": true,
+                "required": true,
+                "message": "Plugins and/or platforms already exists, do you want to regenerate it?"
+              }
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-cordova-app-publish/steps/build"
+          },
+          "app": {
+            "name": "build_",
+            "contexts": [
+              "app"
+            ],
+            "description": "Build app",
+            "plugins": [
+              "npm",
+              "cordova"
+            ],
+            "npmDependencies": {
+              "installed": true
+            },
+            "requirements": {
+              "bower": {},
+              "cells-app": {
+                "listedIn": "npm",
+                "installer": "npm",
+                "version": "^0.8.0"
+              },
+              "cordova": {
+                "installer": "npm",
+                "version": "^6.0.0"
+              },
+              "android": {
+                "uncheckable": true
+              },
+              "xcode-select": {
+                "uncheckable": true
+              }
+            },
+            "promptsCordova": [
+              {
+                "type": "confirm",
+                "name": "doRestore",
+                "default": true,
+                "required": true,
+                "message": "Plugins and/or platforms already exists, do you want to regenerate it?"
+              }
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-cordova-app-publish/steps/build-app"
+          }
+        },
+        "deploy": {
+          "catalog": {
+            "name": "deploy",
+            "contexts": [
+              "catalog"
+            ],
+            "description": "WARNING: duplicate of 'publish'",
+            "plugins": [
+              "s3upload",
+              "mobile-package",
+              "nunjucks",
+              "git"
+            ],
+            "requirements": {
+              "git": {}
+            },
+            "defaultBranch": "master",
+            "platformsOutputDir": "dist",
+            "remoteRootDir": "cells/downloadCenter",
+            "baseUrlTempl": "https://${config.bucket}.s3.amazonaws.com/${config.remoteDir}",
+            "linkPatterns": [
+              "apk/(.*?)\\.apk",
+              "ipa/(.*?)\\.plist",
+              "webapp/index.html"
+            ],
+            "preLink": {
+              ".plist": "itms-services://?action=download-manifest&url="
+            },
+            "linksFile": "links.json",
+            "s3Uploads": [
+              {
+                "id": "dev",
+                "bucket": "${env.dev_aws_s3_bucket}",
+                "region": "${env.aws_region}",
+                "key": "${env.AWS_ACCESS_KEY_ID}",
+                "password": "${env.AWS_SECRET_ACCESS_KEY}"
+              }
+            ],
+            "promptsCordova": [
+              {
+                "type": "input",
+                "name": "appName",
+                "required": true,
+                "message": "Write appName to publish"
+              }
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-cordova-app-publish/steps/deploy"
+          }
+        },
+        "package": {
+          "cordova-app": {
+            "name": "package",
+            "contexts": [
+              "cordova-app",
+              "app"
+            ],
+            "description": "Package cordova-app",
+            "plugins": [
+              "npm",
+              "cordova"
+            ],
+            "npmDependencies": {
+              "installed": true
+            },
+            "requirements": {
+              "cordova": {
+                "installer": "npm",
+                "version": "^6.0.0"
+              },
+              "android": {
+                "uncheckable": true
+              },
+              "xcode-select": {
+                "uncheckable": true
+              },
+              "security": {
+                "uncheckable": true
+              }
+            },
+            "platformsOutputDir": "dist",
+            "cordovaBuild": {
+              "ios": {
+                "debug": {
+                  "developmentTeam": ""
+                },
+                "release": {
+                  "developmentTeam": "",
+                  "codeSignIdentity": "iPhone Developer",
+                  "packageType": "ad-hoc"
+                }
+              }
+            },
+            "platformsDefs": {
+              "android": {
+                "cordova": true,
+                "packages": "platforms/android/build/outputs/apk",
+                "out": "apk",
+                "extension": ".apk"
+              },
+              "ios": {
+                "cordova": true,
+                "packages": "platforms/ios/build/device",
+                "out": "ipa",
+                "extension": ".ipa",
+                "opts": [
+                  "--device",
+                  "--release",
+                  "--buildConfig"
+                ]
+              },
+              "webapp": {
+                "packages": "www"
+              }
+            },
+            "prompts": [
+              {
+                "type": "checkbox",
+                "name": "platforms",
+                "message": "Select platforms to package:",
+                "choices": [
+                  {
+                    "value": "android",
+                    "name": "Android",
+                    "checked": true
+                  },
+                  {
+                    "value": "ios",
+                    "name": "iOS",
+                    "checked": true
+                  }
+                ]
+              },
+              {
+                "type": "input",
+                "name": "keychain",
+                "message": "Introduce path to keychain file:",
+                "default": "/Users/${KEYCHAIN_USER}/Library/Keychains/login.keychain",
+                "when": "#isIos"
+              },
+              {
+                "type": "password",
+                "name": "keychainPassword",
+                "message": "Introduce password to unlock keychain file:",
+                "when": "#isIos"
+              }
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-cordova-app-publish/steps/package"
+          },
+          "app": {
+            "name": "package",
+            "contexts": [
+              "cordova-app",
+              "app"
+            ],
+            "description": "Package cordova-app",
+            "plugins": [
+              "npm",
+              "cordova"
+            ],
+            "npmDependencies": {
+              "installed": true
+            },
+            "requirements": {
+              "cordova": {
+                "installer": "npm",
+                "version": "^6.0.0"
+              },
+              "android": {
+                "uncheckable": true
+              },
+              "xcode-select": {
+                "uncheckable": true
+              },
+              "security": {
+                "uncheckable": true
+              }
+            },
+            "platformsOutputDir": "dist",
+            "cordovaBuild": {
+              "ios": {
+                "debug": {
+                  "developmentTeam": ""
+                },
+                "release": {
+                  "developmentTeam": "",
+                  "codeSignIdentity": "iPhone Developer",
+                  "packageType": "ad-hoc"
+                }
+              }
+            },
+            "platformsDefs": {
+              "android": {
+                "cordova": true,
+                "packages": "platforms/android/build/outputs/apk",
+                "out": "apk",
+                "extension": ".apk"
+              },
+              "ios": {
+                "cordova": true,
+                "packages": "platforms/ios/build/device",
+                "out": "ipa",
+                "extension": ".ipa",
+                "opts": [
+                  "--device",
+                  "--release",
+                  "--buildConfig"
+                ]
+              },
+              "webapp": {
+                "packages": "www"
+              }
+            },
+            "prompts": [
+              {
+                "type": "checkbox",
+                "name": "platforms",
+                "message": "Select platforms to package:",
+                "choices": [
+                  {
+                    "value": "android",
+                    "name": "Android",
+                    "checked": true
+                  },
+                  {
+                    "value": "ios",
+                    "name": "iOS",
+                    "checked": true
+                  }
+                ]
+              },
+              {
+                "type": "input",
+                "name": "keychain",
+                "message": "Introduce path to keychain file:",
+                "default": "/Users/${KEYCHAIN_USER}/Library/Keychains/login.keychain",
+                "when": "#isIos"
+              },
+              {
+                "type": "password",
+                "name": "keychainPassword",
+                "message": "Introduce password to unlock keychain file:",
+                "when": "#isIos"
+              }
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-cordova-app-publish/steps/package"
+          }
+        },
+        "publish": {
+          "catalog": {
+            "name": "publish",
+            "contexts": [
+              "catalog",
+              "cordova-app",
+              "app"
+            ],
+            "description": "Publish all artifacts",
+            "plugins": [
+              "s3upload",
+              "mobile-package",
+              "nunjucks",
+              "git"
+            ],
+            "requirements": {
+              "git": {}
+            },
+            "defaultBranch": "master",
+            "platformsOutputDir": "dist",
+            "remoteRootDir": "cells/downloadCenter",
+            "baseUrlTempl": "https://${config.bucket}.s3.amazonaws.com/${config.remoteDir}",
+            "linkPatterns": [
+              "apk/(.*?)\\.apk",
+              "ipa/(.*?)\\.plist",
+              "webapp/index.html"
+            ],
+            "preLink": {
+              ".plist": "itms-services://?action=download-manifest&url="
+            },
+            "rootBranch": "",
+            "linksFile": "links.json",
+            "s3Uploads": [
+              {
+                "id": "dev",
+                "bucket": "${env.dev_aws_s3_bucket}",
+                "region": "${env.aws_region}",
+                "key": "${env.AWS_ACCESS_KEY_ID}",
+                "password": "${env.AWS_SECRET_ACCESS_KEY}"
+              }
+            ],
+            "promptsCordova": [
+              {
+                "type": "input",
+                "name": "appName",
+                "required": true,
+                "message": "Write appName to publish"
+              }
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-cordova-app-publish/steps/publish"
+          },
+          "cordova-app": {
+            "name": "publish",
+            "contexts": [
+              "catalog",
+              "cordova-app",
+              "app"
+            ],
+            "description": "Publish all artifacts",
+            "plugins": [
+              "s3upload",
+              "mobile-package",
+              "nunjucks",
+              "git"
+            ],
+            "requirements": {
+              "git": {}
+            },
+            "defaultBranch": "master",
+            "platformsOutputDir": "dist",
+            "remoteRootDir": "cells/downloadCenter",
+            "baseUrlTempl": "https://${config.bucket}.s3.amazonaws.com/${config.remoteDir}",
+            "linkPatterns": [
+              "apk/(.*?)\\.apk",
+              "ipa/(.*?)\\.plist",
+              "webapp/index.html"
+            ],
+            "preLink": {
+              ".plist": "itms-services://?action=download-manifest&url="
+            },
+            "rootBranch": "",
+            "linksFile": "links.json",
+            "s3Uploads": [
+              {
+                "id": "dev",
+                "bucket": "${env.dev_aws_s3_bucket}",
+                "region": "${env.aws_region}",
+                "key": "${env.AWS_ACCESS_KEY_ID}",
+                "password": "${env.AWS_SECRET_ACCESS_KEY}"
+              }
+            ],
+            "promptsCordova": [
+              {
+                "type": "input",
+                "name": "appName",
+                "required": true,
+                "message": "Write appName to publish"
+              }
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-cordova-app-publish/steps/publish"
+          },
+          "app": {
+            "name": "publish",
+            "contexts": [
+              "catalog",
+              "cordova-app",
+              "app"
+            ],
+            "description": "Publish all artifacts",
+            "plugins": [
+              "s3upload",
+              "mobile-package",
+              "nunjucks",
+              "git"
+            ],
+            "requirements": {
+              "git": {}
+            },
+            "defaultBranch": "master",
+            "platformsOutputDir": "dist",
+            "remoteRootDir": "cells/downloadCenter",
+            "baseUrlTempl": "https://${config.bucket}.s3.amazonaws.com/${config.remoteDir}",
+            "linkPatterns": [
+              "apk/(.*?)\\.apk",
+              "ipa/(.*?)\\.plist",
+              "webapp/index.html"
+            ],
+            "preLink": {
+              ".plist": "itms-services://?action=download-manifest&url="
+            },
+            "rootBranch": "",
+            "linksFile": "links.json",
+            "s3Uploads": [
+              {
+                "id": "dev",
+                "bucket": "${env.dev_aws_s3_bucket}",
+                "region": "${env.aws_region}",
+                "key": "${env.AWS_ACCESS_KEY_ID}",
+                "password": "${env.AWS_SECRET_ACCESS_KEY}"
+              }
+            ],
+            "promptsCordova": [
+              {
+                "type": "input",
+                "name": "appName",
+                "required": true,
+                "message": "Write appName to publish"
+              }
+            ],
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-cordova-app-publish/steps/publish"
+          }
+        },
+        "save": {
+          "cordova-app": {
+            "name": "save",
+            "contexts": [
+              "cordova-app"
+            ],
+            "description": "Save cordova-app dependencies",
+            "plugins": [
+              "cordova"
+            ],
+            "requirements": {
+              "cordova": {
+                "installer": "npm",
+                "version": "^6.0.0"
+              }
+            },
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-cordova-app-publish/steps/save"
+          }
+        }
+      },
+      "flows": {},
+      "contexts": {
+        "node-module": {
+          "name": "node-module",
+          "description": "node-module context",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-cordova-app-publish/contexts/node-module"
+        }
+      }
+    },
+    "pisco-cells-catalog-smoke-testing": {
+      "name": "pisco-cells-catalog-smoke-testing",
+      "version": "0.1.9",
+      "description": "Cells catalog app smoke testing",
+      "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-cordova-app-publish/node_modules/pisco-cells-catalog-smoke-testing",
+      "config": {},
+      "plugins": {},
+      "steps": {
+        "smoke-testing": {
+          "catalog": {
+            "name": "smoke-testing",
+            "description": "Cells catalog app smoke testing",
+            "contexts": [
+              "catalog"
+            ],
+            "plugins": [
+              "stream-write-hook",
+              "test-runner-pepino"
+            ],
+            "requirements": {
+              "java": {},
+              "smoke-testing-requirements": {
+                "uncheckable": true,
+                "version": "^0.1.0"
+              }
+            },
+            "smokeTestsRoot": "",
+            "smokeTestsConfigRoot": "",
+            "smokeTestsConfigFile": "",
+            "smokeTestsConfig": {},
+            "smokeTestsBaseUrl": "",
+            "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-cordova-app-publish/node_modules/pisco-cells-catalog-smoke-testing/steps/smoke-testing"
+          }
+        }
+      },
+      "flows": {},
+      "contexts": {}
+    },
+    "pisco-plugin-cordova": {
+      "name": "pisco-plugin-cordova",
+      "version": "0.1.6",
+      "description": "Plugin for cordova tool",
+      "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-cordova-app-publish/node_modules/pisco-plugin-cordova",
+      "config": {
+        "cmd": "pisco-cordova",
+        "repoTypes": []
+      },
+      "plugins": {
+        "cordova": {
+          "name": "cordova",
+          "description": "Manage cordova tool in steps",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-cordova-app-publish/node_modules/pisco-plugin-cordova/plugins/cordova"
+        }
+      },
+      "steps": {},
+      "flows": {},
+      "contexts": {}
+    },
+    "pisco-plugin-git": {
+      "name": "pisco-plugin-git",
+      "version": "0.3.5",
+      "description": "Git plugin for Pisco",
+      "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-cordova-app-publish/node_modules/pisco-plugin-git",
+      "config": {},
+      "plugins": {
+        "git": {
+          "name": "git",
+          "description": "Pisco git plugin",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-cordova-app-publish/node_modules/pisco-plugin-git/plugins/git"
+        }
+      },
+      "steps": {},
+      "flows": {},
+      "contexts": {}
+    },
+    "pisco-plugin-mobile-package": {
+      "name": "pisco-plugin-mobile-package",
+      "version": "0.1.10",
+      "description": "Pisco plugin for mobile package utilities",
+      "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-cordova-app-publish/node_modules/pisco-plugin-mobile-package",
+      "config": {},
+      "plugins": {
+        "mobile-package": {
+          "name": "mobile-package",
+          "description": "mobile package functionality",
+          "plugins": [
+            "nunjucks"
+          ],
+          "platformsOutputDir": "dist",
+          "linkPatterns": [
+            "apk/(.*?)\\.apk",
+            "ipa/(.*?)\\.plist",
+            "webapp/index.html"
+          ],
+          "preLink": {
+            ".plist": "itms-services://?action=download-manifest&url="
+          },
+          "linksFile": "links.json",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-cordova-app-publish/node_modules/pisco-plugin-mobile-package/plugins/mobile-package"
+        }
+      },
+      "steps": {},
+      "flows": {},
+      "contexts": {}
+    },
+    "pisco-plugin-nunjucks": {
+      "name": "pisco-plugin-nunjucks",
+      "version": "0.2.1",
+      "description": "Pisco plugin for templating with metalsmith and nunjucks",
+      "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-cordova-app-publish/node_modules/pisco-plugin-nunjucks",
+      "config": {},
+      "plugins": {
+        "nunjucks": {
+          "name": "nunjucks",
+          "description": "Exec a template render with metalsmith and nunjucks",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-cordova-app-publish/node_modules/pisco-plugin-nunjucks/plugins/nunjucks"
+        }
+      },
+      "steps": {},
+      "flows": {},
+      "contexts": {}
+    },
+    "pisco-plugin-s3": {
+      "name": "pisco-plugin-s3",
+      "version": "0.2.1",
+      "description": "AWS s3 plugin for piscosour",
+      "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-cordova-app-publish/node_modules/pisco-plugin-s3",
+      "config": {},
+      "plugins": {
+        "s3upload": {
+          "name": "s3upload",
+          "description": "S3 upload plugin",
+          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-cells-cordova-app-publish/node_modules/pisco-plugin-s3/plugins/s3upload"
         }
       },
       "steps": {},
@@ -4256,23 +5204,6 @@
           }
         }
       },
-      "flows": {},
-      "contexts": {}
-    },
-    "pisco-plugin-nunjucks": {
-      "name": "pisco-plugin-nunjucks",
-      "version": "0.2.1",
-      "description": "Pisco plugin for templating with metalsmith and nunjucks",
-      "dir": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-recipe-generator/node_modules/pisco-plugin-nunjucks",
-      "config": {},
-      "plugins": {
-        "nunjucks": {
-          "name": "nunjucks",
-          "description": "Exec a template render with metalsmith and nunjucks",
-          "_module": "/home/albertoeyo/.nvm/versions/node/v6.10.1/lib/node_modules/pisco-recipe-generator/node_modules/pisco-plugin-nunjucks/plugins/nunjucks"
-        }
-      },
-      "steps": {},
       "flows": {},
       "contexts": {}
     },
