@@ -6,7 +6,7 @@ const process = require('process');
 const _isWorldFolder = function() {
     const dir = process.cwd().split(path.sep);
     return dir[dir.length - 1] === 'world';
-}
+};
 
 module.exports = {
 

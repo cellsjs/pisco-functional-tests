@@ -1,0 +1,7 @@
+{
+  "name": "emitHello",
+  "description": "Emitting  sayHello",
+  "contexts": [
+    "world"
+  ]
+}
