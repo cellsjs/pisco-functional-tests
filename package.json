@@ -7,7 +7,7 @@
     "recipe-sample": "bin/pisco.js"
   },
   "scripts": {
-    "test": "mocha -u tdd"
+    "test": "env PISCO=\"`pwd`/bin/pisco.js\" mocha -u tdd"
   },
   "repository": {
     "type": "git",

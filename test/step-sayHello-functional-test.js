@@ -6,7 +6,7 @@ const exec = require('child_process').exec;
 describe('::sayHello validation', function() {
   this.timeout(5000);
   it('Should \'::sayHello\' works', (done) => {
-    exec('node ../.. ::sayHello', {
+    exec('node ' + process.env.PISCO + ' ::sayHello', {
       cwd: 'test/world'
     }, (error, stdout, stderr) => {
       expect(error).to.equal(null);
@@ -16,7 +16,7 @@ describe('::sayHello validation', function() {
     });
   });
   it('Should \'::sayHello\' say not the root of a world', (done) => {
-    exec('node . world::sayHello', {
+    exec('node ' + process.env.PISCO + ' world::sayHello', {
       cwd: '.'
     }, (error, stdout, stderr) => {
       expect(error).not.equal(null);

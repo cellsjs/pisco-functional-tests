@@ -9,7 +9,7 @@ describe('Testing the recipe functionality', function() {
   this.timeout(5000);
   const WEATHER_REPORT = 'Weather report:';
   it('Should \'recipe::weather\' works', (done) => {
-    exec('node .. recipe::weather', {
+    exec('node ' + process.env.PISCO + ' recipe::weather', {
       cwd: 'test'
     }, (error, stdout, stderr) => {
       assert.equal(stderr, '', stderr);
