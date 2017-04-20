@@ -1,6 +1,6 @@
 {
   "name": "pisco-functional-tests",
-  "version": "1.0.1",
+  "version": "1.0.2-beta.0",
   "description": "Functional tests for pisco",
   "main": "bin/pisco.js",
   "bin": {
@@ -22,7 +22,7 @@
   "license": "Apache Licence",
   "preferGlobal": true,
   "dependencies": {
-    "piscosour": "1.1.0-alpha.8"
+    "piscosour": "^1.0.0"
   },
   "devDependencies": {
     "chai": "*",
