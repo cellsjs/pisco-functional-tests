@@ -2,6 +2,12 @@
 
 function run(ok, ko) {
   this.sh('echo ' + this.params.messageToEmit, ko, true);
+  this.firstPriority = this.params.firstPriority;
+  this.secondPriority = this.params.secondPriority;
+  this.priorityOrder = this.params.priorityOrder ? this.params.priorityOrder : {'p1': 'No Params File'};
+  this.logger.info(`{"firstPriority":"${this.firstPriority}"}`);
+  this.logger.info(`{"secondPriority":"${this.secondPriority}"}`);
+  this.logger.info(`Priority Order: ${JSON.stringify(this.params.priorityOrder)}`);
 }
 
 function check() {

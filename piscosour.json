@@ -1,4 +1,14 @@
 {
   "cmd" : "recipe-sample",
-  "defaultContext": ""
+  "defaultContext": "",
+  "params" : {
+    "registryUrl" : "https://registry.npmjs.org/",
+    "firstPriority": "piscoFunctionalTestJsonRecipe",
+    "secondPriority": "piscoFunctionalTestJsonRecipe",
+    "priorityOrder": {
+      "thirdPriority": "piscoFunctionalTestJsonRecipe",
+      "fourthPriority": "piscoFunctionalTestJsonRecipe",
+      "fifthPriority": "piscoFunctionalTestJsonRecipe"
+    }
+  }
 }

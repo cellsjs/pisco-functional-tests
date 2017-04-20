@@ -4,9 +4,49 @@
   "steps": {
     "sayHello": {},
     "emitHello": {
-      "inputs" : {
-        "messageToEmit" : {"sayHello" : "emitted"}
+      "inputs": {
+        "messageToEmit": {
+          "sayHello": "emitted"
+        }
+      },
+      "params": {
+        "registryUrl": "https://registry.npmjs.org/",
+        "firstPriority": "flowConfigSpecificStep",
+        "secondPriority": "flowConfigSpecificStep",
+        "priorityOrder": {
+          "thirdPriority": "flowConfigSpecificStep",
+          "fourthPriority": "flowConfigSpecificStep",
+          "fifthPriority": "flowConfigSpecificStep",
+          "sixthPriority": "flowConfigSpecificStep",
+          "seventhPriority": "flowConfigSpecificStep"
+        }
+      },
+      "world": {
+        "params": {
+          "registryUrl": "https://registry.npmjs.org/",
+          "firstPriority": "flowConfigSpecificStepAndContext",
+          "secondPriority": "flowConfigSpecificStepAndContext",
+          "priorityOrder": {
+            "thirdPriority": "flowConfigSpecificStepAndContext",
+            "fourthPriority": "flowConfigSpecificStepAndContext",
+            "fifthPriority": "flowConfigSpecificStepAndContext",
+            "sixthPriority": "flowConfigSpecificStepAndContext"
+          }
+        }
       }
+    }
+  },
+  "params": {
+    "registryUrl": "https://registry.npmjs.org/",
+    "firstPriority": "flowConfig",
+    "secondPriority": "flowConfig",
+    "priorityOrder": {
+      "thirdPriority": "flowConfig",
+      "fourthPriority": "flowConfig",
+      "fifthPriority": "flowConfig",
+      "sixthPriority": "flowConfig",
+      "seventhPriority": "flowConfig",
+      "eightPriority": "flowConfig"
     }
   }
 }

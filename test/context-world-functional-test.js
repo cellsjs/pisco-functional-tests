@@ -6,9 +6,8 @@ const exec = require('child_process').exec;
 
 describe('Pisco context world validation', function() {
   it('Should return the context world', (done) => {
-    console.log('We will use this pisco environment ' + process.env.PISCO);
     exec('node ' + process.env.PISCO + ' -c', {
-      cwd: 'test/world'
+      cwd: __dirname + '/world'
     }, (error, stdout, stderr) => {
       expect(error).to.equal(null);
       expect(stderr).to.equal('');
@@ -18,7 +17,7 @@ describe('Pisco context world validation', function() {
   });
   it('Should not return the context world', (done) => {
     exec('node ' + process.env.PISCO + ' -c', {
-      cwd: 'test/notworld'
+      cwd: __dirname + '/notworld'
     }, (error, stdout, stderr) => {
       expect(error).to.equal(null);
       expect(stderr).to.equal('');

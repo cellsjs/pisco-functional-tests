@@ -1,10 +1,8 @@
 'use strict';
 
-const helloWorld = 'HELLO WORLD';
-
 function run(ok, ko) {
-  this.sh('echo HELLA TO YOU ALL', ko, true);
-  this.toEmit = helloWorld;
+  this.sh('echo ASKING HELLLO', ko, true);
+  this.logger.info(`Param1: ${this.params.paramInquire}`);
 }
 
 function check() {
@@ -25,7 +23,7 @@ function notify() {
 
 function emit() {
   this.logger.info('#white', 'Emit the result of the step to other steps. Allow communication between steps');
-  return { message: 'emit a message', emitted: this.toEmit };
+  return {message: 'emit a message'};
 }
 
 module.exports = {

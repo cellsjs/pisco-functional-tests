@@ -16,7 +16,7 @@ describe('Verify the current folder with the step', () => {
   });
   it('Should return OK because folder is world', () => {
     //Arrange
-    process.chdir('test/world');
+    process.chdir(__dirname + '/world');
 
     //Act
     const isWorld = contextWorld.check();

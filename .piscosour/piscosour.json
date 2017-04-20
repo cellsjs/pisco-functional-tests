@@ -1,0 +1,11 @@
+{
+  "params": {
+    "firstPriority": ".piscosour/piscosourJsonRecipe",
+    "secondPriority": ".piscosour/piscosourJsonRecipe",
+    "priorityOrder": {
+      "thirdPriority": ".piscosour/piscosourJsonRecipe",
+      "fourthPriority": ".piscosour/piscosourJsonRecipe",
+      "fifthPriority": ".piscosour/piscosourJsonRecipe"
+    }
+  }
+}

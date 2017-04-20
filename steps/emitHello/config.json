@@ -3,5 +3,16 @@
   "description": "Emitting  sayHello",
   "contexts": [
     "world"
-  ]
+  ],
+  "firstPriority": "stepConfig",
+  "secondPriority": "stepConfig",
+  "priorityOrder": {
+    "thirdPriority": "stepConfig",
+    "fourthPriority": "stepConfig",
+    "fifthPriority": "stepConfig",
+    "sixthPriority": "stepConfig",
+    "seventhPriority": "stepConfig",
+    "eightPriority": "stepConfig",
+    "ninethPriority": "stepConfig"
+  }
 }

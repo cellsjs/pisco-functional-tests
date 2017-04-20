@@ -1,0 +1,16 @@
+{
+  "name": "askHello",
+  "description": "Asking sayHello",
+  "contexts": [
+    "world"
+  ],
+  "prompts": [
+    {
+      "type": "input",
+      "name": "paramInquire",
+      "message": "What is the value of param1",
+      "default": "value1"
+    }
+  ]
+
+}
