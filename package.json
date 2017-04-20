@@ -1,6 +1,6 @@
 {
   "name": "pisco-functional-tests",
-  "version": "1.0.2-beta.0",
+  "version": "1.0.2-alpha.0",
   "description": "Functional tests for pisco",
   "main": "bin/pisco.js",
   "bin": {
