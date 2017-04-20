@@ -19,6 +19,9 @@ describe('Pisco context world validation', function() {
     exec('node ' + process.env.PISCO + ' -c', {
       cwd: __dirname + '/notworld'
     }, (error, stdout, stderr) => {
+      console.log(`Stdout: ${stdout}`);
+      console.log(`error: ${error}`);
+      console.log(`stderr: ${stderr}`);
       expect(error).to.equal(null);
       expect(stderr).to.equal('');
       expect(stdout).not.contain('world');

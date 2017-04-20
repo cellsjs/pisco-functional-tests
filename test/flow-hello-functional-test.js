@@ -40,6 +40,9 @@ describe('Run the hello flow in different contexts', function() {
     exec('node ' + process.env.PISCO + ' world:hello', {
       cwd: __dirname + '/notworld'
     }, (error, stdout, stderr) => {
+      console.log(`Stdout: ${stdout}`);
+      console.log(`error: ${error}`);
+      console.log(`stderr: ${stderr}`);
       expectKOExecution(stdout, stderr, done);
     });
   });
