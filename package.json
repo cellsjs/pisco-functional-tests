@@ -1,1 +1,35 @@
-{"name":"pisco-functional-tests","version":"1.0.1-beta.0","description":"Functional tests for pisco","main":"bin/pisco.js","bin":{"recipe-sample":"bin/pisco.js"},"scripts":{"test":"env PISCO=\"`pwd`/bin/pisco.js\" mocha -u tdd"},"repository":{"type":"git","url":"ssh://git@globaldevtools.bbva.com:7999/ctool/pisco-functional-tests.git"},"keywords":["functional-tests","pisco","piscosour-recipe"],"author":"Alberto Eyo","license":"Apache Licence","preferGlobal":true,"dependencies":{"piscosour":"1.1.0-alpha.8"},"devDependencies":{"chai":"*","mocha":"^3.2.0","xunit-file":"^1.0.0"},"engines":{"node":">=4.0.0"}}
+{
+  "name": "pisco-functional-tests",
+  "version": "1.0.1-beta.0",
+  "description": "Functional tests for pisco",
+  "main": "bin/pisco.js",
+  "bin": {
+    "recipe-sample": "bin/pisco.js"
+  },
+  "scripts": {
+    "test": "env PISCO=\"`pwd`/bin/pisco.js\" mocha -u tdd"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@globaldevtools.bbva.com:7999/ctool/pisco-functional-tests.git"
+  },
+  "keywords": [
+    "functional-tests",
+    "pisco",
+    "piscosour-recipe"
+  ],
+  "author": "Alberto Eyo",
+  "license": "Apache Licence",
+  "preferGlobal": true,
+  "dependencies": {
+    "piscosour": "1.1.0-alpha.8"
+  },
+  "devDependencies": {
+    "chai": "*",
+    "mocha": "^3.2.0",
+    "xunit-file": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  }
+}
