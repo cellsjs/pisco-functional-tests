@@ -1,0 +1,7 @@
+{
+  "name": "emittingHello",
+  "description": "Emitting Hello World",
+  "contexts": [
+    "world"
+  ]
+}

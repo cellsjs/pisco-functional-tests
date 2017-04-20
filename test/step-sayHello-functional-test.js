@@ -3,10 +3,10 @@
 const expect = require('chai').expect;
 const exec = require('child_process').exec;
 
-describe('::sayHello validation', function() {
+describe('::emittingHello validation', function() {
   this.timeout(5000);
-  it('Should \'::sayHello\' works', (done) => {
-    exec('node ' + process.env.PISCO + ' ::sayHello', {
+  it('Should \'::emittingHello\' works', (done) => {
+    exec('node ' + process.env.PISCO + ' ::emittingHello', {
       cwd: __dirname + '/world'
     }, (error, stdout, stderr) => {
       expect(error).to.equal(null);
@@ -15,8 +15,8 @@ describe('::sayHello validation', function() {
       done();
     });
   });
-  it('Should \'::sayHello\' say not the root of a world', (done) => {
-    exec('node ' + process.env.PISCO + ' world::sayHello', {
+  it('Should \'::emittingHello\' say not the root of a world', (done) => {
+    exec('node ' + process.env.PISCO + ' world::emittingHello', {
       cwd: __dirname
     }, (error, stdout, stderr) => {
       expect(error).not.equal(null);

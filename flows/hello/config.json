@@ -2,11 +2,11 @@
   "name": "hello",
   "description": "Hello World sample flow",
   "steps": {
-    "sayHello": {},
-    "emitHello": {
+    "emittingHello": {},
+    "sayHello": {
       "inputs": {
         "messageToEmit": {
-          "sayHello": "emitted"
+          "emittingHello": "emitted"
         }
       },
       "params": {

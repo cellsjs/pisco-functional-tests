@@ -1,13 +1,10 @@
 'use strict';
 
+const helloWorld = 'HELLO WORLD';
+
 function run(ok, ko) {
-  this.sh('echo ' + this.params.messageToEmit, ko, true);
-  this.firstPriority = this.params.firstPriority;
-  this.secondPriority = this.params.secondPriority;
-  this.priorityOrder = this.params.priorityOrder ? this.params.priorityOrder : {'p1': 'No Params File'};
-  this.logger.info(`{"firstPriority":"${this.firstPriority}"}`);
-  this.logger.info(`{"secondPriority":"${this.secondPriority}"}`);
-  this.logger.info(`Priority Order: ${JSON.stringify(this.params.priorityOrder)}`);
+  this.sh('echo HELLA TO YOU ALL', ko, true);
+  this.toEmit = helloWorld;
 }
 
 function check() {
@@ -28,7 +25,7 @@ function notify() {
 
 function emit() {
   this.logger.info('#white', 'Emit the result of the step to other steps. Allow communication between steps');
-  return {message: 'emit a message'};
+  return { message: 'emit a message', emitted: this.toEmit };
 }
 
 module.exports = {

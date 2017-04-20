@@ -1,7 +1,18 @@
 {
   "name": "sayHello",
-  "description": "Say Hello World",
+  "description": "Saying Hello",
   "contexts": [
     "world"
-  ]
+  ],
+  "firstPriority": "stepConfig",
+  "secondPriority": "stepConfig",
+  "priorityOrder": {
+    "thirdPriority": "stepConfig",
+    "fourthPriority": "stepConfig",
+    "fifthPriority": "stepConfig",
+    "sixthPriority": "stepConfig",
+    "seventhPriority": "stepConfig",
+    "eightPriority": "stepConfig",
+    "ninethPriority": "stepConfig"
+  }
 }

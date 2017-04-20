@@ -1,12 +1,12 @@
 'use strict';
 
-const emitHello = require('../steps/emitHello/index');
-const sayHello = require('../steps/sayHello/index');
+const emitHello = require('../steps/sayHello/index');
+const sayHello = require('../steps/emittingHello/index');
 const expect = require('chai').expect;
 
 /* global define, it, describe, before */
 describe('Different methods (stages) implemented in the steps of the hello flow', function() {
-  it('Should emitHello have all the stages (run, check, config, prove, notify, emit)', function() {
+  it('Should sayHello have all the stages (run, check, config, prove, notify, emit)', function() {
     //Assert
     expect(emitHello).to.include.keys('run');
     expect(emitHello).to.include.keys('check');
@@ -15,7 +15,7 @@ describe('Different methods (stages) implemented in the steps of the hello flow'
     expect(emitHello).to.include.keys('notify');
     expect(emitHello).to.include.keys('emit');
   });
-  it('Should sayHello have all the stages (run, check, config, prove, notify, emit)', function() {
+  it('Should emittingHello have all the stages (run, check, config, prove, notify, emit)', function() {
     //Assert
     expect(sayHello).to.include.keys('run');
     expect(sayHello).to.include.keys('check');
