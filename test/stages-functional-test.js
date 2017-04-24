@@ -1,27 +1,48 @@
 'use strict';
-
-const emitHello = require('../steps/sayHello/index');
-const sayHello = require('../steps/emittingHello/index');
-const expect = require('chai').expect;
-
 /* global define, it, describe, before */
-describe('Different methods (stages) implemented in the steps of the hello flow', function() {
-  it('Should sayHello have all the stages (run, check, config, prove, notify, emit)', function() {
-    //Assert
-    expect(emitHello).to.include.keys('run');
-    expect(emitHello).to.include.keys('check');
-    expect(emitHello).to.include.keys('config');
-    expect(emitHello).to.include.keys('prove');
-    expect(emitHello).to.include.keys('notify');
-    expect(emitHello).to.include.keys('emit');
-  });
-  it('Should emittingHello have all the stages (run, check, config, prove, notify, emit)', function() {
-    //Assert
-    expect(sayHello).to.include.keys('run');
-    expect(sayHello).to.include.keys('check');
-    expect(sayHello).to.include.keys('config');
-    expect(sayHello).to.include.keys('prove');
-    expect(sayHello).to.include.keys('notify');
-    expect(sayHello).to.include.keys('emit');
+const expect = require('chai').expect;
+const exec = require('child_process').exec;
+
+describe('Stages order validation', function() {
+  const stage = {
+    check: {
+      name: 'Check',
+      order: 1
+    },
+    config: {
+      name: 'Config',
+      order: 2
+    },
+    run: {
+      name:  'Run',
+      order: 3
+    },
+    prove: {
+      name: 'Prove',
+      order: 4
+    },
+    notify:{
+      name: 'Notify',
+      order: 5
+    },
+    emit: {
+      name: 'Emit',
+      order: 6
+    }
+  };
+  it('Should \'::emittingHello\' works execute the stages in the correct order', (done) => {
+    exec('node ' + process.env.PISCO + ' ::emittingHello', {
+      cwd: __dirname + '/world'
+    }, (error, stdout, stderr) => {
+      expect(error).to.equal(null);
+      expect(stderr).to.equal('');
+      expect(stdout).contain(`${stage.check.name} stage order: ${stage.check.order}`);
+      expect(stdout).contain(`${stage.config.name} stage order: ${stage.config.order}`);
+      expect(stdout).contain(`${stage.run.name} stage order: ${stage.run.order}`);
+      expect(stdout).contain(`${stage.prove.name} stage order: ${stage.prove.order}`);
+      expect(stdout).contain(`${stage.notify.name} stage order: ${stage.notify.order}`);
+      expect(stdout).contain(`${stage.emit.name} stage order: ${stage.emit.order}`);
+      done();
+    });
   });
 });
