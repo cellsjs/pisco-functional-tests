@@ -280,15 +280,198 @@ HELLA TO YOU ALL
 
 
 ## <a name="plugin-behaviour"></a>Plugin  Behaviour
+In the previous example we've used a piscosour core plugin (this.sh) to execute some OS command.
+```javascript
+(...)
+this.sh('echo HELLA TO YOU ALL', ko, true);
+```
+We have tested it:
+```javascript
+'use strict';
+/* global define, it, describe, before */
+const expect = require('chai').expect;
+const exec = require('child_process').exec;
 
+describe('::emittingHello validation', function() {
+  this.timeout(5000);
+  it('Should \'::emittingHello\' works', (done) => {
+    exec('node ' + process.env.PISCO + ' ::emittingHello', {
+      cwd: __dirname + '/world'
+    }, (error, stdout, stderr) => {
+      expect(error).to.equal(null);
+      expect(stderr).to.equal('');
+      expect(stdout).contain('HELLA TO YOU ALL');
+      done();
+    });
+  });
+  it('Should \'::emittingHello\' say not the root of a world', (done) => {
+    exec('node ' + process.env.PISCO + ' world::emittingHello', {
+      cwd: __dirname
+    }, (error, stdout, stderr) => {
+      expect(error).not.equal(null);
+      expect(stderr).to.contain('This is not the root of a world');
+      expect(stdout).not.contain('HELLA TO YOU ALL');
+      done();
+    });
+  });
+});
+```
+
+All the plugins in piscosour will be available (as we saw in this example) through the this element.
 
 ## <a name="inquirer-behaviour"></a>Inquirer  Behaviour
+For the inquire behaviour, we have definied this test:
+```javascript
+'use strict';
 
+const expect = require('chai').expect;
+const exec = require('child_process').exec;
+/* global define, it, describe, before */
+
+function expectWithError(stderr, done) {
+  expect(stderr).to.equal('');
+  done();
+}
+
+function expectOkExecution(error, stderr, done) {
+  expect(error).to.equal(null);
+  expectWithError(stderr, done);
+}
+
+
+describe('Testing the inquirer capability', function() {
+  const stepAskHello = '::askHello';
+  const inquirerInput = 'inquirerInput';
+  const commandAskHello = `echo ${inquirerInput}  | node ${process.env.PISCO}  ${stepAskHello} `;
+  const contextWorldDir = __dirname + '/world';
+  const paramsFile = 'params-test.json';
+  const firstPriority = 'firstPriority';
+  const secondPriority = 'secondPriority';
+  const thirdPriority = 'thirdPriority';
+  const fourthPriority = 'fourthPriority';
+  const fifthPriority = 'fifthPriority';
+  const sixthPriority = 'sixthPriority';
+  const seventhPriority = 'seventhPriority';
+  const eightPriority = 'eightPriority';
+  const ninethPriority = 'ninethPriority';
+  const externalFile = 'externalFile';
+  const commandLine = 'commandLine';
+  const wdPiscoJson = '.piscosour/piscosourJsonWorkingDir';
+  const paramsFileName = 'paramsFile';
+  const piscosourJsonMetaRecipe = 'piscosourJsonMetaRecipe';
+  const piscoFunctionalTestJsonRecipe = 'piscoFunctionalTestJsonRecipe';
+  const flowConfigSpecificStepAndContext = 'flowConfigSpecificStepAndContext';
+  const flowConfigSpecificStep = 'flowConfigSpecificStep';
+  const flowConfig = 'flowConfig';
+  const stepConfig = 'stepConfig';
+
+
+  it('Should get the inquire parameter', function(done) {
+    //Arrange
+    var callbackExecWithInquire = (error, stdout, stderr) => {
+      //Assert
+      expect(stdout).to.contain(`Param1: ${inquirerInput}`);
+      expectOkExecution(error, stderr, done);
+    };
+
+    //Act
+    exec(commandAskHello, { cwd: contextWorldDir }, callbackExecWithInquire);
+  });
+});
+```
+It tests the ability of get from the input the param **paramInquire** with the value **inquirerInput** The configuration of this step:
+
+```javascript
+{
+  "name": "askHello",
+  "description": "Asking sayHello",
+  "contexts": [
+    "world"
+  ],
+  "prompts": [
+    {
+      "type": "input",
+      "name": "paramInquire",
+      "message": "What is the value of param1",
+      "default": "value1"
+    }
+  ]
+
+}
+```
+Finally, the code of the run method of the step:
+
+```javascript
+function run(ok, ko) {
+  (...)
+  this.logger.info(`Param1: ${this.params.paramInquire}`);
+}
+```
 
 ## <a name="params-behaviour"></a>Priority order Parameters  Behaviour
-
+This functionality is documented in the guides for developers of piscosour
 
 ## <a name="pass-params-behaviour"></a>Step Behaviour passing Parameters
+In this case we are going to test the parameters pass between steps. For that matter, the echo will be the result of the param emited by the emittingHello step to the sayHello step. The test is as simple as:
+
+```javascript
+function expectKOExecution(stdout, stderr, done) {
+  expect(stderr).contain('This is not the root of a world');
+  expect(stdout).not.contain('HELLO WORLD');
+  done();
+}
+
+describe('Run the hello flow in different contexts', function() {
+  it('Should return HELLO WORLD in the console', function(done) {
+    exec('node ' + process.env.PISCO + ' world:hello', {
+      cwd: __dirname + '/world'
+    }, (error, stdout, stderr) => {
+      expectOkExecution(error, stdout, stderr, done);
+    });
+  });
+});
+```
+The flow configuration:
+
+```javascript
+{
+  "name": "hello",
+  "description": "Hello World sample flow",
+  "steps": {
+    "emittingHello": {},
+    "sayHello": {
+      "inputs": {
+        "messageToEmit": {
+          "emittingHello": "emitted"
+        }
+      },
+      (...)
+  }
+}
+```
+The emittingHello implementation:
+
+```javascript
+const helloWorld = 'HELLO WORLD';
+
+function run(ok, ko) {
+  (...)
+  this.toEmit = helloWorld;
+}
+
+function emit() {
+  (...)
+  return {message: 'emit a message', emitted: this.toEmit};
+}
+```
+And the sayHello implementation:
+
+```javascript
+function run(ok, ko) {
+  this.logger.info(`${this.params.messageToEmit}`);
+  (...)
+}
+```
 
 
 
