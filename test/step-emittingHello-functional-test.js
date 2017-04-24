@@ -4,7 +4,6 @@ const expect = require('chai').expect;
 const exec = require('child_process').exec;
 
 describe('::emittingHello validation', function() {
-  this.timeout(5000);
   it('Should \'::emittingHello\' works', (done) => {
     exec('node ' + process.env.PISCO + ' ::emittingHello', {
       cwd: __dirname + '/world'
