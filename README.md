@@ -2,13 +2,13 @@
 # Pisco Functional Tests
 
 In this project is defined the functional behaviour of [piscosour][1]. These are the principal, behaviours tested:
-1. [Spected context behaviour][2]
-1. [Spected step behaviour][3]
-1. [Spected stage behaviour. In the correct order as well][4]
-1. [Spected plugin behaviour][5]
+1. [Expected context behaviour][2]
+1. [Expected step behaviour][3]
+1. [Expected stage behaviour. In the correct order as well][4]
+1. [Expected plugin behaviour][5]
 1. [Inquirer][6]
-1. [Spected pririty order in the params][7]
-1. [Spected behaviour in the pass of paramaters][8]
+1. [Expected pririty order in the params][7]
+1. [Expected behaviour in the pass of paramaters][8]
 
 Paso de parámetros entre steps
 
@@ -317,7 +317,7 @@ describe('::emittingHello validation', function() {
 });
 ```
 
-All the plugins in piscosour will be available (as we saw in this example) through the this element.
+All the plugins in piscosour will be available (as we saw in this example) through the **this** element.
 
 ## <a name="inquirer-behaviour"></a>Inquirer  Behaviour
 For the inquire behaviour, we have definied this test:
@@ -379,7 +379,7 @@ describe('Testing the inquirer capability', function() {
   });
 });
 ```
-It tests the ability of get from the input the param **paramInquire** with the value **inquirerInput** The configuration of this step:
+It tests the ability of get from the input the param **paramInquire** with the value **"inquirerInput"** The configuration of this step:
 
 ```javascript
 {
@@ -409,7 +409,228 @@ function run(ok, ko) {
 ```
 
 ## <a name="params-behaviour"></a>Priority order Parameters  Behaviour
-This functionality is documented in the guides for developers of piscosour
+This functionality is documented in the guides for developers of [piscosour][9]. So, in order to test it, we have defined several places where the parameters will be defined. We have some common constants for the test examples:
+```javascript
+const stepEmitHello = 'world:hello';
+const commandEmitHello = 'node ' + process.env.PISCO + ' ' + stepEmitHello + ' ';
+const contextWorldDir = __dirname + '/world';
+const paramsFile = 'params-test.json';
+const firstPriority = 'firstPriority';
+const secondPriority = 'secondPriority';
+const thirdPriority = 'thirdPriority';
+const fourthPriority = 'fourthPriority';
+const fifthPriority = 'fifthPriority';
+const sixthPriority = 'sixthPriority';
+const seventhPriority = 'seventhPriority';
+const eightPriority = 'eightPriority';
+const ninethPriority = 'ninethPriority';
+const externalFile = 'externalFile';
+const commandLine = 'commandLine';
+const wdPiscoJson = '.piscosour/piscosourJsonWorkingDir';
+const paramsFileName = 'paramsFile';
+const piscosourJsonMetaRecipe = 'piscosourJsonMetaRecipe';
+const piscoFunctionalTestJsonRecipe = 'piscoFunctionalTestJsonRecipe';
+const flowConfigSpecificStepAndContext = 'flowConfigSpecificStepAndContext';
+const flowConfigSpecificStep = 'flowConfigSpecificStep';
+const flowConfig = 'flowConfig';
+const stepConfig = 'stepConfig';
+```
+Let's see what we have defined:
+
+### External file configuration
+We will execute
+```bash
+node /home/albertoeyo/git/piscosour/bin/pisco.js --uuid 288b3227-ba32-440c-8651-28b44d2ecd5d world:hello  --paramsFile /home/albertoeyo/git/pisco-functional-tests/test/params-test.json --secondPriority commandLine
+```
+We will explain the rest of the parameters, the one that interests us right now is **--paramsFile** The content of  **/home/albertoeyo/git/pisco-functional-tests/test/params-test.json**
+```javascript
+{
+  "firstPriority": "externalFile"
+}
+```
+The fragment for our test:
+```javascript
+it('Should recognize the rest of the param configuration in the right order', (done) => {
+    //Arrange
+    console.log(getCommandEmitHelloWithParamFromCommandLine());
+    //Act
+    exec(getCommandEmitHelloWithParamFromCommandLine(), {
+      cwd: contextWorldDir
+    }, (error, stdout, stderr) => {
+      //Assert
+      expect(stdout).to.contain(`{"${firstPriority}":"${externalFile}"}`);
+      (...)
+    }
+}
+```
+And our run method of one of the steps pf the **hello** flow:
+```javascript
+function run(ok, ko) {
+  (...)
+  this.firstPriority = this.params.firstPriority;
+  (...)
+  this.logger.info(`{"firstPriority":"${this.firstPriority}"}`);
+  (...)
+}
+```
+
+### Command line parameters option
+```bash
+node /home/albertoeyo/git/piscosour/bin/pisco.js --uuid 288b3227-ba32-440c-8651-28b44d2ecd5d world:hello  --paramsFile /home/albertoeyo/git/pisco-functional-tests/test/params-test.json --secondPriority commandLine
+```
+Test:
+```javascript
+it('Should recognize the rest of the param configuration in the right order', (done) => {
+    //Arrange
+    console.log(getCommandEmitHelloWithParamFromCommandLine());
+    //Act
+    exec(getCommandEmitHelloWithParamFromCommandLine(), {
+      cwd: contextWorldDir
+    }, (error, stdout, stderr) => {
+      //Assert
+      expect(stdout).to.contain(`{"${firstPriority}":"${externalFile}"}`);
+      expect(stdout).to.contain(`{"${secondPriority}":"${commandLine}"}`);
+      (...)
+    }
+}
+```
+Run method:
+```javascript
+function run(ok, ko) {
+  (...)
+  this.firstPriority = this.params.firstPriority;
+  this.secondPriority = this.params.secondPriority;
+  (...)
+  this.logger.info(`{"firstPriority":"${this.firstPriority}"}`);
+  this.logger.info(`{"secondPriority":"${this.secondPriority}"}`);
+  (...)
+}
+```
+
+### Working Directory .piscosour/piscosour.json file configuration
+Content of the file:
+```javascript
+{
+  "params": {
+    "firstPriority": ".piscosour/piscosourJsonWorkingDir",
+    "secondPriority": ".piscosour/piscosourJsonWorkingDir",
+    "priorityOrder": {
+      "thirdPriority": ".piscosour/piscosourJsonWorkingDir"
+    }
+  }
+}
+```
+Test
+```javascript
+it('Should recognize the rest of the param configuration in the right order', (done) => {
+    //Arrange
+    console.log(getCommandEmitHelloWithParamFromCommandLine());
+    //Act
+    exec(getCommandEmitHelloWithParamFromCommandLine(), {
+      cwd: contextWorldDir
+    }, (error, stdout, stderr) => {
+      //Assert
+      expect(stdout).to.contain(`{"${firstPriority}":"${externalFile}"}`);
+      expect(stdout).to.contain(`{"${secondPriority}":"${commandLine}"}`);
+      expect(stdout).to.contain(`"${thirdPriority}":"${wdPiscoJson}"`);
+      (...)
+    }
+}
+```
+And the code of the run method (the entire one):
+```javascript
+function run(ok, ko) {
+  this.logger.info(`${this.params.messageToEmit}`);
+  this.firstPriority = this.params.firstPriority;
+  this.secondPriority = this.params.secondPriority;
+  this.priorityOrder = this.params.priorityOrder ? this.params.priorityOrder : {'p1': 'No Params File'};
+  this.logger.info(`{"firstPriority":"${this.firstPriority}"}`);
+  this.logger.info(`{"secondPriority":"${this.secondPriority}"}`);
+  this.logger.info(`Priority Order: ${JSON.stringify(this.params.priorityOrder)}`);
+}
+```
+
+### Receipt piscosour.json file configuration
+This order will not be automatized (but it has benn proved) because it takes modify the piscosour.json of the recipe that executes the functional-tests project. And that is an anti pattern (modify code in order to test something).
+### Flow config.json file configuration
+Configuration:
+```javascript
+{
+  "name": "hello",
+  "description": "Hello World sample flow",
+  "steps": {
+    "emittingHello": {},
+    "sayHello": {
+      "inputs": {
+        "messageToEmit": {
+          "emittingHello": "emitted"
+        }
+      },
+      "params": {
+        "registryUrl": "https://registry.npmjs.org/",
+        "firstPriority": "flowConfigSpecificStep",
+        "secondPriority": "flowConfigSpecificStep",
+        "priorityOrder": {
+          "thirdPriority": "flowConfigSpecificStep",
+          "fourthPriority": "flowConfigSpecificStep",
+          "fifthPriority": "flowConfigSpecificStep",
+          "sixthPriority": "flowConfigSpecificStep",
+          "seventhPriority": "flowConfigSpecificStep"
+        }
+      },
+      "world": {
+        "params": {
+          "registryUrl": "https://registry.npmjs.org/",
+          "firstPriority": "flowConfigSpecificStepAndContext",
+          "secondPriority": "flowConfigSpecificStepAndContext",
+          "priorityOrder": {
+            "thirdPriority": "flowConfigSpecificStepAndContext",
+            "fourthPriority": "flowConfigSpecificStepAndContext",
+            "fifthPriority": "flowConfigSpecificStepAndContext",
+            "sixthPriority": "flowConfigSpecificStepAndContext"
+          }
+        }
+      }
+    }
+  },
+  "params": {
+    "registryUrl": "https://registry.npmjs.org/",
+    "firstPriority": "flowConfig",
+    "secondPriority": "flowConfig",
+    "priorityOrder": {
+      "thirdPriority": "flowConfig",
+      "fourthPriority": "flowConfig",
+      "fifthPriority": "flowConfig",
+      "sixthPriority": "flowConfig",
+      "seventhPriority": "flowConfig",
+      "eightPriority": "flowConfig"
+    }
+  }
+}
+```
+
+### Step config.json configuration
+Configuration
+```javascript
+{
+  "name": "sayHello",
+  "description": "Saying Hello",
+  "contexts": [
+    "world"
+  ],
+  "firstPriority": "stepConfig",
+  "secondPriority": "stepConfig",
+  "priorityOrder": {
+    "thirdPriority": "stepConfig",
+    "fourthPriority": "stepConfig",
+    "fifthPriority": "stepConfig",
+    "sixthPriority": "stepConfig",
+    "seventhPriority": "stepConfig",
+    "eightPriority": "stepConfig",
+    "ninethPriority": "stepConfig"
+  }
+}
+```
 
 ## <a name="pass-params-behaviour"></a>Step Behaviour passing Parameters
 In this case we are going to test the parameters pass between steps. For that matter, the echo will be the result of the param emited by the emittingHello step to the sayHello step. The test is as simple as:
