@@ -7,6 +7,8 @@ function run(ok, ko) {
   this.priorityOrder = this.params.priorityOrder ? this.params.priorityOrder : {'p1': 'No Params File'};
   this.logger.info(`{"firstPriority":"${this.firstPriority}"}`);
   this.logger.info(`{"secondPriority":"${this.secondPriority}"}`);
+  this.logger.info(`{"boolean":${this.params.boolean}}`);
+  this.logger.info(`{"boolean2":${this.params.boolean2}}`);
   this.logger.info(`Priority Order: ${JSON.stringify(this.params.priorityOrder)}`);
 }
 

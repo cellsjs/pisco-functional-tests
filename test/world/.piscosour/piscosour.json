@@ -5,6 +5,8 @@
     "priorityOrder": {
       "thirdPriority": ".piscosour/piscosourJsonWorkingDir"
     },
-    "ninethPriority": ".piscosour/piscosourJsonWorkingDir"
+    "ninethPriority": ".piscosour/piscosourJsonWorkingDir",
+    "boolean": true,
+    "boolean2": false
   }
 }
