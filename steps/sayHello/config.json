@@ -14,5 +14,7 @@
     "seventhPriority": "stepConfig",
     "eightPriority": "stepConfig",
     "ninethPriority": "stepConfig"
-  }
+  },
+  "boolean": false,
+  "boolean2": true
 }

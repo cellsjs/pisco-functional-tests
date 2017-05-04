@@ -98,4 +98,28 @@ describe('Examples using parameters in the steps', () => {
       expectOkExecution(error, stdout, stderr, done);
     });
   });
+  it('Should recognize boolean configuration with the right priority order', (done) => {
+    //Arrange
+
+    //Act
+    exec(getCommandEmitHelloWithParamFromCommandLine(), {
+      cwd: contextWorldDir
+    }, (error, stdout, stderr) => {
+      //Assert
+      expect(stdout).to.contain('"boolean":true');
+      expectOkExecution(error, stdout, stderr, done);
+    });
+  });
+  it('Should recognize boolean configuration with the right priority order', (done) => {
+    //Arrange
+
+    //Act
+    exec(getCommandEmitHelloWithParamFromCommandLine(), {
+      cwd: contextWorldDir
+    }, (error, stdout, stderr) => {
+      //Assert
+      expect(stdout).to.contain('"boolean2":false');
+      expectOkExecution(error, stdout, stderr, done);
+    });
+  });
 });

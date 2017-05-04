@@ -47,6 +47,7 @@
       "sixthPriority": "flowConfig",
       "seventhPriority": "flowConfig",
       "eightPriority": "flowConfig"
-    }
+    },
+    "boolean": false
   }
 }
