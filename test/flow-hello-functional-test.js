@@ -52,7 +52,7 @@ const message1 = 'MESSAGE-EMIT';
 const message2 = 'MESSAGE-SAY-HELLO';
 
 describe('Run the hello flow emitting for all steps', function() {
-  it(`Should return out-sayHello-${message1} in the console`, function(done) {
+  it(`Should return out-sayHello-${message1} emmitted from emittingHello step`, function(done) {
     exec('node ' + process.env.PISCO + ' world:hello', {
       cwd: __dirname + '/world'
     }, (error, stdout, stderr) => {
@@ -60,7 +60,7 @@ describe('Run the hello flow emitting for all steps', function() {
       expectOkExecution(error, stdout, stderr, done);
     });
   });
-  it(`Should return out-sayHello2-${message2} in the console`, function(done) {
+  it(`Should return out-sayHello2-${message2} emitted from sayHello step`, function(done) {
     exec('node ' + process.env.PISCO + ' world:hello', {
       cwd: __dirname + '/world'
     }, (error, stdout, stderr) => {
