@@ -1,7 +1,10 @@
 'use strict';
 
+const message = 'MESSAGE-SAY-HELLO';
+
 function run(ok, ko) {
   this.logger.info(`${this.params.messageToEmit}`);
+  this.logger.info(`out-sayHello-${this.params.message}`);
   this.firstPriority = this.params.firstPriority;
   this.secondPriority = this.params.secondPriority;
   this.priorityOrder = this.params.priorityOrder ? this.params.priorityOrder : {'p1': 'No Params File'};
@@ -30,7 +33,7 @@ function notify() {
 
 function emit() {
   this.logger.info('#white', 'Emit the result of the step to other steps. Allow communication between steps');
-  return {message: 'emit a message'};
+  return {message: message};
 }
 
 module.exports = {

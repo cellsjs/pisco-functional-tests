@@ -34,7 +34,8 @@
           }
         }
       }
-    }
+    },
+    "sayHello2": {}
   },
   "params": {
     "registryUrl": "https://registry.npmjs.org/",

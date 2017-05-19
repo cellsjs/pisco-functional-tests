@@ -1,6 +1,7 @@
 'use strict';
 
 const helloWorld = 'HELLO WORLD';
+const message = 'MESSAGE-EMIT';
 
 const statusAccess =  () => {
   var status = 0;
@@ -51,7 +52,7 @@ function emit() {
   status.increment();
   this.logger.info(`Emit stage order: ${status.getStatus()}`);
   this.logger.info('#white', 'Emit-Emit Emit the result of the step to other steps. Allow communication between steps');
-  return {message: 'emit a message', emitted: this.toEmit};
+  return {message: message, emitted: this.toEmit};
 }
 
 

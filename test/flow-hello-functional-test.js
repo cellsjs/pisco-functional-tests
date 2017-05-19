@@ -4,9 +4,12 @@
 const expect = require('chai').expect;
 const exec = require('child_process').exec;
 
+/* constants */
+const helloWorld = 'HELLO WORLD';
+
 function expectWithError(stderr, stdout, done) {
   expect(stderr).to.equal('');
-  expect(stdout).contain('HELLO WORLD');
+  expect(stdout).contain(helloWorld);
   done();
 }
 
@@ -17,7 +20,7 @@ function expectOkExecution(error, stdout, stderr, done) {
 
 function expectKOExecution(stdout, stderr, done) {
   expect(stderr).contain('This is not the root of a world');
-  expect(stdout).not.contain('HELLO WORLD');
+  expect(stdout).not.contain(helloWorld);
   done();
 }
 
@@ -45,4 +48,24 @@ describe('Run the hello flow in different contexts', function() {
   });
 });
 
+const message1 = 'MESSAGE-EMIT';
+const message2 = 'MESSAGE-SAY-HELLO';
 
+describe('Run the hello flow emitting for all steps', function() {
+  it(`Should return out-sayHello-${message1} in the console`, function(done) {
+    exec('node ' + process.env.PISCO + ' world:hello', {
+      cwd: __dirname + '/world'
+    }, (error, stdout, stderr) => {
+      expect(stdout).contain(`out-sayHello-${message1}`);
+      expectOkExecution(error, stdout, stderr, done);
+    });
+  });
+  it(`Should return out-sayHello2-${message2} in the console`, function(done) {
+    exec('node ' + process.env.PISCO + ' world:hello', {
+      cwd: __dirname + '/world'
+    }, (error, stdout, stderr) => {
+      expect(stdout).contain(`out-sayHello2-${message2}`);
+      expectOkExecution(error, stdout, stderr, done);
+    });
+  });
+});
