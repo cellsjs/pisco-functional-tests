@@ -25,21 +25,21 @@ function expectKOExecution(stdout, stderr, done) {
 }
 
 describe('Run the hello flow in different contexts', function() {
-  it('Should return HELLO WORLD in the console', function(done) {
+  it(`Should return ${helloWorld} in the console`, function(done) {
     exec('node ' + process.env.PISCO + ' world:hello', {
       cwd: __dirname + '/world'
     }, (error, stdout, stderr) => {
       expectOkExecution(error, stdout, stderr, done);
     });
   });
-  it('Should return HELLO WORLD in the console not especifying the context, only the flow', function(done) {
+  it(`Should return ${helloWorld} in the console not especifying the context, only the flow`, function(done) {
     exec('node ' + process.env.PISCO + ' hello', {
       cwd: __dirname + '/world'
     }, (error, stdout, stderr) => {
       expectWithError(stderr, stdout, done);
     });
   });
-  it('Should not return HELLO WORLD in the console because is not the right context', function(done) {
+  it(`Should not return ${helloWorld} in the console because is not the right context`, function(done) {
     exec('node ' + process.env.PISCO + ' world:hello', {
       cwd: __dirname + '/notworld'
     }, (error, stdout, stderr) => {
