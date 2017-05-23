@@ -5,9 +5,8 @@
     "emittingHello": {},
     "sayHello": {
       "inputs": {
-        "messageToEmit": {
-          "emittingHello": "emitted"
-        }
+        "messageToEmit": { "emittingHello": "emitted" },
+        "pluginEmit": {"emittingHello" : "pluginEmit"}
       },
       "params": {
         "registryUrl": "https://registry.npmjs.org/",
@@ -35,7 +34,11 @@
         }
       }
     },
-    "sayHello2": {}
+    "sayHello2": {
+      "inputs": {
+        "pluginEmit": {"emittingHello" : "pluginEmit"}
+      }
+    }
   },
   "params": {
     "registryUrl": "https://registry.npmjs.org/",

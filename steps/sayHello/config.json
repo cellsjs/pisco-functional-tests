@@ -4,6 +4,10 @@
   "contexts": [
     "world"
   ],
+  "plugins" : [
+    "emitter1",
+    "emitter2"
+  ],
   "firstPriority": "stepConfig",
   "secondPriority": "stepConfig",
   "priorityOrder": {
