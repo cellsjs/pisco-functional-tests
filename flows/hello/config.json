@@ -2,6 +2,7 @@
   "name": "hello",
   "description": "Hello World sample flow",
   "steps": {
+    "noemit" : {},
     "emittingHello": {},
     "sayHello": {
       "inputs": {
@@ -36,8 +37,12 @@
     },
     "sayHello2": {
       "inputs": {
-        "pluginEmit": {"emittingHello" : "pluginEmit"}
+        "pluginEmit": {"sayHello" : "pluginEmit"},
+        "noemitParam": {"noemit" : "any"}
       }
+    },
+    "sayHelloWonderfull": {
+      "implementation-check": false
     }
   },
   "params": {

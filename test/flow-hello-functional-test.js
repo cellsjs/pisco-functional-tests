@@ -9,7 +9,6 @@ const helloWorld = 'HELLO WORLD';
 
 function expectWithError(stderr, stdout, done) {
   expect(stderr).to.equal('');
-  expect(stdout).contain(helloWorld);
   done();
 }
 
@@ -18,9 +17,8 @@ function expectOkExecution(error, stdout, stderr, done) {
   expectWithError(stderr, stdout, done);
 }
 
-function expectKOExecution(stdout, stderr, done) {
-  expect(stderr).contain('This is not the root of a world');
-  expect(stdout).not.contain(helloWorld);
+function expectKOExecution(error, done) {
+  expect(error).not.equal(null);
   done();
 }
 
@@ -29,6 +27,7 @@ describe('Run the hello flow in different contexts', function() {
     exec('node ' + process.env.PISCO + ' world:hello', {
       cwd: __dirname + '/world'
     }, (error, stdout, stderr) => {
+      expect(stdout).contain(helloWorld);
       expectOkExecution(error, stdout, stderr, done);
     });
   });
@@ -36,6 +35,7 @@ describe('Run the hello flow in different contexts', function() {
     exec('node ' + process.env.PISCO + ' hello', {
       cwd: __dirname + '/world'
     }, (error, stdout, stderr) => {
+      expect(stdout).contain(helloWorld);
       expectWithError(stderr, stdout, done);
     });
   });
@@ -43,7 +43,9 @@ describe('Run the hello flow in different contexts', function() {
     exec('node ' + process.env.PISCO + ' world:hello', {
       cwd: __dirname + '/notworld'
     }, (error, stdout, stderr) => {
-      expectKOExecution(stdout, stderr, done);
+      expect(stdout).not.contain(helloWorld);
+      expect(stderr).contain('This is not the root of a world');
+      expectKOExecution(error, done);
     });
   });
 });
@@ -65,6 +67,14 @@ describe('Run the hello flow emitting for all steps', function() {
       cwd: __dirname + '/world'
     }, (error, stdout, stderr) => {
       expect(stdout).contain(`out-sayHello2-${message2}`);
+      expectOkExecution(error, stdout, stderr, done);
+    });
+  });
+  it(`Should not fail and return noemit-true not emmited from a noemit step but configured`, function(done) {
+    exec('node ' + process.env.PISCO + ' world:hello', {
+      cwd: __dirname + '/world'
+    }, (error, stdout, stderr) => {
+      expect(stdout).contain('noemit-true');
       expectOkExecution(error, stdout, stderr, done);
     });
   });
@@ -96,6 +106,25 @@ describe('Run the hello flow with emitting plugins', function() {
     }, (error, stdout, stderr) => {
       expect(stdout).contain(`plugin-emitter-2-All-${PLUGIN_EMIT_1}`);
       expectOkExecution(error, stdout, stderr, done);
+    });
+  });
+});
+
+describe('Run the hello flow multi-contexts emitting params', function() {
+  it(`Should return out-sayHello-${message1} emitted from emittingHello step`, function(done) {
+    exec('node ' + process.env.PISCO + ' hello', {
+      cwd: __dirname + '/world'
+    }, (error, stdout, stderr) => {
+      expect(stdout).contain(`out-sayHello-${message1}`);
+      expectKOExecution(error, done);
+    });
+  });
+  it(`Should not return out-sayHelloWonderfull-${message2} emitted from emittingHello step in context world`, function(done) {
+    exec('node ' + process.env.PISCO + ' hello', {
+      cwd: __dirname + '/world'
+    }, (error, stdout, stderr) => {
+      expect(stdout).not.contain(`out-sayHelloWonderfull-${message2}`);
+      expectKOExecution(error, done);
     });
   });
 });
