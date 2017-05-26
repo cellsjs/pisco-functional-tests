@@ -15,8 +15,11 @@ function expectOkExecution(error, stdout, stderr, done) {
 }
 
 describe('Examples using parameters in the steps', () => {
+  const PISCO = 'node '.concat(process.env.PISCO);
   const stepEmitHello = 'world:hello';
-  const commandEmitHello = 'node ' + process.env.PISCO + ' ' + stepEmitHello + ' ';
+  const STEP_GET_PARAMS = 'world::getParams';
+  const commandEmitHello = PISCO.concat(' ', stepEmitHello, ' ');
+  const COMMAND_GET_PARAMS = PISCO.concat(' ', STEP_GET_PARAMS, ' ');
   const contextWorldDir = __dirname + '/world';
   const paramsFile = 'params-test.json';
   const firstPriority = 'firstPriority';
@@ -39,53 +42,68 @@ describe('Examples using parameters in the steps', () => {
   const flowConfig = 'flowConfig';
   const stepConfig = 'stepConfig';
 
+  const COCHE_MODELO = 'coche.modelo';
+  const FORD = 'FORD';
+
   function commandEmitHelloWithParamsFile() {
-    return commandEmitHello + ' --' + paramsFileName +
-      ' ' + __dirname + '/' + paramsFile;
+    return commandEmitHello.concat(' --', paramsFileName, ' ', __dirname, '/', paramsFile);
   }
 
   function getCommandEmitHelloWithParamFromCommandLine() {
-    return commandEmitHelloWithParamsFile() +
-      ' --' + secondPriority +
-      ' ' + commandLine;
+    return commandEmitHelloWithParamsFile().concat(' --', firstPriority, ' ', commandLine);
   }
 
+  const concatValuesForCommandLine = (mapValues) => {
+    return mapValues.reduce((prevVal, element) => {
+      return prevVal.concat('--', element.key, ' ', element.value, ' ');
+    }, ' ');
+  }
+
+  const getCommand = (command, mapValues) => {
+    return mapValues ? command.concat(concatValuesForCommandLine(mapValues)).trim() : command;
+  }
+
+  const getParamsCommand = (mapValues) => {
+    return getCommand(COMMAND_GET_PARAMS, mapValues);
+  }
+  it('Should recognize command line parameters option', (done) => {
+    //Arrange
+    expect(getCommand(commandEmitHello, [
+      {key: paramsFileName, value: __dirname + '/' + paramsFile},
+      {key: firstPriority, value: commandLine} ]))
+      .to.equals(getCommandEmitHelloWithParamFromCommandLine());
+    //Act
+    exec(getCommandEmitHelloWithParamFromCommandLine(), {
+      cwd: contextWorldDir
+    }, (error, stdout, stderr) => {
+      //Assert
+      expect(stdout).to.contain(`{"${firstPriority}":"${commandLine}"}`);
+      expect(stdout).to.contain(`{"${secondPriority}":"${externalFile}"}`);
+      expectOkExecution(error, stdout, stderr, done);
+    });
+  });
   it('Should recognize external file parameter option', (done) => {
     //Arrange
-
+    expect(getCommand(commandEmitHello, [ {key: paramsFileName, value: __dirname + '/' + paramsFile} ]))
+      .to.equals(commandEmitHelloWithParamsFile());
     //Act
     exec(commandEmitHelloWithParamsFile(), {
       cwd: contextWorldDir
     }, (error, stdout, stderr) => {
       //Assert
-      expect(stdout).to.contain(`{"${firstPriority}":"${externalFile}"}`);
-      expectOkExecution(error, stdout, stderr, done);
-    });
-  });
-
-  it('Should recognize command line parameters option', (done) => {
-    //Arrange
-
-    //Act
-    exec(getCommandEmitHelloWithParamFromCommandLine(), {
-      cwd: contextWorldDir
-    }, (error, stdout, stderr) => {
-      //Assert
-      expect(stdout).to.contain(`{"${firstPriority}":"${externalFile}"}`);
-      expect(stdout).to.contain(`{"${secondPriority}":"${commandLine}"}`);
+      expect(stdout).to.contain(`{"${secondPriority}":"${externalFile}"}`);
       expectOkExecution(error, stdout, stderr, done);
     });
   });
   it('Should recognize the rest of the param configuration in the right order', (done) => {
     //Arrange
-
     //Act
     exec(getCommandEmitHelloWithParamFromCommandLine(), {
       cwd: contextWorldDir
     }, (error, stdout, stderr) => {
       //Assert
-      expect(stdout).to.contain(`{"${firstPriority}":"${externalFile}"}`);
-      expect(stdout).to.contain(`{"${secondPriority}":"${commandLine}"}`);
+      expect(stdout).to.contain(`{"${firstPriority}":"${commandLine}"}`);
+      expect(stdout).to.contain(`{"${secondPriority}":"${externalFile}"}`);
       expect(stdout).to.contain(`"${thirdPriority}":"${wdPiscoJson}"`);
 
       //It only happens if the test is executed from a meta recipe (piscosour)
@@ -100,26 +118,75 @@ describe('Examples using parameters in the steps', () => {
   });
   it('Should recognize boolean configuration with the right priority order', (done) => {
     //Arrange
-
     //Act
-    exec(getCommandEmitHelloWithParamFromCommandLine(), {
+    exec(getParamsCommand(), {
       cwd: contextWorldDir
     }, (error, stdout, stderr) => {
       //Assert
-      expect(stdout).to.contain('"boolean":true');
+      expect(stdout).to.contain('boolean: true');
       expectOkExecution(error, stdout, stderr, done);
     });
   });
   it('Should recognize boolean configuration with the right priority order', (done) => {
     //Arrange
-
     //Act
-    exec(getCommandEmitHelloWithParamFromCommandLine(), {
+    exec(getParamsCommand(), {
       cwd: contextWorldDir
     }, (error, stdout, stderr) => {
       //Assert
-      expect(stdout).to.contain('"boolean2":false');
+      expect(stdout).to.contain('boolean2: false');
       expectOkExecution(error, stdout, stderr, done);
     });
   });
+  it('Should set nested objects from command line', (done) => {
+    exec(getParamsCommand([ {key: COCHE_MODELO, value: FORD} ]), {
+      cwd: contextWorldDir
+    }, (error, stdout, stderr) => {
+      //Assert
+      expect(stdout).to.contain(`coche: { modelo: '${FORD}'`);
+      expectOkExecution(error, stdout, stderr, done);
+    });
+  });
+  it('Should merge objects if include one from command line', (done) => {
+    exec(getParamsCommand([ {key: 'priorityOrder.newPriority', value: 'commandLine'} ]), {
+      cwd: contextWorldDir
+    }, (error, stdout, stderr) => {
+      //Assert
+      expect(stdout).to.contain('newPriority: \'commandLine\'');
+      expectOkExecution(error, stdout, stderr, done);
+    });
+  });
+  it('Should merge objects from command line, paramsFile and pisco config', (done) => {
+    exec(getParamsCommand(
+      [ {key: 'priorityOrder.newPriority', value: 'commandLine'},
+        {key: 'priorityOrder.firstPriority', value: 'commandLine'},
+        {key: paramsFileName, value: __dirname + '/' + paramsFile} ]), {
+      cwd: contextWorldDir
+    }, (error, stdout, stderr) => {
+      //Assert
+      expect(stdout).to.contain('newPriority: \'commandLine\'');
+      expect(stdout).to.contain('firstPriority: \'commandLine\'');
+      expect(stdout).to.contain('thirdPriority: \'.piscosour/piscosourJsonWorkingDir\'');
+      expect(stdout).to.contain('ninethPriority');
+      expectOkExecution(error, stdout, stderr, done);
+    });
+  });
+  it('Should generate a object from command line with several definitions', (done) => {
+    exec(getParamsCommand(
+      [ {key: 'casa.ventanas', value: '4'},
+        {key: 'casa.puertasCount', value: '6'},
+        {key: 'casa.habitaciones.puertasCount', value: '1'},
+        {key: paramsFileName, value: __dirname + '/' + paramsFile} ]), {
+      cwd: contextWorldDir
+    }, (error, stdout, stderr) => {
+      //Assert
+      expect(stdout).to.contain('casa:');
+      expect(stdout).to.contain('ventanas: \'4\'');
+      expect(stdout).to.contain('puertasCount: \'6\'');
+      expect(stdout).to.contain('puertasCount: \'1\'');
+      expectOkExecution(error, stdout, stderr, done);
+    });
+  });
+
+
 });

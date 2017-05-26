@@ -1,0 +1,20 @@
+{
+  "name": "getParams",
+  "description": "Getting the params from all sources",
+  "contexts": [
+    "world"
+  ],
+  "firstPriority": "stepConfig",
+  "secondPriority": "stepConfig",
+  "priorityOrder": {
+    "thirdPriority": "stepConfig",
+    "fourthPriority": "stepConfig",
+    "fifthPriority": "stepConfig",
+    "sixthPriority": "stepConfig",
+    "seventhPriority": "stepConfig",
+    "eightPriority": "stepConfig",
+    "ninethPriority": "stepConfig"
+  },
+  "boolean": false,
+  "boolean2": true
+}
