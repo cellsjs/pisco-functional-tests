@@ -1,3 +1,15 @@
 {
-  "firstPriority": "externalFile"
+  "firstPriority": "externalFile",
+  "secondPriority": "externalFile",
+  "priorityOrder": {
+    "firstPriority": "externalFile",
+    "secondPriority": "externalFile"
+  },
+  "coche": {
+    "modelo": "Ford",
+    "nombre": "Mi Coche",
+    "motor": {
+      "caballos": 110
+    }
+  }
 }
