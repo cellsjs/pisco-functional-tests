@@ -1,7 +1,6 @@
 "use strict";
 
-const path = require('path');
-const process = require('process');
+const fs = require('fs');
 
 const _isWonderfullWorldFile = function() {
 
