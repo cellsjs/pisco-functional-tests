@@ -1,6 +1,6 @@
 {
   "name": "pisco-functional-tests",
-  "version": "1.0.8",
+  "version": "1.0.8-rc.0",
   "description": "Functional tests for pisco",
   "repository": {
     "type": "git",
@@ -19,7 +19,7 @@
     "chai": "*",
     "mocha": "^3.2.0",
     "xunit-file": "^1.0.0",
-    "piscosour": "1.1.2"
+    "piscosour": "^1.1.2"
   },
   "engines": {
     "node": ">=4.0.0"
