@@ -1,6 +1,6 @@
 {
   "name": "pisco-functional-tests",
-  "version": "1.0.12-beta.0",
+  "version": "1.0.12-alpha.0",
   "description": "Functional tests for pisco",
   "repository": {
     "type": "git",
