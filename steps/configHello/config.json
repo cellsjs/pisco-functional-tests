@@ -1,0 +1,10 @@
+{
+  "name": "configHello",
+  "description": "Configuring the world",
+  "contexts": [
+    "world"
+  ],
+  "plugins" : [
+    "config-plugin"
+  ]
+}

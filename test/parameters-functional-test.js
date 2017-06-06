@@ -156,7 +156,7 @@ describe('Examples using parameters in the steps', () => {
       expectOkExecution(error, stdout, stderr, done);
     });
   });
-  it('Should merge objects from command line, paramsFile and pisco config', (done) => {
+  it('Should merge objects from command line, paramsFile and pisco configHello', (done) => {
     exec(getParamsCommand(
       [ {key: 'priorityOrder.newPriority', value: 'commandLine'},
         {key: 'priorityOrder.firstPriority', value: 'commandLine'},
