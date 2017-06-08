@@ -14,12 +14,13 @@
   "author": "Alberto Eyo",
   "license": "Apache Licence",
   "preferGlobal": true,
-  "dependencies": {},
-  "devDependencies": {
+  "dependencies": {
     "chai": "*",
     "mocha": "^3.2.0",
     "rimraf": "^2.6.1",
-    "xunit-file": "^1.0.0",
+    "xunit-file": "^1.0.0"
+  },
+  "devDependencies": {
     "piscosour": "1.2.1"
   },
   "engines": {

@@ -31,7 +31,7 @@ describe('Stages order validation', function() {
     }
   };
   it('Should \'::emittingHello\' works execute the stages in the correct order', (done) => {
-    exec(process.env.piscoExec + ' ::emittingHello', {
+    exec('node ' + process.env.PISCO + ' ::emittingHello', {
       cwd: __dirname + '/world'
     }, (error, stdout, stderr) => {
       expect(error).to.equal(null);
