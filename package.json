@@ -18,9 +18,9 @@
   "devDependencies": {
     "chai": "*",
     "mocha": "^3.2.0",
-    "piscosour": "1.2.1",
     "rimraf": "^2.6.1",
-    "xunit-file": "^1.0.0"
+    "xunit-file": "^1.0.0",
+    "piscosour": "1.2.1"
   },
   "engines": {
     "node": ">=4.0.0"
