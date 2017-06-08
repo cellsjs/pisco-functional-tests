@@ -23,7 +23,7 @@ const exec = require('child_process').exec;
 
 describe('Pisco context world validation', function() {
   it('Should return the context world', (done) => {
-    exec('node ' + process.env.PISCO + ' -c', {
+    exec(process.env.piscoExec + ' -c', {
       cwd: __dirname + '/world'
     }, (error, stdout, stderr) => {
       expect(error).to.equal(null);
@@ -33,7 +33,7 @@ describe('Pisco context world validation', function() {
     });
   });
   it('Should not return the context world', (done) => {
-    exec('node ' + process.env.PISCO + ' -c', {
+    exec(process.env.piscoExec + ' -c', {
       cwd: __dirname + '/notworld'
     }, (error, stdout, stderr) => {
       expect(error).to.equal(null);
@@ -92,7 +92,7 @@ const exec = require('child_process').exec;
 describe('::emittingHello validation', function() {
   this.timeout(5000);
   it('Should \'::emittingHello\' works', (done) => {
-    exec('node ' + process.env.PISCO + ' ::emittingHello', {
+    exec(process.env.piscoExec + ' ::emittingHello', {
       cwd: __dirname + '/world'
     }, (error, stdout, stderr) => {
       expect(error).to.equal(null);
@@ -102,7 +102,7 @@ describe('::emittingHello validation', function() {
     });
   });
   it('Should \'::emittingHello\' say not the root of a world', (done) => {
-    exec('node ' + process.env.PISCO + ' world::emittingHello', {
+    exec(process.env.piscoExec + ' world::emittingHello', {
       cwd: __dirname
     }, (error, stdout, stderr) => {
       expect(error).not.equal(null);
@@ -152,7 +152,7 @@ describe('Stages order validation', function() {
     }
   };
   it('Should \'::emittingHello\' works execute the stages in the correct order', (done) => {
-    exec('node ' + process.env.PISCO + ' ::emittingHello', {
+    exec(process.env.piscoExec + ' ::emittingHello', {
       cwd: __dirname + '/world'
     }, (error, stdout, stderr) => {
       expect(error).to.equal(null);
@@ -294,7 +294,7 @@ const exec = require('child_process').exec;
 describe('::emittingHello validation', function() {
   this.timeout(5000);
   it('Should \'::emittingHello\' works', (done) => {
-    exec('node ' + process.env.PISCO + ' ::emittingHello', {
+    exec(process.env.piscoExec + ' ::emittingHello', {
       cwd: __dirname + '/world'
     }, (error, stdout, stderr) => {
       expect(error).to.equal(null);
@@ -304,7 +304,7 @@ describe('::emittingHello validation', function() {
     });
   });
   it('Should \'::emittingHello\' say not the root of a world', (done) => {
-    exec('node ' + process.env.PISCO + ' world::emittingHello', {
+    exec(process.env.piscoExec + ' world::emittingHello', {
       cwd: __dirname
     }, (error, stdout, stderr) => {
       expect(error).not.equal(null);
@@ -411,7 +411,7 @@ function run(ok, ko) {
 This functionality is documented in the guides for developers of [piscosour][9]. So, in order to test it, we have defined several places where the parameters will be defined. We have some common constants for the test examples:
 ```javascript
 const stepEmitHello = 'world:hello';
-const commandEmitHello = 'node ' + process.env.PISCO + ' ' + stepEmitHello + ' ';
+const commandEmitHello = process.env.piscoExec + ' ' + stepEmitHello + ' ';
 const contextWorldDir = __dirname + '/world';
 const paramsFile = 'params-test.json';
 const firstPriority = 'firstPriority';
@@ -643,7 +643,7 @@ function expectKOExecution(stdout, stderr, done) {
 
 describe('Run the hello flow in different contexts', function() {
   it('Should return HELLO WORLD in the console', function(done) {
-    exec('node ' + process.env.PISCO + ' world:hello', {
+    exec(process.env.piscoExec + ' world:hello', {
       cwd: __dirname + '/world'
     }, (error, stdout, stderr) => {
       expectOkExecution(error, stdout, stderr, done);

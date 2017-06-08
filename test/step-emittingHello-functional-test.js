@@ -5,7 +5,7 @@ const exec = require('child_process').exec;
 
 describe('::emittingHello validation', function() {
   it('Should \'::emittingHello\' works', (done) => {
-    exec('node ' + process.env.PISCO + ' ::emittingHello', {
+    exec(process.env.piscoExec + ' ::emittingHello', {
       cwd: __dirname + '/world'
     }, (error, stdout, stderr) => {
       expect(error).to.equal(null);
@@ -15,7 +15,7 @@ describe('::emittingHello validation', function() {
     });
   });
   it('Should \'::emittingHello\' say not the root of a world', (done) => {
-    exec('node ' + process.env.PISCO + ' world::emittingHello', {
+    exec(process.env.piscoExec + ' world::emittingHello', {
       cwd: __dirname
     }, (error, stdout, stderr) => {
       expect(error).not.equal(null);
