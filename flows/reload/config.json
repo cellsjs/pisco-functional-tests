@@ -1,0 +1,28 @@
+{
+  "name": "reload",
+  "description": "Reload sample flow",
+  "steps": {
+    "checkContexts" : {},
+    "changeContexts": {},
+    "checkContexts2": {
+      "reloadContext" : true
+    },
+    "changeContexts2": {
+      "implementation-check": false
+    }
+  },
+  "params": {
+    "registryUrl": "https://registry.npmjs.org/",
+    "firstPriority": "flowConfig",
+    "secondPriority": "flowConfig",
+    "priorityOrder": {
+      "thirdPriority": "flowConfig",
+      "fourthPriority": "flowConfig",
+      "fifthPriority": "flowConfig",
+      "sixthPriority": "flowConfig",
+      "seventhPriority": "flowConfig",
+      "eightPriority": "flowConfig"
+    },
+    "boolean": false
+  }
+}

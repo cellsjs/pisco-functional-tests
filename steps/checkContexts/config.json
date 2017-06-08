@@ -1,0 +1,7 @@
+{
+  "name": "checkContexts",
+  "description": "Check the current context",
+  "contexts": [
+    "world", "worldLight", "planet", "planetLight"
+  ]
+}
