@@ -1,5 +1,7 @@
 'use strict';
 
+const fs = require('fs');
+
 module.exports = {
   nodeFCall(fn) {
     return new Promise((resolve, reject) => {
@@ -18,5 +20,17 @@ module.exports = {
     var args = [].slice.call(arguments, 2),
       fn = obj[method];
     return this.nodeFCall(fn.bind(obj), ...args);
+  },
+  //TODO: change when testing framework exists
+  exists(filename) {
+    try {
+      return fs.statSync(filename);
+    } catch (e) {
+      if (e.syscall === 'stat') {
+        return false;
+      } else {
+        throw e;
+      }
+    }
   }
 }

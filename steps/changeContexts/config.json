@@ -1,0 +1,7 @@
+{
+  "name": "changeContexts",
+  "description": "Change the context by changing the directory name",
+  "contexts": [
+    "world", "worldLight"
+  ]
+}

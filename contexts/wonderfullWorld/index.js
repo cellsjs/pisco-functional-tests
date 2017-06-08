@@ -1,23 +1,9 @@
 "use strict";
 
-const fs = require('fs');
+const utilsNode = require('../../utils/index');
 
 const _isWonderfullWorldFile = function() {
-
-  //TODO: change when testing framework exists
-  const exists = (filename) => {
-    try {
-      return fs.statSync(filename);
-    } catch (e) {
-      if (e.syscall === 'stat') {
-        return false;
-      } else {
-        throw e;
-      }
-    }
-  };
-
-  return exists('wonderfull.txt');
+  return utilsNode.exists('wonderfull.txt');
 };
 
 module.exports = {

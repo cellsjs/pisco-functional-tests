@@ -1,0 +1,7 @@
+{
+  "name": "changeContexts2",
+  "description": "Change the context by changing the file name",
+  "contexts": [
+    "planet"
+  ]
+}
