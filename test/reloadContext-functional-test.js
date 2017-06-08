@@ -17,7 +17,7 @@ const checkReloadExecution = (stdout) => {
 };
 
 describe('Testing reloadContext functionality', () => {
-  const RELOAD_FLOW_COMMAND = 'node ' + process.env.PISCO + ' :reload';
+  const RELOAD_FLOW_COMMAND = process.env.piscoExec + ' :reload';
   const EXECUTION_DIR = {cwd: __dirname + '/tmp'};
   beforeEach('Should create tmp', (done) => {
     utils.nodeInvoke(fs, 'mkdir', `${__dirname}/tmp`)

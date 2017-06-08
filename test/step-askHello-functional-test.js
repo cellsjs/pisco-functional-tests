@@ -18,7 +18,7 @@ function expectOkExecution(error, stderr, done) {
 describe('Testing the inquirer capability', function() {
   const stepAskHello = '::askHello';
   const inquirerInput = 'inquirerInput';
-  const commandAskHello = `echo ${inquirerInput}  | node ${process.env.PISCO}  ${stepAskHello} `;
+  const commandAskHello = `echo ${inquirerInput}  | ${process.env.piscoExec}  ${stepAskHello} `;
   const contextWorldDir = __dirname + '/world';
   const paramsFile = 'params-test.json';
   const firstPriority = 'firstPriority';

@@ -15,7 +15,7 @@ function expectOkExecution(error, stdout, stderr, done) {
 }
 
 describe('Examples using parameters in the steps', () => {
-  const PISCO = 'node '.concat(process.env.PISCO);
+  const PISCO = process.env.piscoExec;
   const stepEmitHello = 'world:hello';
   const STEP_GET_PARAMS = 'world::getParams';
   const commandEmitHello = PISCO.concat(' ', stepEmitHello, ' ');
