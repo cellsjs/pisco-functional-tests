@@ -1,10 +1,10 @@
 'use strict';
 
 const fs = require('fs');
-const utils = require('../utils/index');
 const child_process = require('child_process');
 const expect = require('chai').expect;
 const rimraf = require('rimraf');
+const pctp = require('pisco-callback-to-promise');
 
 /* global define, it, describe, before, beforeEach, afterEach, after */
 
@@ -20,25 +20,25 @@ describe('Testing reloadContext functionality', () => {
   const RELOAD_FLOW_COMMAND = process.env.piscoExec + ' :reload';
   const EXECUTION_DIR = {cwd: __dirname + '/tmp'};
   beforeEach('Should create tmp', (done) => {
-    utils.nodeInvoke(fs, 'mkdir', `${__dirname}/tmp`)
-      .then(() => utils.nodeInvoke(fs, 'open', `${__dirname}/tmp/world.txt`, 'w'))
+    pctp.c2p(fs.mkdir, `${__dirname}/tmp`)
+      .then(() => pctp.c2p(fs.open, `${__dirname}/tmp/world.txt`, 'w'))
       .then(() => done())
       .catch(done);
   });
   it('Sould have a tmp directory', (done) => {
-    utils.nodeInvoke(child_process, 'exec', `pwd`, {cwd: __dirname + '/tmp'})
+    pctp.c2p(child_process.exec, `pwd`, {cwd: __dirname + '/tmp'})
       .then((stdout) => expect(stdout).contain('tmp'))
       .then(() => done())
       .catch(done);
   });
   it('Should execute the flow reaload and reload the context', (done) => {
-    utils.nodeInvoke(child_process, 'exec', RELOAD_FLOW_COMMAND, EXECUTION_DIR)
+    pctp.c2p(child_process.exec, RELOAD_FLOW_COMMAND, EXECUTION_DIR)
       .then(checkReloadExecution)
       .then(done)
       .catch(done);
   });
   afterEach('Should delete the tmp directory', (done) => {
-    utils.nodeFCall(rimraf, `${__dirname}/tmp`)
+    pctp.c2p(rimraf, `${__dirname}/tmp`)
       .then(done, done);
   });
 })
