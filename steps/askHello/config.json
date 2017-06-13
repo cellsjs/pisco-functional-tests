@@ -8,7 +8,7 @@
     {
       "type": "input",
       "name": "paramInquire",
-      "message": "What is the value of param1",
+      "message": "What is the value of paramInquire",
       "default": "value1"
     }
   ]
