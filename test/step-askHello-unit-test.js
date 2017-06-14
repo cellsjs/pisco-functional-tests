@@ -19,7 +19,7 @@ const message = 'Unit Framework hola!';
 
 describe('Unit testing framework for askHello step', () => {
   it('Should return the step to test', (done) => {
-    const step = tester.loadStep({
+    const step = tester.load({
       name: stepName,
       context: contexts
     });
@@ -29,7 +29,7 @@ describe('Unit testing framework for askHello step', () => {
   });
   it('Should run the step to test', (done) => {
     tester.setLoggerLevel(0);
-    tester.runStep({
+    tester.run({
         name: stepName,
         context: contexts,
         baseDir: path.join(__dirname, 'world'),
@@ -46,13 +46,10 @@ describe('Unit testing framework for askHello step', () => {
   });
   it('Should run the step with plugins to test', (done) => {
     tester.setLoggerLevel(0);
-    tester.runStep({
+    tester.run({
         name: 'emittingHello',
         context: contexts,
-        baseDir: path.join(__dirname, 'world'),
-        params: {
-          paramInquire: message
-        }
+        baseDir: path.join(__dirname, 'world')
       })
       .then(() => {
         done();
