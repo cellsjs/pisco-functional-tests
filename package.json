@@ -19,10 +19,8 @@
     "mocha": "^3.2.0",
     "pisco-callback-to-promise": "^0.1.9",
     "rimraf": "^2.6.1",
-    "xunit-file": "^1.0.0"
-  },
-  "devDependencies": {
-    "piscosour": "^1.0.0"
+    "xunit-file": "^1.0.0",
+    "piscosour": "^1.2.2-beta.0"
   },
   "engines": {
     "node": ">=4.0.0"
