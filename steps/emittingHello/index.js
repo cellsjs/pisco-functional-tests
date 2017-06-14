@@ -19,10 +19,10 @@ const status = statusAccess();
 
 function run(ok, ko) {
   status.increment();
-  console.log(this);
   this.sh('echo HELLA TO YOU ALL', ko, true);
   this.logger.info(`Run stage order: ${status.getStatus()}`);
   this.toEmit = helloWorld;
+  this.saySomething();
 }
 
 function check() {

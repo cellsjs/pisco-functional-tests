@@ -9,12 +9,13 @@ const assert = require('assert');
 
 // configure
 
-tester.setLoggerLevel(2);
+tester.setLoggerLevel(0);
 
 // constants
 
 const stepName = 'askHello';
 const contexts = ['world'];
+const message = 'Unit Framework hola!';
 
 describe('Unit testing framework for askHello step', () => {
   it('Should return the step to test', (done) => {
@@ -27,13 +28,30 @@ describe('Unit testing framework for askHello step', () => {
     done();
   });
   it('Should run the step to test', (done) => {
-    tester.setLoggerLevel(2);
+    tester.setLoggerLevel(0);
     tester.runStep({
         name: stepName,
         context: contexts,
         baseDir: path.join(__dirname, 'world'),
         params: {
-          paramInquire: 'Hola!'
+          paramInquire: message
+        }
+      })
+      .then(() => {
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      })
+  });
+  it('Should run the step with plugins to test', (done) => {
+    tester.setLoggerLevel(0);
+    tester.runStep({
+        name: 'emittingHello',
+        context: contexts,
+        baseDir: path.join(__dirname, 'world'),
+        params: {
+          paramInquire: message
         }
       })
       .then(() => {
