@@ -5,6 +5,7 @@ const child_process = require('child_process');
 const expect = require('chai').expect;
 const rimraf = require('rimraf');
 const pctp = require('pisco-callback-to-promise');
+const utils = require('../utils');
 
 /* global define, it, describe, before, beforeEach, afterEach, after */
 
@@ -23,23 +24,24 @@ describe('Testing reloadContext functionality', () => {
     pctp.c2p(fs.mkdir, `${__dirname}/tmp`)
       .then(() => pctp.c2p(fs.open, `${__dirname}/tmp/world.txt`, 'w'))
       .then(() => done())
-      .catch(done);
+      .catch((err) => utils.logError(err, done));
   });
   it('Sould have a tmp directory', (done) => {
     pctp.c2p(child_process.exec, `pwd`, {cwd: __dirname + '/tmp'})
       .then((stdout) => expect(stdout).contain('tmp'))
       .then(() => done())
-      .catch(done);
+      .catch((err) => utils.logError(err, done));
   });
   it('Should execute the flow reaload and reload the context', (done) => {
     pctp.c2p(child_process.exec, RELOAD_FLOW_COMMAND, EXECUTION_DIR)
       .then(checkReloadExecution)
       .then(done)
-      .catch(done);
+      .catch((err) => utils.logError(err, done));
   });
   afterEach('Should delete the tmp directory', (done) => {
     pctp.c2p(rimraf, `${__dirname}/tmp`)
-      .then(done, done);
+      .then(done)
+      .catch((err) => utils.logError(err, done));
   });
 })
 ;
