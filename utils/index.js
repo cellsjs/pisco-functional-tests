@@ -13,5 +13,10 @@ module.exports = {
         throw e;
       }
     }
+  },
+  logError(err, done){
+    console.log('\n---------------\nstdout:\n---------------\n', err.std[0]);
+    console.log('\n---------------\nstderr:\n---------------\n', err.std[1]);
+    done(err.error)
   }
-}
+};
