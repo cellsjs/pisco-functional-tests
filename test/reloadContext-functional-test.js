@@ -22,25 +22,39 @@ describe('Testing reloadContext functionality', () => {
   beforeEach('Should create tmp', (done) => {
     pctp.c2p(fs.mkdir, `${__dirname}/tmp`)
       .then(() => pctp.c2p(fs.open, `${__dirname}/tmp/world.txt`, 'w'))
-      .then(() => done())
-      .catch((err) => pctp.logError(err, done));
+      .then(() => Promise.resolve())
+      .catch((err) => {
+        pctp.logError(err, done);
+        return Promise.resolve(error.error ? error.error : error);
+      })
+      .then(done);
   });
   it('Sould have a tmp directory', (done) => {
     pctp.c2p(child_process.exec, `pwd`, {cwd: __dirname + '/tmp'})
       .then((stdout) => expect(stdout).contain('tmp'))
-      .then(() => done())
-      .catch((err) => pctp.logError(err, done));
+      .then(() => Promise.resolve())
+      .catch((err) => {
+        pctp.logError(err, done);
+        return Promise.resolve(error.error ? error.error : error);
+      })
+      .then(done);
   });
   it('Should execute the flow reaload and reload the context', (done) => {
     pctp.c2p(child_process.exec, RELOAD_FLOW_COMMAND, EXECUTION_DIR)
       .then(checkReloadExecution)
-      .then(done)
-      .catch((err) => pctp.logError(err, done));
+      .catch((err) => {
+        pctp.logError(err, done);
+        return Promise.resolve(error.error ? error.error : error);
+      })
+      .then(done);
   });
   afterEach('Should delete the tmp directory', (done) => {
     pctp.c2p(rimraf, `${__dirname}/tmp`)
-      .then(done)
-      .catch((err) => pctp.logError(err, done));
+      .catch((err) => {
+        pctp.logError(err, done);
+        return Promise.resolve(error.error ? error.error : error);
+      })
+      .then(done);
   });
 })
 ;
