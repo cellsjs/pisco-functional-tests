@@ -43,6 +43,12 @@
     },
     "sayHelloWonderfull": {
       "implementation-check": false
+    },
+    "sayGoodbye" : {
+      "type" : "flow"
+    },
+    "getGoodbye" : {
+      "type" : "flow"
     }
   },
   "params": {

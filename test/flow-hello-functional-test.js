@@ -36,7 +36,7 @@ describe('Run the hello flow in different contexts', function() {
       cwd: __dirname + '/world'
     }, (error, stdout, stderr) => {
       expect(stdout).contain(helloWorld);
-      expectWithError(stderr, stdout, done);
+      done();
     });
   });
   it(`Should not return ${helloWorld} in the console because is not the right context`, function(done) {
@@ -75,6 +75,22 @@ describe('Run the hello flow emitting for all steps', function() {
       cwd: __dirname + '/world'
     }, (error, stdout, stderr) => {
       expect(stdout).contain('noemit-true');
+      expectOkExecution(error, stdout, stderr, done);
+    });
+  });
+  it(`Should return GoodBye2 from step emittingHello`, function(done) {
+    exec(process.env.piscoExec + ' world:hello', {
+      cwd: __dirname + '/world'
+    }, (error, stdout, stderr) => {
+      expect(stdout).contain('GoodBye2');
+      expectOkExecution(error, stdout, stderr, done);
+    });
+  });
+  it(`Should return GOODBYE! from subflow step sayGoodbye`, function(done) {
+    exec(process.env.piscoExec + ' world:hello', {
+      cwd: __dirname + '/world'
+    }, (error, stdout, stderr) => {
+      expect(stdout).contain('GOODBYE!');
       expectOkExecution(error, stdout, stderr, done);
     });
   });

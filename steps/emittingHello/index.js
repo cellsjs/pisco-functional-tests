@@ -53,7 +53,7 @@ function emit() {
   status.increment();
   this.logger.info(`Emit stage order: ${status.getStatus()}`);
   this.logger.info('#white', 'Emit-Emit Emit the result of the step to other steps. Allow communication between steps');
-  return {message: message, emitted: this.toEmit};
+  return {message: message, emitted: this.toEmit, otherGood: 'GoodBye2'};
 }
 
 

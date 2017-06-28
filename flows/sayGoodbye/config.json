@@ -1,0 +1,7 @@
+{
+  "name": "sayGoodbye",
+  "description": "Say Goodbye World sample flow",
+  "steps": {
+   "sayGoodbye": {}
+  }
+}
