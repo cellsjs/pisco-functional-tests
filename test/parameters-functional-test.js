@@ -187,6 +187,26 @@ describe('Examples using parameters in the steps', () => {
       expectOkExecution(error, stdout, stderr, done);
     });
   });
+  it('Should generate a object from command line with bollean values', (done) => {
+    exec(getParamsCommand(
+      [ {key: 'casa.ventanas', value: '4'},
+        {key: 'casa.puertasCount', value: '6'},
+        {key: 'casa.habitaciones.puertasCount', value: '1'},
+        {key: 'b-casa.habitaciones.habitable', value: false},
+        {key: 'b-casa.habitaciones.buscable', value: true},
+        {key: paramsFileName, value: __dirname + '/' + paramsFile} ]), {
+      cwd: contextWorldDir
+    }, (error, stdout, stderr) => {
+      //Assert
+      expect(stdout).to.contain('casa:');
+      expect(stdout).to.contain('ventanas: \'4\'');
+      expect(stdout).to.contain('puertasCount: \'6\'');
+      expect(stdout).to.contain('puertasCount: \'1\'');
+      expect(stdout).to.contain('habitable: false');
+      expect(stdout).to.contain('buscable: true');
+      expectOkExecution(error, stdout, stderr, done);
+    });
+  });
 
 
 });
