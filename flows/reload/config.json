@@ -2,10 +2,15 @@
   "name": "reload",
   "description": "Reload sample flow",
   "steps": {
-    "checkContexts" : {},
-    "changeContexts": {},
+    "checkContexts" : {
+      "implementation-check": false
+    },
+    "changeContexts": {
+      "implementation-check": false
+    },
     "checkContexts2": {
-      "reloadContext" : true
+      "reloadContext" : true,
+      "implementation-check": false
     },
     "changeContexts2": {
       "implementation-check": false

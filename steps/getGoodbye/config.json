@@ -1,0 +1,7 @@
+{
+  "name": "getGoodbye",
+  "description": "Ear Goodbye",
+  "contexts": [
+    "world"
+  ]
+}
