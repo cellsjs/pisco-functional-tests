@@ -25,7 +25,7 @@ describe('Testing reloadContext functionality', () => {
       .then(() => Promise.resolve())
       .catch((err) => {
         pctp.logError(err, done);
-        return Promise.resolve(error.error ? error.error : error);
+        return Promise.resolve(err.error ? err.error : err);
       })
       .then(done);
   });
@@ -34,8 +34,8 @@ describe('Testing reloadContext functionality', () => {
       .then((stdout) => expect(stdout).contain('tmp'))
       .then(() => Promise.resolve())
       .catch((err) => {
-        pctp.logError(err, done);
-        return Promise.resolve(error.error ? error.error : error);
+        pctp.logError(err);
+        return Promise.resolve(err.error ? err.error : err);
       })
       .then(done);
   });
@@ -44,7 +44,7 @@ describe('Testing reloadContext functionality', () => {
       .then(checkReloadExecution)
       .catch((err) => {
         pctp.logError(err, done);
-        return Promise.resolve(error.error ? error.error : error);
+        return Promise.resolve(err.error ? err.error : err);
       })
       .then(done);
   });
@@ -52,7 +52,7 @@ describe('Testing reloadContext functionality', () => {
     pctp.c2p(rimraf, `${__dirname}/tmp`)
       .catch((err) => {
         pctp.logError(err, done);
-        return Promise.resolve(error.error ? error.error : error);
+        return Promise.resolve(err.error ? err.error : err);
       })
       .then(done);
   });
