@@ -3,6 +3,9 @@
   "description": "Hello World sample flow",
   "steps": {
     "noemit" : {},
+    "notExistingFlow" : {
+      "type" : "flow"
+    },
     "emittingHello": {},
     "sayHello": {
       "inputs": {

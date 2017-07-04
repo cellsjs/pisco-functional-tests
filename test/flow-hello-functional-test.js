@@ -78,7 +78,7 @@ describe('Run the hello flow emitting for all steps', function() {
       expectOkExecution(error, stdout, stderr, done);
     });
   });
-  it(`Should return GoodBye2 from step emittingHello`, function(done) {
+  it(`Should return GoodBye2 in subflow step from step emittingHello`, function(done) {
     exec(process.env.piscoExec + ' world:hello', {
       cwd: __dirname + '/world'
     }, (error, stdout, stderr) => {
@@ -86,7 +86,7 @@ describe('Run the hello flow emitting for all steps', function() {
       expectOkExecution(error, stdout, stderr, done);
     });
   });
-  it(`Should return GOODBYE! from subflow step sayGoodbye`, function(done) {
+  it(`Should return GOODBYE! from subflow step sayGoodbye in subflow step getGoodbye`, function(done) {
     exec(process.env.piscoExec + ' world:hello', {
       cwd: __dirname + '/world'
     }, (error, stdout, stderr) => {
