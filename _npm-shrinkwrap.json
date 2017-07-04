@@ -1,6 +1,6 @@
 {
   "name": "pisco-functional-tests",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "dependencies": {
     "abbrev": {
       "version": "1.1.0",
@@ -923,9 +923,9 @@
       "resolved": "https://globaldevtools.bbva.com/artifactory/api/npm/npm-repo/pisco-site-template-basic/-/pisco-site-template-basic-0.2.4.tgz"
     },
     "piscosour": {
-      "version": "1.3.2",
-      "from": "piscosour@1.3.2",
-      "resolved": "https://globaldevtools.bbva.com/artifactory/api/npm/npm-repo/piscosour/-/piscosour-1.3.2.tgz"
+      "version": "1.3.3",
+      "from": "piscosour@1.3.3",
+      "resolved": "https://globaldevtools.bbva.com/artifactory/api/npm/npm-repo/piscosour/-/piscosour-1.3.3.tgz"
     },
     "prepend-http": {
       "version": "1.0.4",
