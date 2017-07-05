@@ -1,8 +1,10 @@
 'use strict';
 
 /* global define, it, describe, before */
+const path = require('path');
 const expect = require('chai').expect;
 const exec = require('child_process').exec;
+const u = require('../utils');
 
 /* constants */
 const helloWorld = 'HELLO WORLD';
@@ -23,30 +25,31 @@ function expectKOExecution(error, done) {
 }
 
 describe('Run the hello flow in different contexts', function() {
-  it(`Should return ${helloWorld} in the console`, function(done) {
-    exec(process.env.piscoExec + ' world:hello', {
-      cwd: __dirname + '/world'
-    }, (error, stdout, stderr) => {
-      expect(stdout).contain(helloWorld);
-      expectOkExecution(error, stdout, stderr, done);
-    });
+  it(`Should return ${helloWorld} in the console`, (done) => {
+    u.c2p(exec, `${process.env.piscoExec} world:hello`, {cwd: path.join(__dirname, 'world')})
+      .then((stdout) => {
+        expect(stdout).contain(helloWorld);
+        done();
+      }).catch((error) => u.logError(error, done));
   });
   it(`Should return ${helloWorld} in the console not especifying the context, only the flow`, function(done) {
-    exec(process.env.piscoExec + ' hello', {
-      cwd: __dirname + '/world'
-    }, (error, stdout, stderr) => {
-      expect(stdout).contain(helloWorld);
-      done();
-    });
+    u.c2p(exec, `${process.env.piscoExec} hello`, {cwd: path.join(__dirname, 'world')})
+      .then((stdout) => {
+        expect(stdout).contain(helloWorld);
+        done();
+      }).catch((error) => {
+        expectKOExecution(error, done);
+      });
   });
   it(`Should not return ${helloWorld} in the console because is not the right context`, function(done) {
-    exec(process.env.piscoExec + ' world:hello', {
-      cwd: __dirname + '/notworld'
-    }, (error, stdout, stderr) => {
-      expect(stdout).not.contain(helloWorld);
-      expect(stderr).contain('This is not the root of a world');
-      expectKOExecution(error, done);
-    });
+    u.c2p(exec, `${process.env.piscoExec} world:hello`, {cwd: path.join(__dirname, 'notworld')})
+      .then((stdout) => {
+        expect(stdout).not.contain(helloWorld);
+        expect(stderr).contain('This is not the root of a world');
+        done();
+      }).catch((error) => {
+        expectKOExecution(error, done);
+      });
   });
 });
 
