@@ -20,5 +20,6 @@
     "ninethPriority": "stepConfig"
   },
   "boolean": false,
-  "boolean2": true
+  "boolean2": true,
+  "arrayPisco" : [ "stepConfig" ]
 }

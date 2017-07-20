@@ -1,8 +1,10 @@
 'use strict';
 
 /* global define, it, describe, before, afterEach */
+const path = require('path');
 const expect = require('chai').expect;
 const exec = require('child_process').exec;
+const u = require('../utils');
 
 function expectWithError(stderr, stdout, done) {
   expect(stderr).to.equal('');
@@ -57,15 +59,15 @@ describe('Examples using parameters in the steps', () => {
     return mapValues.reduce((prevVal, element) => {
       return prevVal.concat('--', element.key, ' ', element.value, ' ');
     }, ' ');
-  }
+  };
 
   const getCommand = (command, mapValues) => {
     return mapValues ? command.concat(concatValuesForCommandLine(mapValues)).trim() : command;
-  }
+  };
 
   const getParamsCommand = (mapValues) => {
     return getCommand(COMMAND_GET_PARAMS, mapValues);
-  }
+  };
   it('Should recognize command line parameters option', (done) => {
     //Arrange
     expect(getCommand(commandEmitHello, [
@@ -207,6 +209,13 @@ describe('Examples using parameters in the steps', () => {
       expectOkExecution(error, stdout, stderr, done);
     });
   });
-
+  it('Should add array parameters', (done) => {
+    u.c2p(exec, `${PISCO} world::sayHello`, {cwd: path.join(__dirname, 'world')})
+      .then((stdout) => {
+        expect(stdout).contain('arrayPisco-size-2');
+        expect(stdout).contain(`arrayPisco-${wdPiscoJson}-stepConfig`);
+        done();
+      }).catch((error) => u.logError(error, done));
+  });
 
 });

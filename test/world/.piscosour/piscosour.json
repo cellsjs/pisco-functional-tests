@@ -7,6 +7,7 @@
     },
     "ninethPriority": ".piscosour/piscosourJsonWorkingDir",
     "boolean": true,
-    "boolean2": false
+    "boolean2": false,
+    "arrayPisco" : [ ".piscosour/piscosourJsonWorkingDir" ]
   }
 }

@@ -13,6 +13,8 @@ module.exports = {
     this.logger.info(`{"secondPriority":"${this.secondPriority}"}`);
     this.logger.info(`{"boolean":${this.params.boolean}}`);
     this.logger.info(`{"boolean2":${this.params.boolean2}}`);
+    this.logger.info(`arrayPisco-size-${this.params.arrayPisco.length}`);
+    this.logger.info(`arrayPisco-${this.params.arrayPisco.join('-')}`);
     this.logger.info(`Priority Order: ${JSON.stringify(this.params.priorityOrder)}`);
     this.logger.info(`plugin-emitter-${this.params.pluginEmit}`);
   },
